@@ -1,0 +1,193 @@
+" https://github.com/yosemitebandit/dotdotdot
+"
+
+:imap jk <Esc>
+:imap jj <Esc>
+set nocompatible              " Don't be compatible with vi
+let mapleader=","             " change the leader to be a comma vs slash
+
+" Seriously, guys. It's not like :W is bound to anything anyway.
+command! W :w
+
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+" Open NerdTree
+map <leader>n :NERDTreeToggle<CR>
+
+" switching back to the nerdtree window                                        
+nnoremap <Leader>w <C-w>w                                                      
+
+" hide certain files in nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
+" Load pathogen with docs for all plugins
+execute pathogen#infect()
+"filetype off
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+
+syntax on                     " syntax highlighing
+filetype on                   " try to detect filetypes
+filetype plugin indent on     " enable loading indent file for filetype
+set numberwidth=1             " using only 1 column (and 1 space) while possible
+set background=dark           " We are using dark background in vim
+set title                     " show title in console title bar
+set wildmenu                  " Menu completion in command mode on <Tab>
+set wildmode=full             " <Tab> cycles between all matching choices.
+
+" don't bell or blink
+set noerrorbells
+set vb t_vb=
+set novisualbell
+set t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Ignore these files when completing
+set wildignore+=*.o,*.obj,.git,*.pyc
+set wildignore+=eggs/**
+set wildignore+=*.egg-info/**
+
+set grepprg=ack         " replace the default grep program with ack
+
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+
+""" Moving Around/Editing
+set ruler                   " show the cursor position all the time
+set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
+set showmatch               " Briefly jump to a paren once it's balanced
+set nowrap                  " don't wrap text
+set linebreak               " don't wrap textin the middle of a word
+set autoindent              " always set autoindenting on
+set smartindent             " use smart indent if there is no indent file
+set tabstop=4               " <tab> inserts 4 spaces
+set shiftwidth=4            " but an indent level is 2 spaces wide.
+set softtabstop=4           " <BS> over an autoindent deletes both spaces.
+set expandtab               " Use spaces, not tabs, for autoindent/tab key.
+set shiftround              " rounds indent to a multiple of shiftwidth
+set matchpairs+=<:>         " show matching <> (html mainly) as well
+set foldmethod=marker       " allow us to fold on marks
+set foldlevel=99            " don't fold by default
+set iskeyword-=_            " don't skip over underscores on navigation
+
+"""" Reading/Writing
+set noautowrite             " Never write a file unless I request it.
+set noautowriteall          " NEVER.
+set noautoread              " Don't automatically re-read changed files.
+set modeline                " Allow vim options to be embedded in files;
+set modelines=5             " they must be within the first or last 5 lines.
+set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
+
+"""" Messages, Info, Status
+set ls=2                    " allways show status line
+set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
+set confirm                 " Y-N-C prompt if closing with unsaved changes.
+set showcmd                 " Show incomplete normal mode commands as I type.
+set report=0                " : commands always print changed line count.
+set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
+set ruler                   " Show some info, even without statuslines.
+set laststatus=2            " Always show statusline, even if only 1 window.
+set laststatus=1            " Always show statusline, even if only 1 window.
+set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+
+""" Searching and Patterns
+set ignorecase              " Default to using case insensitive searches,
+set smartcase               " unless uppercase letters are used in the regex.
+set smarttab                " Handle tabs more intelligently
+set hlsearch                " Highlight searches by default.
+set incsearch               " Incrementally search while typing a /regex
+
+"""" Display
+if has("gui_running")
+    syntax enable
+    set background=dark
+    colorscheme solarized
+    "colorscheme desert
+    " Remove menu bar
+    set guioptions-=m
+
+    " Remove toolbar
+    set guioptions-=T
+else
+    colorscheme vividchalk
+endif
+
+" Paste from clipboard
+map <leader>p "+p
+
+" Quit window on <leader>q
+nnoremap <leader>q :q<CR>
+
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+
+" Remove trailing whitespace on <leader>S
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Backup dirs for swap files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" Jinja/HTML
+autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
+autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" js
+au BufRead *.js set makeprg=jslint\ %
+
+" Python
+au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+set colorcolumn=79
+highlight ColorColumn ctermbg=DarkBlue
+
+" tryna fix the nonindentation of python comments
+" http://stackoverflow.com/questions/2360249/vim-automatically-removes-indentation-on-python-comments/2360284#2360284
+inoremap # X#
+
+" improving pasting from the clipboard via xsel
+" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
+map <leader>pp :r!xsel -p<CR>
+
+" use Adobe's Source Code Pro
+if has('gui_running')
+    set guifont=Source\ Code\ Pro\ 10
+endif
+
+" arduino syntax and shortcuts
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
+" inside surroundings
+map <leader>ci :ChangeInsideSurrounding<CR>
+map <leader>cas :ChangeAroundSurrounding<CR>
+
+" folding
+nnoremap <space> za
+vnoremap <space> zf
+
+" command-t
+map F :CommandT<CR>
+let g:CommandTMaxHeight=12
+nnoremap <F5> :CommandTFlush<CR>
+
+" shortcut
+nnoremap ;w :w<CR>
+nnoremap ;q :q
+nnoremap ;wq :wq
+
+" go syntax
+au BufRead,BufNewFile *.go set filetype=go
+
+" copy and paste from the clipboard via http://superuser.com/a/189198/27119
+vmap <C-c> "+y1
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
