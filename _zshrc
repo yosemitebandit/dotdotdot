@@ -11,6 +11,11 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
 
+# history search matching entire line
+# http://superuser.com/questions/417627/oh-my-zsh-history-completion
+bindkey '^[OA' history-beginning-search-backward
+bindkey '^[OB' history-beginning-search-forward
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
