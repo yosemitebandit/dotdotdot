@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/home/matt/conf/capek/oh-my-zsh
+ZSH=/home/matthewball/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="yosemitebandit"
 
-plugins=(git pip history history-substring-search)
+plugins=(git pip history history-substring-search ssh-agent)
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
