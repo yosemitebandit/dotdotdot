@@ -158,12 +158,13 @@ map <leader>pp :r!xsel -p<CR>
 
 " use Adobe's Source Code Pro
 if has('gui_running')
-    set guifont=Source\ Code\ Pro\ 10
+    set guifont=Source\ Code\ Pro\ 15
 endif
 
 " arduino syntax and shortcuts
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
 " inside surroundings
 map <leader>ci :ChangeInsideSurrounding<CR>
@@ -174,9 +175,12 @@ nnoremap <space> za
 vnoremap <space> zf
 
 " command-t
-map F :CommandT<CR>
-let g:CommandTMaxHeight=12
-nnoremap <F5> :CommandTFlush<CR>
+"map F :CommandT<CR>
+"let g:CommandTMaxHeight=12
+"nnoremap <F5> :CommandTFlush<CR>
+
+" ctrlp
+map F :CtrlP<CR>
 
 " shortcut
 nnoremap ;w :w<CR>
