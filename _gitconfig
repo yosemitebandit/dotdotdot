@@ -1,6 +1,6 @@
 [user]
     name = Matt Ball
-    email = matthewball@google.com
+	email = matthewball@google.com
 
 [color]
     diff = auto
@@ -30,3 +30,9 @@
     #history = log --pretty=format:'%h from %an, %ar, \"%s\"' --graph
     history = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	file-view-vpane-position = 490
+	main-window-view = FileView
+	history-view-vpane-position = 295

@@ -22,3 +22,9 @@
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/openscad"]
+	path = vim/bundle/openscad
+	url = git://github.com/vim-scripts/openscad.vim.git
