@@ -19,7 +19,6 @@ export PATH=/usr/local/share/arduino/hardware/tools/avr/bin:/usr/local/share/ard
 # add gcc-arm-none-eabi                                                        
 export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin            
 
-
 # go support
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
