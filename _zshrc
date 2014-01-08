@@ -9,7 +9,7 @@ DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # virtualenv wrapper setup
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/conf/envs
 
 # Customize to your needs...
@@ -22,6 +22,10 @@ export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
 # go support
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
+
+# go practice in the dir 'solid'
+export GOPATH=$HOME/solid
+export PATH=$PATH:$GOPATH/bin
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
