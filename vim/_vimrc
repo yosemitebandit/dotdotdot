@@ -158,7 +158,7 @@ map <leader>pp :r!xsel -p<CR>
 
 " use Adobe's Source Code Pro
 if has('gui_running')
-    set guifont=Source\ Code\ Pro\ 10
+    set guifont=Source\ Code\ Pro\ 14
 endif
 
 " arduino syntax and shortcuts
@@ -173,10 +173,8 @@ map <leader>cas :ChangeAroundSurrounding<CR>
 nnoremap <space> za
 vnoremap <space> zf
 
-" command-t
-map F :CommandT<CR>
-let g:CommandTMaxHeight=12
-nnoremap <F5> :CommandTFlush<CR>
+" ctrlp
+map F :CtrlP<CR>
 
 " shortcut
 nnoremap ;w :w<CR>
