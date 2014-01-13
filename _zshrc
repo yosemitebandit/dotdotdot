@@ -1,15 +1,21 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/home/matt/conf/capek/oh-my-zsh
+ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="yosemitebandit"
 
-plugins=(git pip history history-substring-search)
+plugins=(git pip history history-substring-search ssh-agent)
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
+# navigate the command line as if it were vim
+set -o vi
+
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
+
+# add gcc-arm-none-eabi
+export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
@@ -35,6 +41,7 @@ bindkey '^[OB' history-beginning-search-forward
         alias gb='git branch'
         alias gd='git diff --ignore-submodules=dirty'
         alias gcm='git commit -m'
+        alias gco='git checkout'
     #}
 
     #{ cranklog - remembering rides and such
@@ -43,6 +50,10 @@ bindkey '^[OB' history-beginning-search-forward
 
     #{ redream
         export REDREAM_SETTINGS=/home/matt/conf/redream/settings.py
+    #}
+
+    #{ hreview
+       alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
     #}
 
 #}
