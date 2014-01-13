@@ -11,8 +11,24 @@ source $ZSH/oh-my-zsh.sh
 # navigate the command line as if it were vim
 set -o vi
 
+# virtualenv wrapper setup
+#source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/conf/envs
+
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
+export PATH=/usr/local/share/arduino/hardware/tools/avr/bin:/usr/local/share/arduino/hardware/tools:$PATH:/usr/local/share/openscad/bin
+
+# add gcc-arm-none-eabi                                                        
+export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin            
+
+# go support
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# go practice in the dir 'solid'
+export GOPATH=$HOME/solid
+export PATH=$PATH:$GOPATH/bin
 
 # add gcc-arm-none-eabi
 export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
@@ -32,7 +48,7 @@ bindkey '^[OB' history-beginning-search-forward
     alias c='clear'
     alias cl='clear'
 
-    alias te='tree'
+    alias t='tree -C'
 
     #{ git
         alias gs='git status --ignore-submodules=dirty'
@@ -43,13 +59,15 @@ bindkey '^[OB' history-beginning-search-forward
         alias gcm='git commit -m'
         alias gco='git checkout'
     #}
-
-    #{ cranklog - remembering rides and such
-        export CRANKLOG_SETTINGS=/home/matt/conf/cranklog/settings.py
-    #}
-
-    #{ redream
-        export REDREAM_SETTINGS=/home/matt/conf/redream/settings.py
+    
+    #{ ino
+        alias ic='ino clean'
+        alias ib='ino build'
+        alias iu='ino upload'
+        alias is='ino serial'
+        alias icbu='ino clean && ino build && ino upload'
+        alias icbus='ino clean && ino build && ino upload && ino serial'
+        alias ius='ino upload && ino serial'
     #}
 
     #{ hreview
@@ -57,5 +75,3 @@ bindkey '^[OB' history-beginning-search-forward
     #}
 
 #}
-
-[[ -s "/home/matt/.rvm/scripts/rvm" ]] && source "/home/matt/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
