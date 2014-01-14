@@ -8,9 +8,6 @@ plugins=(git pip history history-substring-search ssh-agent)
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
-# navigate the command line as if it were vim
-set -o vi
-
 # virtualenv wrapper setup
 #source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/conf/envs
