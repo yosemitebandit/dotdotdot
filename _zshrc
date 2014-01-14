@@ -44,6 +44,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias t='tree -C'
 
+    alias e='exit'
+
     #{ git
         alias gs='git status --ignore-submodules=dirty'
         alias gh='git history'
