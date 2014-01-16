@@ -32,6 +32,10 @@ export PATH=$PATH:$GOPATH/bin
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
 
+# hreview alias
+alias hreview='/home/matthewball/Quad/tools/code_review/hreview.py'
+
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
