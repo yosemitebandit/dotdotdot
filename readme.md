@@ -66,3 +66,4 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 ### other nice apps from the ubuntu sw center
 * guake
 * synapse
+* source code pro - get the TTF from font squirrel
