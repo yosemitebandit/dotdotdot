@@ -11,6 +11,7 @@ plugins=(
     common-aliases
     redis-cli
     screen
+    ssh-agent
 )
 
 DISABLE_AUTO_UPDATE="true"

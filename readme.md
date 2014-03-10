@@ -5,8 +5,9 @@ last tested on ubuntu 12.04
 
   $ sudo apt-get install git-core git-gui gitk
   $ ln -s /full/path/to/dotdotdot/gitconfig /home/path/.gitconfig
+  $ ssh-keygen -t rsa -C "hola@email.com"
 
-and edit the email addr as appropriate
+add the public key to github, and edit the `.gitconfig` email addr as appropriate
 
 
 ### zsh
