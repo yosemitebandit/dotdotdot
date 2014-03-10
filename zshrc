@@ -3,7 +3,15 @@ ZSH=/home/matt/conf/oh-my-zsh
 
 ZSH_THEME="yosemitebandit"
 
-plugins=(git pip history history-substring-search)
+plugins=(
+    git gitfast gitextras
+    pip python
+    history history-substring-search
+    command-not-found
+    common-aliases
+    redis-cli
+    screen
+)
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
@@ -45,6 +53,8 @@ bindkey '^[OB' history-beginning-search-forward
     alias t='tree -C'
 
     alias e='exit'
+
+    alias sai='sudo apt-get install'
 
     #{ git
         alias gs='git status --ignore-submodules=dirty'
