@@ -7,7 +7,6 @@ plugins=(
     git gitfast gitextras
     pip python
     history history-substring-search
-    command-not-found
     common-aliases
     redis-cli
     screen
