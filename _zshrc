@@ -30,6 +30,12 @@ export PATH=$PATH:$GOPATH/bin
 # add gcc-arm-none-eabi
 export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
 
+# setup editor for piper
+export EDITOR='gvim -f'
+
+# g4d alias
+source /etc/bash_completion.d/g4d
+
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
 bindkey '^[OA' history-beginning-search-backward
