@@ -77,4 +77,9 @@ bindkey '^[OB' history-beginning-search-forward
        alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
     #}
 
+    #{ python
+       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
+       alias nd='nosetests -d'
+    #}
+
 #}
