@@ -15,10 +15,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" setup tagbar
+nmap <leader>t :TagbarToggle<CR>
+
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
-" switching back to the nerdtree window                                        
+" switching back to the nerdtree window
 nnoremap <Leader>w <C-w>w                                                      
 
 " hide certain files in nerdtree
