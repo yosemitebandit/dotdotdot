@@ -26,3 +26,6 @@ terminal setup
 
 handy programs
 * kazam screencaster
+
+setup ctags
+* sudo apt-get install exuberant-ctags
