@@ -17,7 +17,7 @@ this'll workout the differences when the zsh config is loaded..
 ### git
 
     $ sudo apt-get install git-core git-gui gitk
-    $ ln -s /full/path/to/dotdotdot/gitconfig /home/path/.gitconfig
+    $ ln -s /full/path/to/dotdotdot/git/_gitconfig /home/path/.gitconfig
     $ ssh-keygen -t rsa -C "hola@email.com"
 
 add the public key to github, and edit the `.gitconfig` email addr as appropriate
@@ -30,6 +30,8 @@ add the public key to github, and edit the `.gitconfig` email addr as appropriat
     $ ln -s /full/path/to/dotdotdot/yosemitebandit.zsh-theme /path/to/oh-my-zsh/themes/yosemitebandit.zsh-theme
     $ sudo apt-get install zsh
     $ chsh -s /bin/zsh
+    $ cd dotdotdot/git
+    $ python build_gitconfig.py
 
 and, in `.zshrc`, edit the path to oh-my-zsh as appropriate
 

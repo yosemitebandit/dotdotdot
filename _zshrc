@@ -3,12 +3,15 @@
 if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
   source /etc/bash_completion.d/g4d  # g4d alias
+  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
+  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
+  export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
 else
-  echo "remember to set $MACHINE; it's currently: " $MACHINE
+  echo "remember to set MACHINE in .zshenv; it's currently: " $MACHINE
   ZSH=/home/matt/conf/oh-my-zsh
 fi
 

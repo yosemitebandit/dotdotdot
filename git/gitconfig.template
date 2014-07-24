@@ -1,0 +1,38 @@
+[user]
+  name = Matt Ball
+  email = {{EMAIL}}
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+
+[push]
+  default = matching
+
+[core]
+  editor = vim
+  pager = less -R
+
+[alias]
+  diverges = !bash -c 'diff -u <(git rev-list --first-parent "${1}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  #history = log --pretty=format:'%h from %an, %ar, \"%s\"' --graph
+  history = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[giggle]
+  main-window-maximized = true
+  main-window-geometry = 0x0+0+0
+  file-view-vpane-position = 490
+  main-window-view = FileView
+  history-view-vpane-position = 295
