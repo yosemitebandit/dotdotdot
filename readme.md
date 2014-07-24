@@ -37,7 +37,7 @@ and, in `.zshrc`, edit the path to oh-my-zsh as appropriate
 ### vi
 gvim, a vimrc and various plugins
 
-    $ sudo apt-get install vim-gtk
+    $ sudo apt-get install vim-gtk exuberant-ctags
     $ ln -s /full/path/to/dotdotdot/vim /home/path/.vim
     $ ln -s /full/path/to/dotdotdot/vim/vimrc /home/path/.vimrc
     $ cd /full/path/to/dotdotdot
@@ -92,4 +92,3 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * synapse
 * source code pro - get the TTF from font squirrel
 * kazam screencaster
-* exuberant-ctags in aptitude
