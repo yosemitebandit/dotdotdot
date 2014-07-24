@@ -42,6 +42,9 @@ set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 
+" had some trouble with ^M line endings showing up..
+set fileformat=unix
+
 " don't bell or blink
 set noerrorbells
 set vb t_vb=
@@ -117,6 +120,13 @@ if has("gui_running")
 
     " Remove toolbar
     set guioptions-=T
+    " remove all other sidebars.. chaining doesn't work for some reason
+    set guioptions-=L
+    set guioptions-=l
+    set guioptions-=R
+    set guioptions-=r
+    set guioptions-=b
+
 else
     colorscheme vividchalk
 endif

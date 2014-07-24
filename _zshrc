@@ -63,6 +63,7 @@ bindkey '^[OB' history-beginning-search-forward
         alias gd='git diff --ignore-submodules=dirty'
         alias gcm='git commit -m'
         alias gco='git checkout'
+        alias gf='git fetch'
     #}
     
     #{ ino
