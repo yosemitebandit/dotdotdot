@@ -1,5 +1,16 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
+
+if [[ "$MACHINE" == "work_desktop" ]]; then
+  ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
+  source /etc/bash_completion.d/g4d  # g4d alias
+elif [[ "$MACHINE" == "work_laptop" ]]; then
+  ZSH=/home/matthewball/conf/oh-my-zsh
+elif [[ "$MACHINE" == "home" ]]; then
+  ZSH=/home/matt/conf/oh-my-zsh
+else
+  echo "remember to set $MACHINE; it's currently: " $MACHINE
+  ZSH=/home/matt/conf/oh-my-zsh
+fi
 
 ZSH_THEME="yosemitebandit"
 
@@ -40,9 +51,6 @@ export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
 
 # setup editor for piper
 export EDITOR='vi'
-
-# g4d alias
-source /etc/bash_completion.d/g4d
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
