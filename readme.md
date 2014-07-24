@@ -14,3 +14,15 @@ and some colorschemes too:
 * vim-colors-solarized
 * vim-markdown
 * vim-vividchalk
+
+desktop setup
+* in compiz, general options > desktop size
+* in keyboard > shortcuts
+
+terminal setup
+* modify keyboard shortcuts
+* change font
+* unlimited scrollback
+
+handy programs
+* kazam screencaster
