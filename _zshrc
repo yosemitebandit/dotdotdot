@@ -31,7 +31,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
 
 # setup editor for piper
-export EDITOR='gvim -f'
+export EDITOR='vi'
 
 # g4d alias
 source /etc/bash_completion.d/g4d
@@ -52,6 +52,8 @@ bindkey '^[OB' history-beginning-search-forward
     alias cl='clear'
 
     alias t='tree -C'
+
+    alias e='exit'
 
     #{ git
         alias gs='git status --ignore-submodules=dirty'
@@ -81,5 +83,4 @@ bindkey '^[OB' history-beginning-search-forward
        alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
        alias nd='nosetests -d'
     #}
-
 #}
