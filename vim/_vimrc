@@ -166,6 +166,9 @@ au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
+" LCM syntax and shortcuts
+au BufRead,BufNewFile *.lcm set filetype=cpp
+
 " inside surroundings
 map <leader>ci :ChangeInsideSurrounding<CR>
 map <leader>cas :ChangeAroundSurrounding<CR>
