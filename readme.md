@@ -54,7 +54,11 @@ this'll load several plugins and colorschemes
 
 
 ### python
-if you can install numpy, scipy and matplotlib, you're on the right track..
+install pylint and then symlink the pylintrc file here to ~
+
+    $ sudo pip install pylint
+
+and then if you can install numpy, scipy and matplotlib, you're on the right track..
 
     $ sudo apt-get install python-pip python-dev python-virtualenv build-essential
     $ sudo apt-get install gfortran libopenblas-dev liblapack-dev libfreetype6-dev libpng-dev

@@ -18,8 +18,33 @@ endif
 " setup tagbar
 nmap <leader>t :TagbarToggle<CR>
 
-" Open NerdTree
+" open NerdTree
 map <leader>n :NERDTreeToggle<CR>
+
+" Syntastic
+" turn on syntastic by default and run a check when the file is opened
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+let g:syntastic_python_checkers = ['pylint']
+" better :sign interface symbols
+" on second thought..let's not use signs
+let g:syntastic_enable_signs=0
+let g:syntastic_error_symbol = "█"
+let g:syntastic_style_error_symbol = ">"
+let g:syntastic_warning_symbol = "█"
+let g:syntastic_style_warning_symbol = ">"
+" toggle :Errors pane with ,er
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel
+    Errors
+  endif
+endfunction
+nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
 
 " switching back to the nerdtree window
 nnoremap <Leader>w <C-w>w                                                      
