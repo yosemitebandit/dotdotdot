@@ -73,6 +73,7 @@ bindkey '^[OB' history-beginning-search-forward
     alias t='tree -C'
 
     alias e='exit'
+    alias ex='exit'
 
     alias sai='sudo apt-get install'
 
