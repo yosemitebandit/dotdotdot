@@ -2,7 +2,7 @@
 
 if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
-  source /etc/bash_completion.d/g4d  # g4d alias
+  # g4d alias has to be run at the end of this file..
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
@@ -107,3 +107,9 @@ bindkey '^[OB' history-beginning-search-forward
        alias nd='nosetests -d'
     #}
 #}
+
+
+# this use of autocompletion has to happen at the end of the file for some reason :/
+if [[ "$MACHINE" == "work_desktop" ]]; then
+  source /etc/bash_completion.d/g4d  # g4d alias
+fi

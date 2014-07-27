@@ -8,7 +8,7 @@ there are some slight differences between zsh setups on different machines.
 namely git email setup, zsh path and the use of g4d.
 so first create a ~/.zshenv file with one line:
 
-  export MACHINE="home"
+    export MACHINE="home"
 
 or another option from the zshrc.
 this'll workout the differences when the zsh config is loaded..
@@ -84,8 +84,12 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 
 
 ### workspaces
- * in compiz, edit general options > desktop size
- * in keyboard edit shortcuts
+* in compiz, edit general options > desktop size
+  * horizontal 3, vertical 1
+* in keyboard edit shortcuts
+  * move to workspace left: ctrl+alt+h
+  * move to workspace right: ctrl+alt+l
+* appearance > behavior > auto-hide launcher
 
 
 ### terminal
