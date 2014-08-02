@@ -102,3 +102,5 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * synapse
 * source code pro - get the TTF from font squirrel
 * kazam screencaster
+* vlc
+* freecad
