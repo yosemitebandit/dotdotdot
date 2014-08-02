@@ -2,11 +2,19 @@
 
 if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
-  # g4d alias has to be run at the end of this file..
+  # g4d alias has to be run at the end of this file.. :/
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
+  alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
+  # ccache
+  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
+  fi
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
+  alias hreview='/home/matthewball/Quad/tools/code_review/hreview.py'
+  # ccache
+  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
+  fi
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
@@ -96,10 +104,6 @@ bindkey '^[OB' history-beginning-search-forward
         alias icbu='ino clean && ino build && ino upload'
         alias icbus='ino clean && ino build && ino upload && ino serial'
         alias ius='ino upload && ino serial'
-    #}
-
-    #{ hreview
-       alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
     #}
 
     #{ python

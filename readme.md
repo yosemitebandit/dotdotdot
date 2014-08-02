@@ -70,6 +70,8 @@ and then if you can install numpy, scipy and matplotlib, you're on the right tra
     (sci) $ pip install distribute --upgrade
     (sci) $ pip install matplotlib
 
+also symlink the YCM extra conf file to ~
+
 
 ### arduino
 need jdk for the ui; and I think this is better than the version that's in apt
