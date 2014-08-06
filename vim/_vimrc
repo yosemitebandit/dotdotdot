@@ -207,10 +207,6 @@ autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 " LCM syntax and shortcuts
 au BufRead,BufNewFile *.lcm set filetype=cpp
 
-" inside surroundings
-map <leader>ci :ChangeInsideSurrounding<CR>
-map <leader>cas :ChangeAroundSurrounding<CR>
-
 " folding
 nnoremap <space> za
 vnoremap <space> zf
@@ -237,6 +233,9 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>f :GoFmt<CR>
 " disable auto-fmt on save..it's a bit aggressive when there are errors
 let g:go_fmt_autosave = 0
+" close the quick info window
+nnoremap <leader>c :pc<CR>
+
 
 " copy and paste from the clipboard via http://superuser.com/a/189198/27119
 vmap <C-c> "+y1
