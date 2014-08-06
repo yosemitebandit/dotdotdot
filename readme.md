@@ -106,3 +106,4 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * kazam screencaster
 * vlc
 * freecad
+* ack-grep
