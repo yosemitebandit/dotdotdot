@@ -233,8 +233,10 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>f :GoFmt<CR>
 " disable auto-fmt on save..it's a bit aggressive when there are errors
 let g:go_fmt_autosave = 0
-" close the quick info window
-nnoremap <leader>c :pc<CR>
+
+" close the top and bottom windows
+" top is like the auto-complete window?  and the bottom is quickfix
+nnoremap <leader>c :pc<CR> :ccl<CR>
 
 
 " copy and paste from the clipboard via http://superuser.com/a/189198/27119
