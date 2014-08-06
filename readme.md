@@ -5,7 +5,7 @@ last tested on ubuntu 12.04
 
 ### machine differences
 there are some slight differences between zsh setups on different machines.
-namely git email setup, zsh path and the use of g4d.
+namely the git email, zsh path and the use of g4d.
 so first create a ~/.zshenv file with one line:
 
     export MACHINE="home"
@@ -17,44 +17,41 @@ this'll workout the differences when the zsh config is loaded..
 ### git
 
     $ sudo apt-get install git-core git-gui gitk
+    $ ssh-keygen -t rsa -C "matt@yup.com"
+    $ cd dotdotdot/git
+    $ python build_gitconfig.py
     $ ln -s /full/path/to/dotdotdot/git/_gitconfig /home/path/.gitconfig
-    $ ssh-keygen -t rsa -C "hola@email.com"
 
-add the public key to github, and edit the `.gitconfig` email addr as appropriate
+add the public key to github
 
 
 ### zsh
+zsh settings and themes
 
     $ git clone git://github.com/robbyrussell/oh-my-zsh.git
     $ ln -s /full/path/to/dotdotdot/zshrc /home/path/.zshrc
     $ ln -s /full/path/to/dotdotdot/yosemitebandit.zsh-theme /path/to/oh-my-zsh/themes/yosemitebandit.zsh-theme
     $ sudo apt-get install zsh
     $ chsh -s /bin/zsh
-    $ cd dotdotdot/git
-    $ python build_gitconfig.py
-
-and, in `.zshrc`, edit the path to oh-my-zsh as appropriate
 
 
 ### vi
-gvim, a vimrc and various plugins
+gvim, a vimrc, various plugins and colorschemes
 
     $ sudo apt-get install vim-gtk exuberant-ctags
     $ ln -s /full/path/to/dotdotdot/vim /home/path/.vim
     $ ln -s /full/path/to/dotdotdot/vim/vimrc /home/path/.vimrc
     $ cd /full/path/to/dotdotdot
-    $ git submodule init
-    $ git submodule update
+    $ git submodule update --init --recursive
     $ mkdir /home/path/.vim/backup
     $ cd dotdotdot/vim/bundle/YouCompleteMe
-    $ git submodule update --init --recursive
     $ ./install.sh --clang-completer
 
-this'll load several plugins and colorschemes
+also symlink the YCM extra conf file to ~
 
 
 ### python
-install pylint and then symlink the pylintrc file here to ~
+install pylint and then symlink this repo's pylintrc to ~
 
     $ sudo pip install pylint
 
@@ -70,8 +67,6 @@ and then if you can install numpy, scipy and matplotlib, you're on the right tra
     (sci) $ pip install distribute --upgrade
     (sci) $ pip install matplotlib
 
-also symlink the YCM extra conf file to ~
-
 
 ### arduino
 need jdk for the ui; and I think this is better than the version that's in apt
@@ -86,6 +81,10 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 
 
 ### workspaces
+* install compiz
+
+    $ sudo apt-get install compizconfig-settings-manager
+
 * in compiz, edit general options > desktop size
   * horizontal 3, vertical 1
 * in keyboard edit shortcuts
