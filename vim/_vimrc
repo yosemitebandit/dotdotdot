@@ -234,6 +234,9 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>f :GoFmt<CR>
+" disable auto-fmt on save..it's a bit aggressive when there are errors
+let g:go_fmt_autosave = 0
 
 " copy and paste from the clipboard via http://superuser.com/a/189198/27119
 vmap <C-c> "+y1
