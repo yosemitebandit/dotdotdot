@@ -223,8 +223,17 @@ nnoremap ;w :w<CR>
 nnoremap ;q :q
 nnoremap ;wq :wq
 
-" go syntax
+" go
 au BufRead,BufNewFile *.go set filetype=go
+" show type info
+au FileType go nmap <Leader>i <Plug>(go-info)
+" open docs
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" run / build / test
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
 
 " copy and paste from the clipboard via http://superuser.com/a/189198/27119
 vmap <C-c> "+y1
