@@ -49,6 +49,11 @@ gvim, a vimrc, various plugins and colorschemes
 
 also symlink the YCM extra conf file to ~
 
+if you need to upgrade vim for YCM:
+
+    $ sudo add-apt-repository ppa:nmi/vim-snapshots
+    $ sudo apt-get update && sudo apt-get upgrade
+
 
 ### python
 install pylint and then symlink this repo's pylintrc to ~
