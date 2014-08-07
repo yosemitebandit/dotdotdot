@@ -98,7 +98,7 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 
 * in compiz, edit general options > desktop size
   * horizontal 3, vertical 1
-* in keyboard edit shortcuts
+* in keyboard, edit shortcuts
   * move to workspace left: ctrl+alt+h
   * move to workspace right: ctrl+alt+l
 * appearance > behavior > auto-hide launcher
