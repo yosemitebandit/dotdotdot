@@ -104,9 +104,13 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * unlimited scrollback
 
 
-### other nice apps from the ubuntu sw center
+### other nice apps from the ubuntu sw center, ppas and elsewhere
 * synapse
 * source code pro - get the TTF from font squirrel
 * kazam screencaster
 * vlc
 * freecad
+
+    $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
