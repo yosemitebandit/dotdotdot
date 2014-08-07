@@ -73,6 +73,12 @@ and then if you can install numpy, scipy and matplotlib, you're on the right tra
     (sci) $ pip install matplotlib
 
 
+### go
+setup go in /usr/local as per the docs: golang.org/doc/install, and then:
+
+    $ mkdir ~/gocode
+
+
 ### arduino
 need jdk for the ui; and I think this is better than the version that's in apt
 
@@ -109,6 +115,7 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * source code pro - get the TTF from font squirrel
 * kazam screencaster
 * vlc
+* ack-grep
 * freecad
 
     $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
