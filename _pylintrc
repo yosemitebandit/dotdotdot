@@ -9,4 +9,5 @@ indent-after-paren=2
 # W0621: Redefining name %r from outer scope (line %s)
 # C0103: Invalid %s name "%s"
 # W0141: Used builtin function %r
-disable=W0621,C0103,W0141
+# C0330: Wrong hanging indentation
+disable=W0621,C0103,W0141,C0330
