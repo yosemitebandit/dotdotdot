@@ -182,7 +182,7 @@ autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 " LCM
 au BufRead,BufNewFile *.lcm set filetype=cpp
 
-" go
+" golang
 au BufRead,BufNewFile *.go set filetype=go
 " show type info
 au FileType go nmap <Leader>i <Plug>(go-info)
