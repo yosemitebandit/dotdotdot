@@ -197,6 +197,9 @@ au FileType go nmap <leader>f :GoFmt<CR>
 " disable auto-fmt on save..it's a bit aggressive when there are errors
 let g:go_fmt_autosave = 0
 
+" jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
 " fix the nonindentation of python comments
 " http://stackoverflow.com/questions/2360249
 inoremap # X#
