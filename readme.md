@@ -52,6 +52,7 @@ also symlink the YCM extra conf file to ~
 
 if you need to upgrade vim for YCM:
 
+    $ sudo apt-get install software-properties-common python-software-properties
     $ sudo add-apt-repository ppa:nmi/vim-snapshots
     $ sudo apt-get update && sudo apt-get upgrade
 
