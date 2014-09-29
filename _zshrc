@@ -18,6 +18,9 @@ elif [[ "$MACHINE" == "work_laptop" ]]; then
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
+elif [[ "$MACHINE" == "mac" ]]; then
+  ZSH=/Users/matt/conf/oh-my-zsh
+  export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
 else
   echo "remember to set MACHINE in .zshenv; it's currently: " $MACHINE
   ZSH=/home/matt/conf/oh-my-zsh
