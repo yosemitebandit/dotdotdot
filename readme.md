@@ -116,10 +116,13 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 * source code pro - get the TTF from font squirrel
 * kazam screencaster
 * vlc
-* ack-grep (and rename it ack)
-* freecad
+
+also:
 
     $ sudo apt-get install ack-grep
     $ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
     $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
     $ sudo apt-get update && sudo apt-get install freecad
+
+* ack-grep (and rename it ack)
+* freecad
