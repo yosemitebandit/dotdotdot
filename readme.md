@@ -12,6 +12,7 @@ so first create a ~/.zshenv file with one line:
 
 or another option from the zshrc.
 this'll workout the differences when the zsh config is loaded..
+erm, and this setup only partially works on a mac :/
 
 
 ### git
