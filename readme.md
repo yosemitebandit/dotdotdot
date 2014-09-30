@@ -77,6 +77,9 @@ and then if you can install numpy, scipy and matplotlib, you're on the right tra
 ### go
 setup go in /usr/local as per the docs: golang.org/doc/install, and then:
 
+    $ wget https://storage.googleapis.com/golang/go1.3.2.src.tar.gz
+    $ tar -xvf go*.tgz
+    $ sudo mv go /usr/local
     $ cd /usr/local/go/src
     $ ./all.bash
     $ mkdir ~/gocode
