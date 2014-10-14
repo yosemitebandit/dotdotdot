@@ -4,7 +4,7 @@ import os
 import sys
 
 TEMPLATE_PATH = 'gitconfig.template'
-OUTPUT_PATH = '_gitconfig'
+OUTPUT_PATH = 'gitconfig'
 EMAIL_TARGET = '{{EMAIL}}'
 
 machine_env_var = os.environ['MACHINE']

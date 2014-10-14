@@ -132,3 +132,9 @@ also:
 
 * ack-grep (and rename it ack)
 * freecad
+
+
+### experimental bootstrapping
+fetch the bootstrap script and execute it
+
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/bootstrap.sh -O - | sh
