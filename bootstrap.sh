@@ -1,33 +1,24 @@
-# bootstraps my dotfiles
+# bootstrapping dotfiles
 # github.com/yosemitebandit/dotdotdot
 
 # ---
-# apt
+# apt - uprades, vim, python, ack
 # ---
-#sudo add-apt-repository ppa:nmi/vim-snapshots
-#sudo apt-get update -y
-#sudo apt-get upgrade -y
-
-# basics
-#sudo apt-get -y install git-core git-gui gitk zsh
-
-# vim
-#sudo apt-get -y install vim-gtk exuberant-ctags mercurial cmake python-dev
-#sudo apt-get -y install software-properties-common python-software-properties
-
-# python
-#sudo apt-get install -y python-pip python-dev python-virtualenv build-essential
-#sudo apt-get install -y fortran libopenblas-dev liblapack-dev libfreetype6-dev libpng-dev
-
-# ack-grep (and rename to ack)
-#sudo apt-get install ack-grep -y
-#sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+sudo add-apt-repository ppa:nmi/vim-snapshots -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
+                        mercurial cmake python-dev software-properties-common \
+                        python-software-properties python-pip python-dev \
+                        python-virtualenv build-essential fortran libopenblas-dev \
+                        liblapack-dev libfreetype6-dev libpng-dev ack-grep
+sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
 # ---
 # custom
 # ---
 echo "running chsh..you'll have to relogin :/"
-sudo chsh -s `which zsh` $3
+sudo chsh -s `which zsh` matt
 echo "creating .zshenv with machine '$1'"
 echo "export MACHINE=\"$1\"" > ~/.zshenv
 
@@ -50,5 +41,7 @@ fi
 if [ ! -f ~/.gitconfig ]; then
   cd ~/conf/dotdotdot
   python build_gitconfig.py
-  ln -s ~/dotdotdot/gitconfig ~/.gitconfig
+  ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
 fi
+
+echo "done"

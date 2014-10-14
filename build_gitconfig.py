@@ -17,4 +17,3 @@ print 'injecting "%s" into _gitconfig template' % email_address
 with open(TEMPLATE_PATH, 'r') as template, open(OUTPUT_PATH, 'w') as output:
   for line in template.readlines():
     output.write(line.replace(EMAIL_TARGET, email_address))
-print 'done'
