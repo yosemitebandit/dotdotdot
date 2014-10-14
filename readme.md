@@ -39,7 +39,7 @@ zsh settings and themes
 ### vi
 gvim, a vimrc, various plugins and colorschemes
 
-    $ sudo apt-get install vim-gtk exuberant-ctags mercurial
+    $ sudo apt-get install vim-gtk exuberant-ctags mercurial cmake python-dev
     $ ln -s /full/path/to/dotdotdot/vim /home/path/.vim
     $ ln -s /full/path/to/dotdotdot/vim/vimrc /home/path/.vimrc
     $ cd /full/path/to/dotdotdot
