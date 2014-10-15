@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-niji"]
 	path = vim/bundle/vim-niji
 	url = https://github.com/amdt/vim-niji
+[submodule "vim/bundle/vim-semantic-highlight"]
+	path = vim/bundle/vim-semantic-highlight
+	url = https://github.com/jaxbot/semantic-highlight.vim.git
