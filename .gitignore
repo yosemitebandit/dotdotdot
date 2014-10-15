@@ -1,3 +1,5 @@
-vim/backup
+vim/backup/*
+!vim/backup/placeholder
 vim/.netrwhist
+vim/bundle
 gitconfig

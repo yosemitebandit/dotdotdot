@@ -98,6 +98,11 @@ need jdk for the ui; and I think this is better than the version that's in apt
 and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 
 
+### clojure
+
+todo..
+
+
 ### workspaces
 * install compiz
 

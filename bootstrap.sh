@@ -1,5 +1,7 @@
-# bootstrapping dotfiles
+# bootstrapping a new ubuntu machine with my dotfiles
 # github.com/yosemitebandit/dotdotdot
+#
+# $ bootstrap.sh <machine> <email>
 
 # ---
 # apt - uprades, vim, python, ack
@@ -19,8 +21,11 @@ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 # ---
 echo "running chsh..you'll have to relogin :/"
 sudo chsh -s `which zsh` matt
-echo "creating .zshenv with machine '$1'"
-echo "export MACHINE=\"$1\"" > ~/.zshenv
+
+if [ ! -f ~/.zshenv ]; then
+  echo "creating .zshenv with machine '$1'"
+  echo "export MACHINE=\"$1\"" > ~/.zshenv
+fi
 
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
   echo "creating ssh keys with email '$2'"
@@ -42,6 +47,12 @@ if [ ! -f ~/.gitconfig ]; then
   cd ~/conf/dotdotdot
   python build_gitconfig.py
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
+fi
+
+if [ ! -f ~/.vimrc ]; then
+  ln -s ~/conf/dotdotdot/vim ~/.vim
+  ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
+  vim +PluginInstall +qall
 fi
 
 echo "done"
