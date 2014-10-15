@@ -130,9 +130,7 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=b
 else
-    " er, jellybean isn't a real scheme
-    " but whatever is actually loading is really nice :/
-    colorscheme jellybean
+    colorscheme evening
 endif
 
 " quit window on <leader>q

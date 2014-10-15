@@ -56,6 +56,10 @@ if you need to upgrade vim for YCM:
     $ sudo add-apt-repository ppa:nmi/vim-snapshots
     $ sudo apt-get update && sudo apt-get upgrade
 
+compiler crashing during ycm build? swap file issues?
+http://www.nyayapati.com/srao/2014/05/youcompleteme-install-fails-due-to-internal-compiler-error/
+https://github.com/Valloric/YouCompleteMe/issues/267
+
 
 ### python
 install pylint and then symlink this repo's pylintrc to ~
@@ -142,4 +146,6 @@ also:
 ### experimental bootstrapping
 fetch the bootstrap script and execute it
 
-    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/bootstrap.sh -O - | sh
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/bootstrap.sh -O
+    $ chmod +x bootstrap.sh
+    $ ./bootstrap.sh <machine> <email>
