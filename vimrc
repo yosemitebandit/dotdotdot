@@ -87,7 +87,8 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=marker       " allow us to fold on marks
 set foldlevel=99            " don't fold by default
-set iskeyword-=_            " don't skip over underscores on navigation
+"set iskeyword-=_           " don't skip over underscores on navigation
+                            " note that this makes syntax highlighting weird
 
 """" reading and writing
 set noautowrite             " Never write a file unless I request it.
