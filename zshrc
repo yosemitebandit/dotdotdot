@@ -8,6 +8,7 @@ if [[ "$MACHINE" == "work_desktop" ]]; then
   # ccache
   if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
   fi
+
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
@@ -15,13 +16,16 @@ elif [[ "$MACHINE" == "work_laptop" ]]; then
   # ccache
   if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
   fi
+
 elif [[ "$MACHINE" == "home" ]]; then
-  ZSH=/Users/matt/conf/djan/oh-my-zsh
+  ZSH=/home/matt/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
+
 elif [[ "$MACHINE" == "mac" ]]; then
   ZSH=/Users/matt/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
   export TERM=xterm
+
 else
   echo "remember to set MACHINE in .zshenv; it's currently: " $MACHINE
   ZSH=/home/matt/conf/oh-my-zsh
