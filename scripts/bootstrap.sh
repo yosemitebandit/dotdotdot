@@ -131,6 +131,7 @@ if [ ! -e /usr/local/go ]; then
   tar -xvf ~/go1.3.2.src.tar.gz -C ~
   sudo mv ~/go /usr/local
   cd /usr/local/go/src
+  ./all.bash
   mkdir -p ~/gocode
   rm ~/go1.3.2.src.tar.gz
 fi
