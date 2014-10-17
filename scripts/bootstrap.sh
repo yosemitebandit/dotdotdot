@@ -71,6 +71,7 @@ if [ ! -d ~/conf ]; then
   cd ~/conf/dotdotdot
   git submodule init
   git submodule update
+  cd ~/conf
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
   ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes/yosemitebandit.zsh-theme
