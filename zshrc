@@ -16,7 +16,7 @@ elif [[ "$MACHINE" == "work_laptop" ]]; then
   if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
   fi
 elif [[ "$MACHINE" == "home" ]]; then
-  ZSH=/home/matt/conf/oh-my-zsh
+  ZSH=/Users/matt/conf/djan/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
 elif [[ "$MACHINE" == "mac" ]]; then
   ZSH=/Users/matt/conf/oh-my-zsh
