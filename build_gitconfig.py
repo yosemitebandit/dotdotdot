@@ -4,8 +4,8 @@ import os
 import sys
 
 TEMPLATE_PATH = 'gitconfig.template'
-OUTPUT_PATH = '_gitconfig'
-EMAIL_TARGET = '{{EMAIL}}'
+OUTPUT_PATH = 'gitconfig'
+EMAIL_TARGET = '{{ EMAIL }}'
 
 machine_env_var = os.environ['MACHINE']
 if not machine_env_var:
@@ -17,4 +17,3 @@ print 'injecting "%s" into _gitconfig template' % email_address
 with open(TEMPLATE_PATH, 'r') as template, open(OUTPUT_PATH, 'w') as output:
   for line in template.readlines():
     output.write(line.replace(EMAIL_TARGET, email_address))
-print 'done'

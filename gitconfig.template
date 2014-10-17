@@ -1,6 +1,6 @@
 [user]
   name = Matt Ball
-  email = {{EMAIL}}
+  email = {{ EMAIL }}
 
 [color]
   diff = auto
