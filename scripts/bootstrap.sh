@@ -5,9 +5,9 @@
 # $ bootstrap.sh <machine> <email>
 
 # ---
-# go no further if we're not with user 'matt'
+# go no further if we're not running this with user 'matt'
 # ---
-if [! id -u matt >/dev/null 2>&1]; then
+if [ ! `whoami` == matt ]; then
   echo "sorry, you need to make a 'matt' user first"
   echo "probably via 'sudo adduser matt && sudo usermod -a -G sudo matt'"
   exit 1
