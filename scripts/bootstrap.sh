@@ -3,9 +3,17 @@
 #
 # $ bootstrap.sh <machine> <email>
 
+# ---
+# go no further if we're not with user 'matt'
+# ---
+if [! id -u matt >/dev/null 2>&1]; then
+  echo "sorry, you need to make a 'matt' user first"
+  echo "probably via 'sudo adduser matt && sudo usermod -a -G sudo matt'"
+  exit 1
+fi
 
 # ---
-# apt - uprades, vim, python, ack
+# apt - upgrades, vim, python, ack
 # ---
 echo "apt!"
 sudo apt-get update -y
@@ -24,15 +32,10 @@ sudo apt-get upgrade -y
 
 
 # ---
-# basic stuff, users, sec, etc
+# ssh keys
 # ---
-echo "user stuff!"
-if [! id -u matt >/dev/null 2>&1]; then
-  sudo adduser matt
-  sudo usermod -a -G sudo matt
-fi
-
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
+  echo "ssh keys!"
   echo "creating ssh keys with email '$2'"
   ssh-keygen -t rsa -C "$2" -N "" -f ~/.ssh/id_rsa
   echo "add this public key to github:"
@@ -40,10 +43,10 @@ if [ ! -e ~/.ssh/id_rsa.pub ]; then
 fi
 
 
-
 # ---
-# zsh and git and dotfiles
+# zsh
 # ---
+echo "zsh!"
 if [ ! $SHELL == "/usr/bin/zsh" ]; then
   echo "running chsh..you'll have to relogin :/"
   sudo chsh -s `which zsh` matt
@@ -54,8 +57,12 @@ if [ ! -f ~/.zshenv ]; then
   echo "export MACHINE=\"$1\"" > ~/.zshenv
 fi
 
+
+# ---
+# dotfiles
+# ---
 if [ ! -d ~/conf ]; then
-  echo "~/conf !"
+  echo "dotfiles!"
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git

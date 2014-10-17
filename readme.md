@@ -144,8 +144,11 @@ also:
 
 
 ### experimental bootstrapping
-fetch the bootstrap script and execute it
+fetch the bootstrap script and execute it as user 'matt'
 
+    $ sudo adduser matt
+    $ sudo usermod -a -G sudo matt
+      # relogin as matt..
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap.sh
     $ chmod +x bootstrap.sh
     $ ./bootstrap.sh <machine> <email>
