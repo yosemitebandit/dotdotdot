@@ -3,24 +3,37 @@
 #
 # $ bootstrap.sh <machine> <email>
 
+
 # ---
 # apt - uprades, vim, python, ack
 # ---
+echo "apt!"
 sudo add-apt-repository ppa:nmi/vim-snapshots -y
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
                         mercurial cmake python-dev software-properties-common \
                         python-software-properties python-pip python-dev \
-                        python-virtualenv build-essential fortran libopenblas-dev \
-                        liblapack-dev libfreetype6-dev libpng-dev ack-grep
+                        python-virtualenv build-essential gfortran \
+                        libopenblas-dev liblapack-dev libfreetype6-dev \
+                        libpng-dev ack-grep openjdk-7-jdk
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
+
 # ---
-# custom
+# basic stuff, users, sec, etc
 # ---
-echo "running chsh..you'll have to relogin :/"
-sudo chsh -s `which zsh` matt
+echo "basic stuff!" 
+# todo..
+
+
+# ---
+# zsh and git and dotfiles
+# ---
+if [ ! $SHELL == "/usr/bin/zsh" ]; then
+  echo "running chsh..you'll have to relogin :/"
+  sudo chsh -s `which zsh` matt
+fi
 
 if [ ! -f ~/.zshenv ]; then
   echo "creating .zshenv with machine '$1'"
@@ -35,6 +48,7 @@ if [ ! -e ~/.ssh/id_rsa.pub ]; then
 fi
 
 if [ ! -d ~/conf ]; then
+  echo "~/conf !"
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
@@ -44,12 +58,24 @@ if [ ! -d ~/conf ]; then
 fi
 
 if [ ! -f ~/.gitconfig ]; then
-  cd ~/conf/dotdotdot
+  echo ".gitconfig !"
+  cd ~/conf/dotdotdot/scripts
   python build_gitconfig.py
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
 fi
 
+
+# ---
+# make a swap file before we start compiling, in case we're in a VM
+# ---
+sudo ~/conf/dotdotdot/scripts/add-swap.sh
+
+
+# ---
+# vi
+# ---
 if [ ! -f ~/.vimrc ]; then
+  echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
   vim +PluginInstall +qall
@@ -58,7 +84,55 @@ if [ ! -f ~/.vimrc ]; then
   ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
   sudo pip install pylint
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
-
 fi
 
-echo "done"
+
+# ---
+# python
+# ---
+if [ ! -d ~/conf/venvs/sci ]; then
+  echo "virtualenv!"
+  mkdir -p ~/conf/venvs/sci
+  virtualenv ~/conf/venvs/sci
+  . ~/conf/venvs/sci/bin/activate
+  pip install numpy
+  pip install scipy
+  pip install distribute --upgrade
+  pip install matplotlib
+  deactivate
+fi
+
+
+# ---
+# go
+# ---
+if [ ! -e /usr/local/go ]; then
+  echo "go!"
+  wget https://storage.googleapis.com/golang/go1.3.2.src.tar.gz -P ~
+  tar -xvf ~/go1.3.2.src.tar.gz -C ~
+  sudo mv ~/go /usr/local
+  cd /usr/local/go/src
+  ./all.bash
+  mkdir -p ~/gocode
+  rm ~/go1.3.2.src.tar.gz
+fi
+
+
+# ---
+# clojure
+# ---
+if [ ! -f /usr/local/bin/lein ]; then
+  echo "clojure!"
+  wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -P ~
+  chmod +x ~/lein
+  sudo mv ~/lein /usr/local/bin
+fi
+
+
+# ---
+# remove the swap file
+# ---
+sudo ~/conf/dotdotdot/scripts/delete-swap.sh
+
+
+echo "done!"
