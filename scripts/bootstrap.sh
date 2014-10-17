@@ -143,6 +143,7 @@ if [ ! -f /usr/local/bin/lein ]; then
   wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -P ~
   chmod +x ~/lein
   sudo mv ~/lein /usr/local/bin
+  lein -h
 fi
 
 
