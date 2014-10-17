@@ -73,7 +73,7 @@ if [ ! -d ~/conf ]; then
   git submodule update
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
-  ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes
+  ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes/yosemitebandit.zsh-theme
 fi
 
 if [ ! -f ~/.gitconfig ]; then
