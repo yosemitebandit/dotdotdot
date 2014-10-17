@@ -59,6 +59,9 @@ if [ ! -d ~/conf ]; then
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
+  cd ~/conf/dotdotdot
+  git submodule init
+  git submodule update
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
   ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes
@@ -85,7 +88,6 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim vim +PluginInstall +qall
   vim +PluginInstall +qall
   cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
   ./install.sh --clang-completer
