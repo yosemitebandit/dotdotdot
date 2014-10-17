@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # bootstrapping a new ubuntu machine with my dotfiles
 # github.com/yosemitebandit/dotdotdot
 #
