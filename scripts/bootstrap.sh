@@ -8,7 +8,6 @@
 # apt - uprades, vim, python, ack
 # ---
 echo "apt!"
-sudo add-apt-repository ppa:nmi/vim-snapshots -y
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
@@ -18,13 +17,28 @@ sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
                         libopenblas-dev liblapack-dev libfreetype6-dev \
                         libpng-dev ack-grep openjdk-7-jdk
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+# add-apt-repo may not be available until after first upgrade
+sudo add-apt-repository ppa:nmi/vim-snapshots -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 
 # ---
 # basic stuff, users, sec, etc
 # ---
-echo "basic stuff!" 
-# todo..
+echo "user stuff!"
+if [! id -u matt >/dev/null 2>&1]; then
+  adduser matt
+  usermod -a -G sudo matt
+fi
+
+if [ ! -e ~/.ssh/id_rsa.pub ]; then
+  echo "creating ssh keys with email '$2'"
+  ssh-keygen -t rsa -C "$2" -N "" -f ~/.ssh/id_rsa
+  echo "add this public key to github:"
+  cat ~/.ssh/id_rsa.pub
+fi
+
 
 
 # ---
@@ -40,13 +54,6 @@ if [ ! -f ~/.zshenv ]; then
   echo "export MACHINE=\"$1\"" > ~/.zshenv
 fi
 
-if [ ! -e ~/.ssh/id_rsa.pub ]; then
-  echo "creating ssh keys with email '$2'"
-  ssh-keygen -t rsa -C "$2" -N "" -f ~/.ssh/id_rsa
-  echo "add this public key to github:"
-  cat ~/.ssh/id_rsa.pub
-fi
-
 if [ ! -d ~/conf ]; then
   echo "~/conf !"
   mkdir -p ~/conf
@@ -59,8 +66,7 @@ fi
 
 if [ ! -f ~/.gitconfig ]; then
   echo ".gitconfig !"
-  cd ~/conf/dotdotdot/scripts
-  python build_gitconfig.py
+  python ~/conf/dotdotdot/build_gitconfig.py
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
 fi
 
