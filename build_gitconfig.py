@@ -3,9 +3,9 @@
 import os
 import sys
 
-TEMPLATE_PATH = 'gitconfig.template'
-OUTPUT_PATH = 'gitconfig'
-EMAIL_TARGET = '{{EMAIL}}'
+TEMPLATE_PATH = '../gitconfig.template'
+OUTPUT_PATH = '../gitconfig'
+EMAIL_TARGET = '{{ EMAIL }}'
 
 machine_env_var = os.environ['MACHINE']
 if not machine_env_var:
