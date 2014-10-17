@@ -116,7 +116,6 @@ if [ ! -d ~/conf/venvs/sci ]; then
   virtualenv ~/conf/venvs/sci
   . ~/conf/venvs/sci/bin/activate
   pip install numpy
-  pip install scipy
   pip install distribute --upgrade
   pip install matplotlib
   deactivate
