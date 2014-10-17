@@ -28,8 +28,8 @@ sudo apt-get upgrade -y
 # ---
 echo "user stuff!"
 if [! id -u matt >/dev/null 2>&1]; then
-  adduser matt
-  usermod -a -G sudo matt
+  sudo adduser matt
+  sudo usermod -a -G sudo matt
 fi
 
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
@@ -59,7 +59,7 @@ if [ ! -d ~/conf ]; then
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
-  git clone git://github.com/robbyrussell/oh-my-zsh.git
+  git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
   ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes
 fi
@@ -84,6 +84,7 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim vim +PluginInstall +qall
   vim +PluginInstall +qall
   cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
   ./install.sh --clang-completer
