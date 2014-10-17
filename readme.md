@@ -1,6 +1,6 @@
 the way in which I setup my dev environment nowadays
 
-last tested on ubuntu 14.04
+works best on 64bit trusty tahr
 
 
 ### experimental bootstrapping
