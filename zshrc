@@ -82,6 +82,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias sai='sudo apt-get install'
 
+    alias hgr='history | grep'
+
     #{ git
         alias gs='git status --ignore-submodules=dirty'
         alias gh='git history'
