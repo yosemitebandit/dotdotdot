@@ -146,6 +146,6 @@ also:
 ### experimental bootstrapping
 fetch the bootstrap script and execute it
 
-    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/bootstrap.sh -O
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap.sh -O
     $ chmod +x bootstrap.sh
     $ ./bootstrap.sh <machine> <email>
