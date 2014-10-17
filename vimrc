@@ -130,7 +130,7 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=b
 else
-    colorscheme evening
+    colorscheme delek
 endif
 
 " quit window on <leader>q
