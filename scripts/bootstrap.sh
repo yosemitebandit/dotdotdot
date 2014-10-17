@@ -55,6 +55,7 @@ fi
 if [ ! -f ~/.zshenv ]; then
   echo "creating .zshenv with machine '$1'"
   echo "export MACHINE=\"$1\"" > ~/.zshenv
+  . ~/.zshenv
 fi
 
 
