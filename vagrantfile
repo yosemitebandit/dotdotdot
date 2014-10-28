@@ -4,12 +4,14 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.username = "matt"
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+
   config.vm.define "precise32" do |precise32|
     precise32.vm.box = "hashicorp/precise32"
   end
 
   config.vm.define "trusty64" do |trusty64|
     trusty64.vm.box = "ubuntu/trusty64"
-    #trusty64.ssh.username = "matt"
   end
 end
