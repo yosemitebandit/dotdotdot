@@ -43,3 +43,9 @@
 [submodule "vim/bundle/vim-jinja"]
 	path = vim/bundle/vim-jinja
 	url = https://github.com/lepture/vim-jinja.git
+[submodule "vim/vim/bundle/CamelCaseMotion"]
+	path = vim/vim/bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
