@@ -11,8 +11,21 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" use ag (the silver searcher) or ack instead of grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+else
+  set grepprg=ack
+endif
+
 " tagbar
 nmap <leader>ta :TagbarToggle<CR>
+
+" ctrlp
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>
@@ -77,9 +90,6 @@ set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
-" replace the default grep program with ack
-set grepprg=ack
-
 " set working directory (??)
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -99,7 +109,6 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=marker       " allow us to fold on marks
 set foldlevel=99            " don't fold by default
-set iskeyword-=_            " don't skip over underscores on navigation
 
 """" reading and writing
 set noautowrite             " Never write a file unless I request it.
@@ -143,9 +152,8 @@ if has("gui_running")
     set guioptions-=R
     set guioptions-=r
     set guioptions-=b
-
 else
-    colorscheme vividchalk
+    colorscheme evening
 endif
 
 " quit window on <leader>q
@@ -208,10 +216,3 @@ inoremap # X#
 if has('gui_running')
     set guifont=Source\ Code\ Pro\ 14
 endif
-
-" folding
-nnoremap <space> za
-vnoremap <space> zf
-
-" ctrlp
-map F :CtrlP<CR>
