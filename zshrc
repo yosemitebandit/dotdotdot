@@ -4,18 +4,14 @@ if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
   # g4d alias has to be run at the end of this file.. :/
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
-  alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
-  # ccache
-  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
-  fi
+  # setup editor for piper
+  export EDITOR='vi'
+  alias g4p='g4 pending'
+  alias g5='git5'
 
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
   export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
-  alias hreview='/home/matthewball/Quad/tools/code_review/hreview.py'
-  # ccache
-  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
-  fi
 
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
@@ -38,27 +34,15 @@ plugins=(
     pip python
     history history-substring-search
     common-aliases
-    redis-cli
-    screen
     ssh-agent
 )
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
-# customized paths
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
-export PATH=/usr/local/share/arduino/hardware/tools/avr/bin:/usr/local/share/arduino/hardware/tools:$PATH:/usr/local/share/openscad/bin
-
-# add gcc-arm-none-eabi
-export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
-
 # go support
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
-
-# setup editor for piper
-export EDITOR='vi'
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
@@ -121,6 +105,4 @@ bindkey '^[OB' history-beginning-search-forward
 # this use of autocompletion has to happen at the end of the file for some reason :/
 if [[ "$MACHINE" == "work_desktop" ]]; then
   source /etc/bash_completion.d/g4d  # g4d alias
-  alias g4p='g4 pending'
-  alias g5='git5'
 fi
