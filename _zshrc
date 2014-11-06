@@ -113,4 +113,5 @@ bindkey '^[OB' history-beginning-search-forward
 if [[ "$MACHINE" == "work_desktop" ]]; then
   source /etc/bash_completion.d/g4d  # g4d alias
   alias g4p='g4 pending'
+  alias g5='git5'
 fi
