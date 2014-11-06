@@ -93,12 +93,18 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
-  vim +PluginInstall +qall
-  cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
-  ./install.sh --clang-completer
-  ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
   sudo pip install pylint
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
+
+  if [ ! $MACHINE == "mac" ]; then
+    if [ ! $BITS == 64 ]; then
+      cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
+      ./install.sh --clang-completer
+      ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
+    fi
+  fi
+
+  vim +PluginInstall +qall
 fi
 
 
