@@ -40,9 +40,10 @@ and execute it as user 'matt':
 ### machine differences
 there are some slight differences between zsh setups on different machines.
 namely the git email, zsh path and the use of g4d.
-so first create a ~/.zshenv file with one line:
+so first create a ~/.zshenv file with two lines:
 
     export MACHINE="home"
+    export BITS=64
 
 or another option from the zshrc.
 this'll workout the differences when the zsh config is loaded..
