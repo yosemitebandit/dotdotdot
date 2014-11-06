@@ -170,6 +170,7 @@ map <leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>w <C-w>w
 " hide certain files in nerdtree
 let NERDTreeIgnore = ['\.pyc$']
+let g:NERDTreeDirArrows=0
 
 if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
   if bits == 64
