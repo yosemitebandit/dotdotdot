@@ -18,16 +18,22 @@ and execute it as user 'matt':
 
 
 ### experimental dotfile-buildin
-build_dotfiles.py creates zshrc, vimrc, and gitconfig
-based on machine type (mac, home, work laptop, etc)
-and os (trusty64, precise32)
+* could run a build script to generate my..
+  * gitconfig, tmux.conf, vimrc, zshrc, pypirc
+* config files for different machines and oses could be used by the build script
+* a separate script or playbook could setup ubuntu or my mac
+* hopefully the build script just injects into a common template
+  * would suck to have template dotfiles that aren't valid vimscript or whatever
 
-so we build dotfiles from templates?
-and the templates themselves aren't usable dotfiles?
-or are they usable by default with some extra stuff injected at the bottom
+* vimrc:
+  * will need to enable specific vundle plugins in a specific line in the vimrc :/
+* zshrc:
+  * get rid of those nasty zshenv checks
+* gitconfig
+  * would just take an email addr..
 
-also need an ubuntu setup script to set perms and install stuff as needed.
-and a mac guide..
+* maybe we just focus on trusty and precise64
+  * macs are just for logging into vboxes and precise32 is rare
 
 
 
@@ -79,13 +85,3 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 ### other nice apps from the ubuntu sw center, ppas and elsewhere
 * kazam screencaster
 * vlc
-
-also ack-grep and freecad:
-
-    $ sudo apt-get install tmux
-    $ sudo apt-get install ack-grep
-    $ sudo apt-get install silversearcher-ag
-    $ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-    $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
-    $ sudo apt-get update && sudo apt-get install freecad
-
