@@ -3,11 +3,6 @@ the way in which I setup my dev environment nowadays
 works best on 64bit trusty tahr
 
 
-
-### reconciling
- * verk-desktop, master, old, builder
-
-
 ### experimental bootstrapping
 to bootstrap a brand new trusty instance,
 fetch the bootstrap script from `scripts/bootstrap.sh`
