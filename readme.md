@@ -89,6 +89,7 @@ also ack-grep and freecad:
 
     $ sudo apt-get install tmux
     $ sudo apt-get install ack-grep
+    $ sudo apt-get install silversearcher-ag
     $ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
     $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
     $ sudo apt-get update && sudo apt-get install freecad

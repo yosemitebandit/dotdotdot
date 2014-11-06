@@ -45,6 +45,59 @@ if has("autocmd")
 endif
 
 syntax enable                 " syntax highlighing
+" use ag (the silver searcher) or ack instead of grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+else
+  set grepprg=ack
+endif
+
+" tagbar
+nmap <leader>ta :TagbarToggle<CR>
+
+" ctrlp
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+" NerdTree
+map <leader>n :NERDTreeToggle<CR>
+" switching around windows - nerdtree and splits
+nnoremap <Leader>w <C-w>w
+" hide certain files in nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
+" Syntastic - turn on by default and run a check when the file is opened
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+let g:syntastic_python_checkers = ['pylint']
+" better :sign interface symbols
+" on second thought..let's not use signs
+let g:syntastic_enable_signs=0
+let g:syntastic_error_symbol = "█"
+let g:syntastic_style_error_symbol = ">"
+let g:syntastic_warning_symbol = "█"
+let g:syntastic_style_warning_symbol = ">"
+" toggle :Errors pane with ,er
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel
+    Errors
+  endif
+endfunction
+nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
+" close quickfix and scratch windows
+nnoremap <leader>c :pc<CR> :ccl<CR>
+" or just close scratch on move
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set background=dark           " We are using dark background in vim
@@ -66,9 +119,6 @@ autocmd GUIEnter * set visualbell t_vb=
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
-
-" replace the default grep program with ack
-set grepprg=ack
 
 " set working directory (??)
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -131,7 +181,7 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=b
 else
-    colorscheme delek
+    colorscheme evening
 endif
 
 " quit window on <leader>q
@@ -144,48 +194,6 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " backup dirs for swap files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-
-" tagbar
-nmap <leader>ta :TagbarToggle<CR>
-
-" NerdTree
-map <leader>n :NERDTreeToggle<CR>
-" switching around windows - nerdtree and splits
-nnoremap <Leader>w <C-w>w
-" hide certain files in nerdtree
-let NERDTreeIgnore = ['\.pyc$']
-
-" Syntastic - turn on by default and run a check when the file is opened
-let g:syntastic_check_on_open=1
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html'] }
-let g:syntastic_python_checkers = ['pylint']
-" better :sign interface symbols
-" on second thought..let's not use signs
-let g:syntastic_enable_signs=0
-let g:syntastic_error_symbol = "█"
-let g:syntastic_style_error_symbol = ">"
-let g:syntastic_warning_symbol = "█"
-let g:syntastic_style_warning_symbol = ">"
-" toggle :Errors pane with ,er
-function! ToggleErrors()
-  let old_last_winnr = winnr('$')
-  lclose
-  if old_last_winnr == winnr('$')
-    " Nothing was closed, open syntastic error location panel
-    Errors
-  endif
-endfunction
-nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
-" close quickfix and scratch windows
-nnoremap <leader>c :pc<CR> :ccl<CR>
-" or just close scratch on move
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" ctrlp
-"map F :CtrlP<CR>
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
@@ -239,7 +247,3 @@ let g:vim_markdown_folding_disabled=1
 if has('gui_running')
     set guifont=Source\ Code\ Pro\ 14
 endif
-
-" folding
-nnoremap <space> za
-vnoremap <space> zf

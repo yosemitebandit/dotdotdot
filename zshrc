@@ -95,6 +95,8 @@ bindkey '^[OB' history-beginning-search-forward
         alias gcm='git commit -m'
         alias gco='git checkout'
         alias gf='git fetch'
+        alias gcam='git commit -am'
+        alias gacm='git commit -am'
     #}
     
     #{ ino
@@ -119,4 +121,6 @@ bindkey '^[OB' history-beginning-search-forward
 # this use of autocompletion has to happen at the end of the file for some reason :/
 if [[ "$MACHINE" == "work_desktop" ]]; then
   source /etc/bash_completion.d/g4d  # g4d alias
+  alias g4p='g4 pending'
+  alias g5='git5'
 fi
