@@ -106,9 +106,10 @@ bindkey '^[OB' history-beginning-search-forward
     #}
 
     #{ python
-       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
-       alias nd='nosetests -d'
        alias py='python'
+       alias nd='nosetests -d'
+       alias pyl='pylint --report=n'
+       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
     #}
 #}
 
