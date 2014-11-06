@@ -7,13 +7,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-" colorschemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-vividchalk'
-"Plugin 'w0ng/vim-hybrid'
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'nanotech/jellybeans.vim'
-"Plugin 'xoria256.vim'
 " utils
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
@@ -23,7 +16,6 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'scrooloose/syntastic'
 " langs
 Plugin 'tclem/vim-arduino'
-"Plugin 'tpope/vim-markdown'
 Plugin 'godlygeek/tabular'  " required for plasticboy/vim-markdown
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/openscad.vim'
@@ -44,59 +36,7 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-syntax enable                 " syntax highlighing
-" use ag (the silver searcher) or ack instead of grep
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-else
-  set grepprg=ack
-endif
-
-" tagbar
-nmap <leader>ta :TagbarToggle<CR>
-
-" ctrlp
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
-
-" NerdTree
-map <leader>n :NERDTreeToggle<CR>
-" switching around windows - nerdtree and splits
-nnoremap <Leader>w <C-w>w
-" hide certain files in nerdtree
-let NERDTreeIgnore = ['\.pyc$']
-
-" Syntastic - turn on by default and run a check when the file is opened
-let g:syntastic_check_on_open=1
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html'] }
-let g:syntastic_python_checkers = ['pylint']
-" better :sign interface symbols
-" on second thought..let's not use signs
-let g:syntastic_enable_signs=0
-let g:syntastic_error_symbol = "█"
-let g:syntastic_style_error_symbol = ">"
-let g:syntastic_warning_symbol = "█"
-let g:syntastic_style_warning_symbol = ">"
-" toggle :Errors pane with ,er
-function! ToggleErrors()
-  let old_last_winnr = winnr('$')
-  lclose
-  if old_last_winnr == winnr('$')
-    " Nothing was closed, open syntastic error location panel
-    Errors
-  endif
-endfunction
-nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
-" close quickfix and scratch windows
-nnoremap <leader>c :pc<CR> :ccl<CR>
-" or just close scratch on move
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
+syntax enable
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 set numberwidth=1             " using only 1 column (and 1 space) while possible
@@ -169,19 +109,19 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme solarized
-    " remove menu bar
+    colorscheme delek
+    " remove menu bar, toolbar and sidebars
     set guioptions-=m
-    " remove toolbar
     set guioptions-=T
-    " remove all other sidebars.. chaining doesn't work for some reason
     set guioptions-=L
     set guioptions-=l
     set guioptions-=R
     set guioptions-=r
     set guioptions-=b
+    " use adobe's font
+    set guifont=Source\ Code\ Pro\ 14
 else
-    colorscheme evening
+    colorscheme delek
 endif
 
 " quit window on <leader>q
@@ -194,6 +134,58 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " backup dirs for swap files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+
+" use ag (the silver searcher) or ack instead of grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+else
+  set grepprg=ack
+endif
+
+" tagbar
+nmap <leader>ta :TagbarToggle<CR>
+
+" ctrlp
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+" NerdTree
+map <leader>n :NERDTreeToggle<CR>
+" switching around windows - nerdtree and splits
+nnoremap <Leader>w <C-w>w
+" hide certain files in nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
+" Syntastic - turn on by default and run a check when the file is opened
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+let g:syntastic_python_checkers = ['pylint']
+" better :sign interface symbols
+" on second thought..let's not use signs
+let g:syntastic_enable_signs=0
+let g:syntastic_error_symbol = ">"
+let g:syntastic_style_error_symbol = ">"
+let g:syntastic_warning_symbol = ">"
+let g:syntastic_style_warning_symbol = ">"
+" toggle :Errors pane with <leader>er
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel
+    Errors
+  endif
+endfunction
+nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
+" close quickfix and scratch windows
+nnoremap <leader>c :pc<CR> :ccl<CR>
+" or just close scratch on move
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
@@ -242,8 +234,3 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " markdown
 " disable folding mode
 let g:vim_markdown_folding_disabled=1
-
-" use Adobe's Source Code Pro
-if has('gui_running')
-    set guifont=Source\ Code\ Pro\ 14
-endif
