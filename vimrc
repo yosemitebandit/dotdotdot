@@ -19,7 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
+if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'scrooloose/syntastic'
