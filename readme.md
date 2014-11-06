@@ -125,6 +125,7 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 
 also:
 
+    $ sudo apt-get install tmux
     $ sudo apt-get install ack-grep
     $ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
     $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
