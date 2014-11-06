@@ -2,7 +2,7 @@
 
 if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
+  export EMAIL=matthewball@google.com
   # setup editor for piper
   export EDITOR='vi'
   # g4d alias has to be run at the end of this file.. :/
@@ -11,7 +11,7 @@ if [[ "$MACHINE" == "work_desktop" ]]; then
 
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
+  export EMAIL=matthewball@google.com
 
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
@@ -19,7 +19,7 @@ elif [[ "$MACHINE" == "home" ]]; then
 
 elif [[ "$MACHINE" == "mac" ]]; then
   ZSH=/Users/matt/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
+  export EMAIL=matt.ball.2@gmail.com
   export TERM=xterm
 
 else

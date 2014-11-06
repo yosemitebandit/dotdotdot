@@ -76,8 +76,6 @@ fi
 
 if [ ! -f ~/.gitconfig ]; then
   echo ".gitconfig !"
-  cd ~/conf/dotdotdot
-  python build_gitconfig.py
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
 fi
 
