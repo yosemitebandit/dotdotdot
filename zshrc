@@ -84,6 +84,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias hgr='history | grep'
 
+    alias lr='lein run'
+
     #{ git
         alias gs='git status --ignore-submodules=dirty'
         alias gh='git history'
