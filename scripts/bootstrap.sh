@@ -14,7 +14,7 @@ if [ ! `whoami` == matt ]; then
 fi
 
 # ---
-# apt - upgrades, vim, python, ack
+# apt - upgrades, git, vim, python, etc
 # ---
 echo "apt!"
 sudo apt-get update -y
@@ -24,8 +24,7 @@ sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
                         python-software-properties python-pip python-dev \
                         python-virtualenv build-essential gfortran \
                         libopenblas-dev liblapack-dev libfreetype6-dev \
-                        libpng-dev ack-grep openjdk-7-jdk
-sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+                        libpng-dev openjdk-7-jdk tmux silversearcher-ag
 # add-apt-repo may not be available until after first upgrade
 sudo add-apt-repository ppa:nmi/vim-snapshots -y
 sudo apt-get update -y
@@ -68,13 +67,11 @@ if [ ! -d ~/conf ]; then
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
-  cd ~/conf/dotdotdot
-  git submodule init
-  git submodule update
   cd ~/conf
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
   ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes/yosemitebandit.zsh-theme
+  ln -s ~/conf/dotdotdot/tmux.conf ~/.tmux.conf
 fi
 
 if [ ! -f ~/.gitconfig ]; then
@@ -119,6 +116,7 @@ if [ ! -d ~/conf/venvs/sci ]; then
   pip install distribute --upgrade
   pip install matplotlib
   deactivate
+  ln -s ~/conf/dotdotdot/pypirc ~/.pypirc
 fi
 
 
