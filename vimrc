@@ -18,12 +18,14 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 " langs
 Plugin 'tclem/vim-arduino'
-Plugin 'tpope/vim-markdown'
+"Plugin 'tpope/vim-markdown'
+Plugin 'godlygeek/tabular'  " required for plasticboy/vim-markdown
+Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'lepture/vim-jinja'
 "Plugin 'jnwhiteh/vim-golang'
@@ -185,7 +187,7 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " ctrlp
-map F :CtrlP<CR>
+"map F :CtrlP<CR>
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
@@ -199,7 +201,7 @@ au FileType python setlocal expandtab shiftwidth=2 tabstop=4 softtabstop=2 smart
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " the pep8 limit is 79, so chars should go up to but not past the bar
 " fyi, other standards set 80 as the limit so you can go one past the bar..
-set colorcolumn=79
+au FileType python set colorcolumn=79
 highlight ColorColumn ctermbg=DarkBlue
 " fix the nonindentation of python comments
 " http://stackoverflow.com/questions/2360249
@@ -230,6 +232,10 @@ let g:go_fmt_autosave = 0
 
 " jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
+" markdown
+" disable folding mode
+let g:vim_markdown_folding_disabled=1
 
 " use Adobe's Source Code Pro
 if has('gui_running')
