@@ -35,6 +35,7 @@ plugins=(
     history history-substring-search
     common-aliases
     ssh-agent
+    vagrant
 )
 
 DISABLE_AUTO_UPDATE="true"
@@ -99,6 +100,12 @@ bindkey '^[OB' history-beginning-search-forward
        alias pyl='pylint --report=n'
        alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
     #}
+
+    #{ vagrant
+       alias vu='vagrant up'
+       alias vs='vagrant ssh'
+    #}
+
 #}
 
 
