@@ -55,7 +55,10 @@ bindkey '^[OB' history-beginning-search-forward
     alias la='ls -la'
     alias l='ls -lh'
     
-    alias open='xdg-open'
+
+    if [[ ! "$MACHINE" = "mac" ]]; then
+        alias open='xdg-open'
+    fi
 
     alias c='clear'
     alias cl='clear'
@@ -103,6 +106,7 @@ bindkey '^[OB' history-beginning-search-forward
 
     #{ vagrant
        alias vu='vagrant up'
+       alias vh='vagrant halt'
        alias vs='vagrant ssh'
     #}
 
