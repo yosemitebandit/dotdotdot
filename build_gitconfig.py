@@ -1,4 +1,12 @@
 """Generates a _gitconfig file based on the $MACHINE env var
+
+todo:
+  this should build several dotfiles: zshrc, gitconfig, vimrc
+  it should just take an argument and not require a var to be set
+  it should just echo the relevant data into the dotfiles
+  so you can remove the big switch statement in zshrc
+  and, for instance, you can inject custom vimrc plugins
+  machine types: ubuntu64, ubuntu32, mac, work laptop, work desktop
 """
 import os
 import sys
