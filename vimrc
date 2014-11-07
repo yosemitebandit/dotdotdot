@@ -137,7 +137,7 @@ if has("gui_running")
     " use adobe's font
     set guifont=Source\ Code\ Pro\ 14
 else
-    colorscheme delek
+    colorscheme evening
 endif
 
 " leader tricks
