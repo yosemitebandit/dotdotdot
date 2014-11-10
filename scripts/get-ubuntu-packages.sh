@@ -23,7 +23,7 @@ sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
                         mercurial cmake python-dev software-properties-common \
                         python-software-properties python-pip python-dev \
                         python-virtualenv build-essential gfortran \
-                        libopenblas-dev liblapack-dev libfreetype6-dev \
+                        libopenblas-dev liblapack-dev libxft-dev libfreetype6-dev \
                         libpng-dev openjdk-7-jdk tmux silversearcher-ag tree \
                         xdg-utils
 # add-apt-repo may not be available until after first upgrade
