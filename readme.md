@@ -27,6 +27,10 @@ and execute it as user 'matt':
       # make the second line map to 127.0.0.1 <hostname>
     $ sudo vi /etc/hosts
       # reboot
+      # run the ubuntu setup script
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/get-ubuntu-packages.sh
+    $ chmod +x get-ubuntu-packages.sh
+    $ ./get-ubuntu-packages.sh
 
 
 ### experimental dotfile-buildin
