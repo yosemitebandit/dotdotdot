@@ -2,7 +2,7 @@
 # bootstrapping a new machine with my dotfiles
 # github.com/yosemitebandit/dotdotdot
 #
-# $ bootstrap-dotfiles.sh <machine> <email>
+# $ bootstrap-dotfiles.sh <email> <machine> <bits>
 
 # ---
 # go no further if we're not running this with user 'matt'
@@ -19,8 +19,8 @@ fi
 # ---
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
   echo "ssh keys!"
-  echo "creating ssh keys with email '$2'"
-  ssh-keygen -t rsa -C "$2" -N "" -f ~/.ssh/id_rsa
+  echo "creating ssh keys with email '$1'"
+  ssh-keygen -t rsa -C "$1" -N "" -f ~/.ssh/id_rsa
   echo "add this public key to github:"
   cat ~/.ssh/id_rsa.pub
 fi
@@ -36,8 +36,9 @@ if [ ! $SHELL == "/usr/bin/zsh" ]; then
 fi
 
 if [ ! -f ~/.zshenv ]; then
-  echo "creating .zshenv with machine '$1'"
-  echo "export MACHINE=\"$1\"" > ~/.zshenv
+  echo "creating .zshenv with '$3' bit machine '$2'"
+  echo "export MACHINE=\"$2\"" > ~/.zshenv
+  echo "export BITS=\"$3\"" >> ~/.zshenv
   . ~/.zshenv
 fi
 
