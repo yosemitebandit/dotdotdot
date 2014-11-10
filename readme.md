@@ -11,7 +11,7 @@ and execute it as user 'matt':
     $ sudo adduser matt
     $ sudo usermod -a -G sudo matt
       # relogin as matt..
-    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap.sh
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap-dotfiles.sh
     $ chmod +x bootstrap.sh
     $ ./bootstrap.sh <machine> <email>
 
@@ -31,26 +31,6 @@ and execute it as user 'matt':
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/get-ubuntu-packages.sh
     $ chmod +x get-ubuntu-packages.sh
     $ ./get-ubuntu-packages.sh
-
-
-### experimental dotfile-buildin
-* could run a build script to generate my..
-  * gitconfig, tmux.conf, vimrc, zshrc, pypirc
-* config files for different machines and oses could be used by the build script
-* a separate script or playbook could setup ubuntu or my mac
-* hopefully the build script just injects into a common template
-  * would suck to have template dotfiles that aren't valid vimscript or whatever
-
-* vimrc:
-  * will need to enable specific vundle plugins in a specific line in the vimrc :/
-* zshrc:
-  * get rid of those nasty zshenv checks
-* gitconfig
-  * would just take an email addr..
-
-* maybe we just focus on trusty and precise64
-  * macs are just for logging into vboxes and precise32 is rare
-
 
 
 ### machine differences

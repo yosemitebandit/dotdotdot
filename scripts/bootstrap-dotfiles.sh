@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# bootstrapping a new ubuntu machine with my dotfiles
+# bootstrapping a new machine with my dotfiles
 # github.com/yosemitebandit/dotdotdot
 #
-# $ bootstrap.sh <machine> <email>
+# $ bootstrap-dotfiles.sh <machine> <email>
 
 # ---
 # go no further if we're not running this with user 'matt'
