@@ -108,6 +108,7 @@ bindkey '^[OB' history-beginning-search-forward
        alias vu='vagrant up'
        alias vh='vagrant halt'
        alias vs='vagrant ssh'
+       alias vt='vagrant status'
     #}
 
 #}
