@@ -51,6 +51,8 @@ if [ ! -d ~/conf ]; then
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
+  cd ~/conf/dotdotdot
+  git submodule init && git submodule update
   cd ~/conf
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
@@ -80,6 +82,8 @@ if [ ! -f ~/.vimrc ]; then
   sudo pip install pylint
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
 
+  vim +PluginInstall +qall
+
   if [ ! $MACHINE == "mac" ]; then
     if [ ! $BITS == 64 ]; then
       cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
@@ -87,8 +91,6 @@ if [ ! -f ~/.vimrc ]; then
       ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
     fi
   fi
-
-  vim +PluginInstall +qall
 fi
 
 
