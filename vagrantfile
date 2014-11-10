@@ -4,12 +4,21 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.username = "matt"
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+
   config.vm.define "precise32" do |precise32|
     precise32.vm.box = "hashicorp/precise32"
+
+    # setup SDR1 for testing
+    # via http://spin.atomicobject.com/2014/03/21/smartcard-virtualbox-vm/
+    precise32.vm.provider :virtualbox do |vb|
+      vb.customize ['modifyvm', :id, '--usb', 'on']
+      vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'sdr1', '--vendorid', '0xfffe', '--productid', '0x0002']
+    end
   end
 
   config.vm.define "trusty64" do |trusty64|
     trusty64.vm.box = "ubuntu/trusty64"
-    #trusty64.ssh.username = "matt"
   end
 end

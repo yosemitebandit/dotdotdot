@@ -16,17 +16,56 @@ and execute it as user 'matt':
     $ ./bootstrap.sh <machine> <email>
 
 
+
+### other first time setup bits
+
+      # add your public key for password-less ssh
+    $ mkdir .ssh
+    $ touch .ssh/authorized_keys
+      # setup the hostname
+    $ sudo vi /etc/hostname
+      # make the second line map to 127.0.0.1 <hostname>
+    $ sudo vi /etc/hosts
+      # reboot
+      # run the ubuntu setup script
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/get-ubuntu-packages.sh
+    $ chmod +x get-ubuntu-packages.sh
+    $ ./get-ubuntu-packages.sh
+
+
+### experimental dotfile-buildin
+* could run a build script to generate my..
+  * gitconfig, tmux.conf, vimrc, zshrc, pypirc
+* config files for different machines and oses could be used by the build script
+* a separate script or playbook could setup ubuntu or my mac
+* hopefully the build script just injects into a common template
+  * would suck to have template dotfiles that aren't valid vimscript or whatever
+
+* vimrc:
+  * will need to enable specific vundle plugins in a specific line in the vimrc :/
+* zshrc:
+  * get rid of those nasty zshenv checks
+* gitconfig
+  * would just take an email addr..
+
+* maybe we just focus on trusty and precise64
+  * macs are just for logging into vboxes and precise32 is rare
+
+
+
 ### machine differences
 there are some slight differences between zsh setups on different machines.
 namely the git email, zsh path and the use of g4d.
-so first create a ~/.zshenv file with one line:
+so first create a ~/.zshenv file with two lines:
 
     export MACHINE="home"
+    export BITS=64
 
 or another option from the zshrc.
 this'll workout the differences when the zsh config is loaded..
 erm, and this setup only partially works on a mac :/
 and on 32bit precise, YCM and syntastic don't work out of the box
+
 
 
 ### arduino setup
@@ -63,10 +102,3 @@ and then edit `~/.arduino/preferences.txt` to change the sketchbook path
 ### other nice apps from the ubuntu sw center, ppas and elsewhere
 * kazam screencaster
 * vlc
-
-also ack-grep and freecad:
-
-    $ sudo apt-get install ack-grep
-    $ sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-    $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
-    $ sudo apt-get update && sudo apt-get install freecad

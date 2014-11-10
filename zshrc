@@ -2,28 +2,24 @@
 
 if [[ "$MACHINE" == "work_desktop" ]]; then
   ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
+  export EMAIL=matthewball@google.com
+  # setup editor for piper
+  export EDITOR='vi'
   # g4d alias has to be run at the end of this file.. :/
-  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
-  alias hreview='/usr/local/google/home/matthewball/Quad/tools/code_review/hreview.py'
-  # ccache
-  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
-  fi
+  alias g4p='g4 pending'
+  alias g5='git5'
 
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matthewball@google.com
-  alias hreview='/home/matthewball/Quad/tools/code_review/hreview.py'
-  # ccache
-  if [[ -d /usr/lib/ccache && ${PATH/*ccache*/FOUND} != FOUND ]]; then  export PATH=/usr/lib/ccache:${PATH}
-  fi
+  export EMAIL=matthewball@google.com
 
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
+  export EMAIL=matt.ball.2@gmail.com
 
 elif [[ "$MACHINE" == "mac" ]]; then
   ZSH=/Users/matt/conf/oh-my-zsh
-  export GITCONFIG_EMAIL_ADDRESS=matt.ball.2@gmail.com
+  export EMAIL=matt.ball.2@gmail.com
   export TERM=xterm
 
 else
@@ -38,27 +34,16 @@ plugins=(
     pip python
     history history-substring-search
     common-aliases
-    redis-cli
-    screen
     ssh-agent
+    vagrant
 )
 
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
-# customized paths
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
-export PATH=/usr/local/share/arduino/hardware/tools/avr/bin:/usr/local/share/arduino/hardware/tools:$PATH:/usr/local/share/openscad/bin
-
-# add gcc-arm-none-eabi
-export PATH=$PATH:/usr/local/share/gcc-arm-none-eabi-4_7-2012q4/bin
-
 # go support
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
-
-# setup editor for piper
-export EDITOR='vi'
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
@@ -70,7 +55,10 @@ bindkey '^[OB' history-beginning-search-forward
     alias la='ls -la'
     alias l='ls -lh'
     
-    alias open='xdg-open'
+
+    if [[ ! "$MACHINE" = "mac" ]]; then
+        alias open='xdg-open'
+    fi
 
     alias c='clear'
     alias cl='clear'
@@ -84,6 +72,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias hgr='history | grep'
 
+    alias lr='lein run'
+
     #{ git
         alias gs='git status --ignore-submodules=dirty'
         alias gh='git history'
@@ -93,6 +83,8 @@ bindkey '^[OB' history-beginning-search-forward
         alias gcm='git commit -m'
         alias gco='git checkout'
         alias gf='git fetch'
+        alias gcam='git commit -am'
+        alias gacm='git commit -am'
     #}
     
     #{ ino
@@ -106,10 +98,19 @@ bindkey '^[OB' history-beginning-search-forward
     #}
 
     #{ python
-       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
-       alias nd='nosetests -d'
        alias py='python'
+       alias nd='nosetests -d'
+       alias pyl='pylint --report=n'
+       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
     #}
+
+    #{ vagrant
+       alias vu='vagrant up'
+       alias vh='vagrant halt'
+       alias vs='vagrant ssh'
+       alias vt='vagrant status'
+    #}
+
 #}
 
 

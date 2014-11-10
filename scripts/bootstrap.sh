@@ -13,24 +13,6 @@ if [ ! `whoami` == matt ]; then
   exit 1
 fi
 
-# ---
-# apt - upgrades, vim, python, ack
-# ---
-echo "apt!"
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get -y install git-core git-gui gitk zsh vim-gtk exuberant-ctags \
-                        mercurial cmake python-dev software-properties-common \
-                        python-software-properties python-pip python-dev \
-                        python-virtualenv build-essential gfortran \
-                        libopenblas-dev liblapack-dev libfreetype6-dev \
-                        libpng-dev ack-grep openjdk-7-jdk
-sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-# add-apt-repo may not be available until after first upgrade
-sudo add-apt-repository ppa:nmi/vim-snapshots -y
-sudo apt-get update -y
-sudo apt-get upgrade -y
-
 
 # ---
 # ssh keys
@@ -68,19 +50,15 @@ if [ ! -d ~/conf ]; then
   mkdir -p ~/conf
   cd ~/conf
   git clone https://github.com/yosemitebandit/dotdotdot.git
-  cd ~/conf/dotdotdot
-  git submodule init
-  git submodule update
   cd ~/conf
   git clone https://github.com/robbyrussell/oh-my-zsh.git
   ln -s ~/conf/dotdotdot/zshrc ~/.zshrc
   ln -s ~/conf/dotdotdot/yosemitebandit.zsh-theme ~/conf/oh-my-zsh/themes/yosemitebandit.zsh-theme
+  ln -s ~/conf/dotdotdot/tmux.conf ~/.tmux.conf
 fi
 
 if [ ! -f ~/.gitconfig ]; then
   echo ".gitconfig !"
-  cd ~/conf/dotdotdot
-  python build_gitconfig.py
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
 fi
 
@@ -98,12 +76,18 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
-  vim +PluginInstall +qall
-  cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
-  ./install.sh --clang-completer
-  ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
   sudo pip install pylint
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
+
+  if [ ! $MACHINE == "mac" ]; then
+    if [ ! $BITS == 64 ]; then
+      cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
+      ./install.sh --clang-completer
+      ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
+    fi
+  fi
+
+  vim +PluginInstall +qall
 fi
 
 
@@ -119,6 +103,7 @@ if [ ! -d ~/conf/venvs/sci ]; then
   pip install distribute --upgrade
   pip install matplotlib
   deactivate
+  ln -s ~/conf/dotdotdot/pypirc ~/.pypirc
 fi
 
 
