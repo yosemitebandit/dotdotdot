@@ -11,6 +11,9 @@ and execute it as user 'matt':
     $ sudo adduser matt
     $ sudo usermod -a -G sudo matt
       # relogin as matt..
+    $ mkdir .ssh
+    $ touch .ssh/authorized_keys
+      # add your public key for password-less ssh
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap.sh
     $ chmod +x bootstrap.sh
     $ ./bootstrap.sh <machine> <email>
