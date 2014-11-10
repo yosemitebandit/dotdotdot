@@ -11,13 +11,22 @@ and execute it as user 'matt':
     $ sudo adduser matt
     $ sudo usermod -a -G sudo matt
       # relogin as matt..
-    $ mkdir .ssh
-    $ touch .ssh/authorized_keys
-      # add your public key for password-less ssh
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap.sh
     $ chmod +x bootstrap.sh
     $ ./bootstrap.sh <machine> <email>
 
+
+
+### other first time setup bits
+
+      # add your public key for password-less ssh
+    $ mkdir .ssh
+    $ touch .ssh/authorized_keys
+      # setup the hostname
+    $ sudo vi /etc/hostname
+      # make the second line map to 127.0.0.1 <hostname>
+    $ sudo vi /etc/hosts
+      # reboot
 
 
 ### experimental dotfile-buildin
