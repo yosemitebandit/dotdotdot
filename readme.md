@@ -24,11 +24,6 @@ $ touch .ssh/authorized_keys
 $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/get-ubuntu-packages.sh
 $ chmod +x get-ubuntu-packages.sh
 $ ./get-ubuntu-packages.sh
-
-# create a ~/.zshenv
-$ echo 'export MACHINE="home"' > ~/.zshenv
-$ echo 'export BITS=64' >> ~/.zshenv
-
 ```
 
 
