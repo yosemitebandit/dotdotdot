@@ -22,7 +22,8 @@ $ chmod +x get-ubuntu-packages.sh
 $ ./get-ubuntu-packages.sh
 
 # create a ~/.zshenv
-$ echo 'export MACHINE="home"\n export BITS=64' > ~/.zshenv
+$ echo 'export MACHINE="home"' > ~/.zshenv
+$ echo 'export BITS=64' >> ~/.zshenv
 
 ```
 
