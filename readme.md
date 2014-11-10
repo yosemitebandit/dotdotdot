@@ -6,6 +6,10 @@ works best on 64bit trusty tahr
 ### first-time setup bits
 
 ```shell
+# create a new user
+$ sudo adduser matt
+$ sudo usermod -a -G sudo matt
+
 # set the hostname
 $ sudo vi /etc/hostname
 # make the second line map to 127.0.0.1 <hostname>
