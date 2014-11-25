@@ -59,7 +59,10 @@ bindkey '^[OB' history-beginning-search-forward
     alias ll='ls -la'
     alias la='ls -la'
     alias l='ls -lh'
-    
+
+    # remove confirmation
+    unalias mv
+    unalias rm
 
     if [[ ! "$MACHINE" = "mac" ]]; then
         alias open='xdg-open'
