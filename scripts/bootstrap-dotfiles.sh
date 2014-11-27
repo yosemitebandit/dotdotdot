@@ -85,7 +85,7 @@ if [ ! -f ~/.vimrc ]; then
   vim +PluginInstall +qall
 
   if [ ! $MACHINE == "mac" ]; then
-    if [ ! $BITS == 64 ]; then
+    if [ $BITS == 64 ]; then
       cd ~/conf/dotdotdot/vim/bundle/YouCompleteMe
       ./install.sh --clang-completer
       ln -s ~/conf/dotdotdot/ycm_extra_conf.py ~/.ycm_extra_conf.py
