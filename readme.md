@@ -16,6 +16,7 @@ $ sudo vi /etc/hostname
 $ sudo vi /etc/hosts
 # (reboot for it to take effect)
 
+# login as matt
 # add your public key for password-less ssh
 $ mkdir .ssh
 $ touch .ssh/authorized_keys
