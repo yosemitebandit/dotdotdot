@@ -16,6 +16,7 @@ $ sudo vi /etc/hostname
 $ sudo vi /etc/hosts
 # (reboot for it to take effect)
 
+# login as matt
 # add your public key for password-less ssh
 $ mkdir .ssh
 $ touch .ssh/authorized_keys
@@ -32,14 +33,14 @@ to bootstrap a brand new trusty instance,
 execute the bootstrap script from `scripts/bootstrap-dotfiles.sh`
 
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap-dotfiles.sh
-    $ chmod +x bootstrap.sh
-    $ ./bootstrap.sh <email> <machine> <bits>
+    $ chmod +x bootstrap-dotfiles.sh
+    $ ./bootstrap-dotfiles.sh <email> <machine> <bits>
 
 
 ### machine differences
 there are some slight differences between zsh setups on different machines.
-namely the git email, zsh path and the use of g4d.
-the `zshenv` file describe above mediates these differences.
+namely the git email, zsh path and the use of tools like `g4d`.
+we capture those differences in a `zshenv` file generated with the `bootstrap-dotfiles.sh` script.
 
 
 ### ubuntu workspaces

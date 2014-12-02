@@ -252,3 +252,7 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " markdown
 " disable folding mode
 let g:vim_markdown_folding_disabled=1
+
+" svg
+" via http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
+au FileType svg setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null

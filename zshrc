@@ -8,6 +8,11 @@ if [[ "$MACHINE" == "work_desktop" ]]; then
   # g4d alias has to be run at the end of this file.. :/
   alias g4p='g4 pending'
   alias g5='git5'
+  alias g5l='git5 lint'
+  alias g5e='git5 export'
+  alias g5m='git5 merge'
+  export G4MULTIDIFF=1
+  export P4DIFF=/google/data/ro/users/lo/lodato/git-multi-diff
 
 elif [[ "$MACHINE" == "work_laptop" ]]; then
   ZSH=/home/matthewball/conf/oh-my-zsh
@@ -54,7 +59,10 @@ bindkey '^[OB' history-beginning-search-forward
     alias ll='ls -la'
     alias la='ls -la'
     alias l='ls -lh'
-    
+
+    # remove confirmation
+    unalias mv
+    unalias rm
 
     if [[ ! "$MACHINE" = "mac" ]]; then
         alias open='xdg-open'
