@@ -78,6 +78,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias sai='sudo apt-get install'
 
+    # timestamped command history
+    alias history='fc -li -1000'
     alias hgr='history | grep'
 
     alias lr='lein run'
