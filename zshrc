@@ -55,6 +55,13 @@ export GOPATH=$HOME/gocode
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
 
+# right-aligned timestamp in the prompt
+RPROMPT='%D{%L:%M %p}'
+TMOUT=1
+TRAPALRM() {
+  zle reset-prompt
+}
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
