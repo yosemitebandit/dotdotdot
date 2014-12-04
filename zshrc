@@ -57,7 +57,7 @@ bindkey '^[OB' history-beginning-search-forward
 
 # right-aligned timestamp in the prompt
 RPROMPT='%D{%L:%M %p}'
-TMOUT=1
+TMOUT=60
 TRAPALRM() {
   zle reset-prompt
 }
