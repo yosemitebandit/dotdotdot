@@ -55,6 +55,13 @@ export GOPATH=$HOME/gocode
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
 
+# right-aligned timestamp in the prompt
+RPROMPT='%D{%L:%M %p}'
+TMOUT=60
+TRAPALRM() {
+  zle reset-prompt
+}
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
@@ -78,6 +85,8 @@ bindkey '^[OB' history-beginning-search-forward
 
     alias sai='sudo apt-get install'
 
+    # timestamped command history
+    alias history='fc -li -1000'
     alias hgr='history | grep'
 
     alias lr='lein run'
