@@ -31,6 +31,7 @@ Plugin 'godlygeek/tabular'  " required for plasticboy/vim-markdown
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'lepture/vim-jinja'
+Plugin 'terryma/vim-smooth-scroll'
 "Plugin 'jnwhiteh/vim-golang'
 "Plugin 'fatih/vim-go'
 
@@ -172,9 +173,15 @@ nnoremap <Leader>w <C-w>w
 let NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeDirArrows=0
 
+" smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+
+" Syntastic - turn on by default and run a check when the file is opened
 if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
   if bits == 64
-    " Syntastic - turn on by default and run a check when the file is opened
     let g:syntastic_check_on_open=1
     let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': [],
