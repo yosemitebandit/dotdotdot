@@ -32,8 +32,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'lepture/vim-jinja'
 Plugin 'terryma/vim-smooth-scroll'
-"Plugin 'jnwhiteh/vim-golang'
-"Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
