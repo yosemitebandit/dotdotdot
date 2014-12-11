@@ -48,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 
 # go support
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion

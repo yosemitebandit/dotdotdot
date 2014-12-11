@@ -120,7 +120,6 @@ if [ ! -e /usr/local/go ]; then
   sudo mv ~/go /usr/local
   cd /usr/local/go/src
   ./all.bash
-  mkdir -p ~/gocode
   rm ~/go1.3.2.src.tar.gz
 fi
 
