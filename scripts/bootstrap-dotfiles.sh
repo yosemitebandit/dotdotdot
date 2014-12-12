@@ -83,6 +83,7 @@ if [ ! -f ~/.vimrc ]; then
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
 
   vim +PluginInstall +qall
+  vim +GoInstallBinaries +qall
 
   if [ ! $MACHINE == "mac" ]; then
     if [ $BITS == 64 ]; then
