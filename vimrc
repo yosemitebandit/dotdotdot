@@ -251,6 +251,7 @@ au FileType go nmap <leader>te <Plug>(go-test)
 au FileType go nmap <leader>f :GoFmt<CR>
 " disable auto-fmt on save..it's a bit aggressive when there are errors
 let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
 
 " jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
