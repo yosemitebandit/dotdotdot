@@ -102,6 +102,7 @@ TRAPALRM() {
         alias gf='git fetch'
         alias gcam='git commit -am'
         alias gacm='git commit -am'
+        alias gcma='git commit -am'
     #}
     
     #{ ino
