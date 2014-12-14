@@ -19,6 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'Raimondi/delimitMate'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
