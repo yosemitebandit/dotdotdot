@@ -148,6 +148,9 @@ nnoremap <leader><space> :nohlsearch<cr>
 " remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
+" center the screen
+nnoremap <space> zz
+
 " use ag (the silver searcher) or ack instead of grep
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
