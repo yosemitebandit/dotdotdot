@@ -95,55 +95,6 @@ if [ ! -f ~/.vimrc ]; then
 fi
 
 
-# ---
-# python
-# ---
-if [ ! -d ~/conf/venvs/sci ]; then
-  echo "virtualenv!"
-  mkdir -p ~/conf/venvs/sci
-  virtualenv ~/conf/venvs/sci
-  . ~/conf/venvs/sci/bin/activate
-  pip install numpy
-  pip install distribute --upgrade
-  pip install matplotlib
-  deactivate
-  ln -s ~/conf/dotdotdot/pypirc ~/.pypirc
-fi
-
-
-# ---
-# go
-# ---
-if [ ! -e /usr/local/go ]; then
-  echo "go!"
-  wget https://storage.googleapis.com/golang/go1.3.2.src.tar.gz -P ~
-  tar -xvf ~/go1.3.2.src.tar.gz -C ~
-  sudo mv ~/go /usr/local
-  cd /usr/local/go/src
-  ./all.bash
-  mkdir -p ~/gocode
-  rm ~/go1.3.2.src.tar.gz
-fi
-
-
-# ---
-# clojure
-# ---
-if [ ! -f /usr/local/bin/lein ]; then
-  echo "clojure!"
-  wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -P ~
-  chmod +x ~/lein
-  sudo mv ~/lein /usr/local/bin
-  lein -h
-fi
-
-
-# ---
-# remove the swap file
-# ---
-sudo ~/conf/dotdotdot/scripts/delete-swap.sh
-
-
 echo ""
 echo "you should relogin to use zsh"
 echo "done!"

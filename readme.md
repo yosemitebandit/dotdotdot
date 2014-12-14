@@ -28,9 +28,18 @@ $ ./get-ubuntu-packages.sh
 ```
 
 
+### setup common languages
+to bootstrap a brand new `trusty` instance with languages I like,
+execute the script from `scripts/bootstrap-languages.sh`
+
+    $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap-languages.sh
+    $ chmod +x bootstrap-languages.sh
+    $ ./bootstrap-languages.sh
+
+
 ### dotfile bootstrapping
-to bootstrap a brand new trusty instance,
-execute the bootstrap script from `scripts/bootstrap-dotfiles.sh`
+to bootstrap a brand new `trusty` instance with my dotfiles,
+execute the script from `scripts/bootstrap-dotfiles.sh`
 
     $ wget https://raw.githubusercontent.com/yosemitebandit/dotdotdot/master/scripts/bootstrap-dotfiles.sh
     $ chmod +x bootstrap-dotfiles.sh
