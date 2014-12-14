@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Raimondi/delimitMate'
+Plugin 'Lokaltog/vim-easymotion'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
@@ -190,6 +191,9 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " delimitmate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+
+" easymotion
+map <Leader>s <Plug>(easymotion-prefix)
 
 " Syntastic - turn on by default and run a check when the file is opened
 if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
