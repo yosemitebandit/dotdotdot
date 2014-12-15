@@ -140,11 +140,7 @@ if has("gui_running")
     " use adobe's font
     set guifont=Source\ Code\ Pro\ 14
 else
-    if machine == 'work_desktop' || machine == 'work_laptop'
-      colorscheme evening
-    else
-      colorscheme delek
-    endif
+    colorscheme delek
 endif
 
 " leader tricks
