@@ -191,6 +191,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " delimitmate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " easymotion
 map <Leader>s <Plug>(easymotion-prefix)
