@@ -271,8 +271,9 @@ let g:go_fmt_command = "goimports"
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " markdown
-" disable folding mode
+" disable folding mode; treat extension-less README files as markdown
 let g:vim_markdown_folding_disabled=1
+au BufRead,BufNewFile README set filetype=mkd
 
 " svg
 " via http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
