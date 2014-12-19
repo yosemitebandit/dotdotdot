@@ -238,7 +238,7 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " the pep8 limit is 79, so chars should go up to but not past the bar
 " fyi, other standards set 80 as the limit so you can go one past the bar..
 au FileType python set colorcolumn=79
-highlight ColorColumn ctermbg=DarkBlue
+highlight ColorColumn ctermbg=Black
 " fix the nonindentation of python comments
 " http://stackoverflow.com/questions/2360249
 inoremap # X#
