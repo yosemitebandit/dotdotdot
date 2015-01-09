@@ -79,7 +79,7 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
-  sudo pip install pylint
+  sudo pip install pylint cdiff
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
 
   vim +PluginInstall +qall
