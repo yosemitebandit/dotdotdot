@@ -19,7 +19,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Raimondi/delimitMate'
 Plugin 'Lokaltog/vim-easymotion'
 if machine != 'mac'
   if bits == 64
@@ -183,11 +182,6 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
-
-" delimitmate
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " easymotion
 map <Leader>s <Plug>(easymotion-prefix)
