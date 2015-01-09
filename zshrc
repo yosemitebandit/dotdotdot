@@ -41,6 +41,8 @@ plugins=(
     common-aliases
     ssh-agent
     vagrant
+    fabric
+    django
 )
 
 DISABLE_AUTO_UPDATE="true"

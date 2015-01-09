@@ -222,6 +222,9 @@ endif
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+let g:html_indent_inctags = "html,body,head,table,tbody,thead,tr,th,td,p,h1,h2,h3,h4,h5,h6,form,hr,i,img,pre,textarea,ul,li,span,div,abbr"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " js
 au BufRead *.js set makeprg=jslint\ %
