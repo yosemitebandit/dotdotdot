@@ -62,6 +62,9 @@ TRAPALRM() {
   zle reset-prompt
 }
 
+# copy a file's contents to the clipboard
+alias copy='xclip -i -selection c'
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
