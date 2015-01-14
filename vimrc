@@ -160,6 +160,9 @@ else
   set grepprg=ack
 endif
 
+" disable Q and the dreaded Ex mode
+nnoremap Q <nop>
+
 " tagbar
 nmap <leader>ta :TagbarToggle<CR>
 
