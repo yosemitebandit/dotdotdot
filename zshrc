@@ -141,3 +141,5 @@ alias copy='xclip -i -selection c'
 if [[ "$MACHINE" == "work_desktop" ]]; then
   source /etc/bash_completion.d/g4d  # g4d alias
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

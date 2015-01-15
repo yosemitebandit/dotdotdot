@@ -28,8 +28,6 @@ if machine != 'mac'
 endif
 " langs
 Plugin 'tclem/vim-arduino'
-Plugin 'godlygeek/tabular'  " required for plasticboy/vim-markdown
-Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'lepture/vim-jinja'
 Plugin 'terryma/vim-smooth-scroll'
@@ -271,9 +269,9 @@ let g:go_fmt_command = "goimports"
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " markdown
-" disable folding mode; treat extension-less README files as markdown
-let g:vim_markdown_folding_disabled=1
-au BufRead,BufNewFile README set filetype=mkd
+" treat .md files and extension-less READMEs as markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost README set filetype=markdown
 
 " svg
 " via http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
