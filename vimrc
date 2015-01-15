@@ -185,7 +185,7 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 
 " easymotion
-map <Leader>s <Plug>(easymotion-prefix)
+map <Leader> <Plug>(easymotion-prefix)
 
 " Syntastic - turn on by default and run a check when the file is opened
 if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
