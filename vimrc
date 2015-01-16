@@ -33,6 +33,7 @@ Plugin 'lepture/vim-jinja'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/vim-nginx'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 filetype plugin indent on
