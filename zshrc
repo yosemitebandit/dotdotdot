@@ -108,6 +108,7 @@ alias copy='xclip -i -selection c'
         alias gcam='git commit -am'
         alias gacm='git commit -am'
         alias gcma='git commit -am'
+        alias gbg='git branch | grep'
     #}
     
     #{ ino
