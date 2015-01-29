@@ -92,7 +92,7 @@ alias copy='xclip -i -selection c'
 
     # timestamped command history
     alias history='fc -li -1000'
-    alias hgr='history | grep'
+    alias hgi='history | grep'
 
     alias lr='lein run'
 
