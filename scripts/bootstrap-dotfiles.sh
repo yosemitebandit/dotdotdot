@@ -95,6 +95,12 @@ if [ ! -f ~/.vimrc ]; then
 fi
 
 
+# ---
+# drop the swap file
+# ---
+sudo ~/conf/dotdotdot/scripts/delete-swap.sh
+
+
 echo ""
 echo "you should relogin to use zsh"
 echo "done!"
