@@ -47,12 +47,19 @@ execute the script from `scripts/bootstrap-dotfiles.sh`
 
 
 ### machine differences
-there are some slight differences between zsh setups on different machines.
-namely the git email, zsh path and the use of tools like `g4d`.
-we capture those differences in a `zshenv` file generated with the `bootstrap-dotfiles.sh` script.
+There are some slight differences between zsh setups on different machines,
+namely the git email and the zsh path.
+We capture those differences in a `zshenv` file generated with the `bootstrap-dotfiles.sh` script.
+These files are quite simple, here's an example:
+
+```
+export MACHINE="work_laptop"
+export BITS="64"
+```
 
 
-### ubuntu workspaces
+### gui stuff
+
 * install compiz:
 
 ```shell
@@ -65,13 +72,5 @@ $ sudo apt-get install compizconfig-settings-manager
   * move to workspace left: ctrl+alt+h
   * move to workspace right: ctrl+alt+l
 * appearance > behavior > auto-hide launcher
-
-
-### terminal
 * modify keyboard shortcuts for tab changes
 * set unlimited scrollback
-
-
-### other nice apps
-* kazam screencaster
-* vlc

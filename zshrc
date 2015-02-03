@@ -1,22 +1,8 @@
 # Path to your oh-my-zsh configuration.
 
-if [[ "$MACHINE" == "work_desktop" ]]; then
-  ZSH=/usr/local/google/home/matthewball/conf/oh-my-zsh
-  export EMAIL=matthewball@google.com
-  # setup editor for piper
-  export EDITOR='vi'
-  # g4d alias has to be run at the end of this file.. :/
-  alias g4p='g4 pending'
-  alias g5='git5'
-  alias g5l='git5 lint'
-  alias g5e='git5 export'
-  alias g5m='git5 merge'
-  export G4MULTIDIFF=1
-  export P4DIFF=/google/data/ro/users/lo/lodato/git-multi-diff
-
-elif [[ "$MACHINE" == "work_laptop" ]]; then
-  ZSH=/home/matthewball/conf/oh-my-zsh
-  export EMAIL=matthewball@google.com
+if [[ "$MACHINE" == "work_laptop" ]]; then
+  ZSH=/home/matt/conf/oh-my-zsh
+  export EMAIL=matt.ball.2@gmail.com
 
 elif [[ "$MACHINE" == "home" ]]; then
   ZSH=/home/matt/conf/oh-my-zsh
@@ -32,7 +18,9 @@ else
   ZSH=/home/matt/conf/oh-my-zsh
 fi
 
+
 ZSH_THEME="yosemitebandit"
+
 
 plugins=(
     git gitfast gitextras
@@ -125,7 +113,6 @@ alias copy='xclip -i -selection c'
        alias py='python'
        alias nd='nosetests -d'
        alias pyl='pylint --report=n'
-       alias gpyl='gpylint -d g-space-before-docstring-summary,g-no-space-after-docstring-summary'
     #}
 
     #{ vagrant
@@ -136,9 +123,3 @@ alias copy='xclip -i -selection c'
     #}
 
 #}
-
-
-# this use of autocompletion has to happen at the end of the file for some reason :/
-if [[ "$MACHINE" == "work_desktop" ]]; then
-  source /etc/bash_completion.d/g4d  # g4d alias
-fi
