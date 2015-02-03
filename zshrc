@@ -59,30 +59,32 @@ alias copy='xclip -i -selection c'
     alias ll='ls -la'
     alias la='ls -la'
     alias l='ls -lh'
+    alias c='clear'
+    alias cl='clear'
+    alias t='tree -C'
+    alias e='exit'
+    alias ex='exit'
+    alias sai='sudo apt-get install'
 
-    # remove confirmation
+    # remove sans confirmation
     unalias mv
     unalias rm
 
-    if [[ ! "$MACHINE" = "mac" ]]; then
+    # machine-dependent aliases
+    if [[ ! "$MACHINE" == "mac" ]]; then
         alias open='xdg-open'
+
+        if [[ "$MACHINE" == "work_laptop" ]]; then
+            alias va='source ~/.virtualenvs/endaga-server/bin/activate'
+            alias mr='echo "python manage.py runserver 0.0.0.0:8000\n"; python manage.py runserver 0.0.0.0:8000'
+            alias mt='echo "python manage.py test\n"; python manage.py test'
+        fi
+
     fi
-
-    alias c='clear'
-    alias cl='clear'
-
-    alias t='tree -C'
-
-    alias e='exit'
-    alias ex='exit'
-
-    alias sai='sudo apt-get install'
 
     # timestamped command history
     alias history='fc -li -1000'
     alias hgi='history | grep'
-
-    alias lr='lein run'
 
     #{ git
         alias gs='git status --ignore-submodules=dirty'
@@ -113,6 +115,10 @@ alias copy='xclip -i -selection c'
        alias py='python'
        alias nd='nosetests -d'
        alias pyl='pylint --report=n'
+    #}
+
+    #{ clojure
+       alias lr='lein run'
     #}
 
     #{ vagrant
