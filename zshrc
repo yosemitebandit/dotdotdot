@@ -77,7 +77,7 @@ alias copy='xclip -i -selection c'
         if [[ "$MACHINE" == "work_laptop" ]]; then
             alias va='source ~/.virtualenvs/endaga-server/bin/activate'
             alias mr='echo "python manage.py runserver 0.0.0.0:8000\n"; python manage.py runserver 0.0.0.0:8000'
-            alias mt='echo "python manage.py test\n"; python manage.py test'
+            alias mt='echo "python manage.py test\n"; cd ~/endaga-web; python manage.py test'
         fi
 
     fi
