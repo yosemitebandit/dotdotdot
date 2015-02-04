@@ -197,6 +197,7 @@ if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
       \ 'active_filetypes': [],
       \ 'passive_filetypes': ['html'] }
     let g:syntastic_python_checkers = ['pylint']
+    let g:syntastic_python_pylint_checker_args = '--load-plugins pylint_django'
     " better :sign interface symbols
     " on second thought..let's not use signs
     let g:syntastic_enable_signs=0
@@ -233,11 +234,10 @@ let g:html_indent_style1 = "inc"
 au BufRead *.js set makeprg=jslint\ %
 
 " python
-au FileType python setlocal expandtab shiftwidth=2 tabstop=4 softtabstop=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" the pep8 limit is 79, so chars should go up to but not past the bar
-" fyi, other standards set 80 as the limit so you can go one past the bar..
-au FileType python set colorcolumn=79
+" chars should go up to but not past the bar -- pep8 is 79 max, GSG is 80..
+au FileType python set colorcolumn=80
 highlight ColorColumn ctermbg=Black
 " fix the nonindentation of python comments
 " http://stackoverflow.com/questions/2360249
