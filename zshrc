@@ -77,7 +77,8 @@ alias copy='xclip -i -selection c'
         if [[ "$MACHINE" == "work_laptop" ]]; then
             alias va='source ~/.virtualenvs/endaga-server/bin/activate'
             alias mr='echo "python manage.py runserver 0.0.0.0:8000\n"; python manage.py runserver 0.0.0.0:8000'
-            alias mt='echo "python manage.py test\n"; cd ~/endaga-web; python manage.py test'
+            alias mt='echo "python manage.py test --traceback\n"; cd ~/endaga-web; python manage.py test --traceback'
+            alias mte='echo "python manage.py test endagaweb --traceback\n"; cd ~/endaga-web; python manage.py test endagaweb --traceback'
         fi
 
     fi
@@ -99,6 +100,7 @@ alias copy='xclip -i -selection c'
         alias gacm='git commit -am'
         alias gcma='git commit -am'
         alias gbg='git branch | grep'
+        alias gpo='git push origin'
     #}
     
     #{ ino
