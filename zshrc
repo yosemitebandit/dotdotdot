@@ -102,6 +102,7 @@ alias copy='xclip -i -selection c'
         alias gbg='git branch | grep'
         alias gpo='git push origin'
         alias gmm='git merge master'
+        alias gld='git log --full-diff -p .'
     #}
     
     #{ ino
