@@ -236,8 +236,9 @@ au BufRead *.js set makeprg=jslint\ %
 " python
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" chars should go up to but not past the bar -- pep8 is 79 max, GSG is 80..
-au FileType python set colorcolumn=80
+" chars should go up to but not past the bar
+" pep8 is 79 max, GSG is 80, github works best with 79..
+au FileType python set colorcolumn=79
 highlight ColorColumn ctermbg=Black
 " fix the nonindentation of python comments
 " http://stackoverflow.com/questions/2360249
