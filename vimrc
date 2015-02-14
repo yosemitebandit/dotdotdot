@@ -198,6 +198,7 @@ if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
       \ 'passive_filetypes': ['html'] }
     let g:syntastic_python_checkers = ['pylint']
     let g:syntastic_python_pylint_checker_args = '--load-plugins pylint_django'
+    let g:syntastic_javascript_checkers = ['jshint']
     " better :sign interface symbols
     " on second thought..let's not use signs
     let g:syntastic_enable_signs=0
@@ -231,7 +232,7 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " js
-au BufRead *.js set makeprg=jslint\ %
+au BufRead *.js set makeprg=jshint\ %
 
 " python
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
