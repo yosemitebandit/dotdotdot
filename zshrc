@@ -52,8 +52,11 @@ TRAPALRM() {
   zle reset-prompt
 }
 
-# copy a file's contents to the clipboard
-alias copy='xclip -i -selection c'
+# Copy a file's contents to the clipboard.
+# Can't get something equivalent working for mac :/
+if [[ ! "$MACHINE" == "mac" ]]; then
+  alias copy='xclip -i -selection c'
+fi
 
 #{ ALIASES
     alias ll='ls -la'

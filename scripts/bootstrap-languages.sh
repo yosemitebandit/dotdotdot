@@ -64,6 +64,19 @@ fi
 
 
 # ---
+# node
+# ---
+if [ ! hash npm 2>/dev/null ]; then
+  echo "node!"
+  curl -sL https://deb.nodesource.com/setup | sudo bash -
+  sudo apt-get install -y nodejs
+  npm install -g npm@latest
+  sudo npm install -g jshint
+  sudo npm install -g jsxhint
+fi
+
+
+# ---
 # remove the swap file
 # ---
 sudo ~/conf/dotdotdot/scripts/delete-swap.sh
