@@ -60,9 +60,19 @@ if [ ! -d ~/conf ]; then
   ln -s ~/conf/dotdotdot/tmux.conf ~/.tmux.conf
 fi
 
+
+# ---
+# git
+# ---
 if [ ! -f ~/.gitconfig ]; then
   echo ".gitconfig !"
   ln -s ~/conf/dotdotdot/gitconfig ~/.gitconfig
+  # Setup improved color diff.
+  curl -O https://github.com/jeffkaufman/icdiff/archive/release-1.7.2.tar.gz -L
+  tar -xf release-1.7.2.tar.gz 
+  sudo mv icdiff-release-1.7.2/icdiff /usr/local/bin
+  sudo mv icdiff-release-1.7.2/git-icdiff /usr/local/bin
+  rm -rf icdiff-release-1.7.2 release-1.7.2.tar.gz
 fi
 
 
@@ -79,7 +89,7 @@ if [ ! -f ~/.vimrc ]; then
   echo ".vimrc !"
   ln -s ~/conf/dotdotdot/vim ~/.vim
   ln -s ~/conf/dotdotdot/vimrc ~/.vimrc
-  sudo pip install pylint cdiff
+  sudo pip install pylint
   ln -s ~/conf/dotdotdot/pylintrc ~/.pylintrc
 
   vim +PluginInstall +qall
