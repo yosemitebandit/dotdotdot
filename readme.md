@@ -64,6 +64,8 @@ export BITS="64"
 brew install the_silver_searcher
 brew install icdiff
 brew install ctags
+brew install node
+npm install -g npm@latest
 ```
 
 

@@ -231,7 +231,7 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " js
-au BufRead *.js set makeprg=jslint\ %
+au BufRead *.js set makeprg=jshint\ %
 
 " python
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
