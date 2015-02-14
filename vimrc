@@ -190,7 +190,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 map <Leader> <Plug>(easymotion-prefix)
 
 " Syntastic - turn on by default and run a check when the file is opened
-<<<<<<< HEAD
 let g:syntastic_check_on_open=1
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
