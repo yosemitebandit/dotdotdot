@@ -1,6 +1,6 @@
 the way in which I setup my dev environment nowadays
 
-works best on 64bit trusty tahr
+works best on 64bit trusty
 
 
 ### first-time setup bits
@@ -78,17 +78,16 @@ npm install -g npm@latest
 
 ### gui stuff
 
-* install compiz:
-
-```shell
-$ sudo apt-get install compizconfig-settings-manager
-```
-
-* in compiz, edit general options > desktop size
-  * horizontal 3, vertical 1
+* install compiz `$ sudo apt-get install compizconfig-settings-manager`
+  * in compiz, edit general options > desktop size > horizontal 3, vertical 1
 * in keyboard, edit shortcuts
   * move to workspace left: ctrl+alt+h
   * move to workspace right: ctrl+alt+l
 * appearance > behavior > auto-hide launcher
 * modify keyboard shortcuts for tab changes
 * set unlimited scrollback
+
+
+### things to fix
+
+* [better js hints](http://stackoverflow.com/questions/28518042)
