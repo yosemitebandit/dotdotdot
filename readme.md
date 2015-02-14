@@ -60,6 +60,14 @@ export BITS="64"
 
 ### mac bootstrapping
 
+Still busted on mac:
+`gitk`,
+that nice `copy` alias,
+`ycm`,
+`syntastic`.
+
+Otherwise:
+
 ```
 brew install the_silver_searcher
 brew install icdiff
