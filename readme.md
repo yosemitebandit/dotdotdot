@@ -58,6 +58,14 @@ export BITS="64"
 ```
 
 
+### mac bootstrapping
+
+```
+brew install the_silver_searcher
+brew install icdiff
+```
+
+
 ### gui stuff
 
 * install compiz:
