@@ -20,10 +20,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/syntastic'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
-    Plugin 'scrooloose/syntastic'
   endif
 endif
 " langs
@@ -190,38 +190,29 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 map <Leader> <Plug>(easymotion-prefix)
 
 " Syntastic - turn on by default and run a check when the file is opened
-if machine == 'work_desktop' || machine == 'work_laptop' || machine == 'home'
-  if bits == 64
-    let g:syntastic_check_on_open=1
-    let g:syntastic_mode_map = { 'mode': 'active',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': ['html'] }
-    let g:syntastic_python_checkers = ['pylint']
-    let g:syntastic_python_pylint_checker_args = '--load-plugins pylint_django'
-    " better :sign interface symbols
-    " on second thought..let's not use signs
-    let g:syntastic_enable_signs=0
-    let g:syntastic_error_symbol = ">"
-    let g:syntastic_style_error_symbol = ">"
-    let g:syntastic_warning_symbol = ">"
-    let g:syntastic_style_warning_symbol = ">"
-    " toggle :Errors pane with <leader>er
-    function! ToggleErrors()
-      let old_last_winnr = winnr('$')
-      lclose
-      if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-      endif
-    endfunction
-    nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
-    " close quickfix and scratch windows
-    nnoremap <leader>c :pc<CR> :ccl<CR>
-    " or just close scratch on move
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_checker_args = '--load-plugins pylint_django'
+" Let's just not use signs (those little left-sidebar symbols).
+let g:syntastic_enable_signs=0
+" toggle :Errors pane with <leader>er
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel
+    Errors
   endif
-endif
+endfunction
+nnoremap <silent> <leader>er :<C-u>call ToggleErrors()<CR>
+" close quickfix and scratch windows
+nnoremap <leader>c :pc<CR> :ccl<CR>
+" or just close scratch on move
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html

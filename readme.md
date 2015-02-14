@@ -63,8 +63,7 @@ export BITS="64"
 Still busted on mac:
 `gitk`,
 that nice `copy` alias,
-`ycm`,
-`syntastic`.
+`ycm`.
 
 Otherwise:
 
