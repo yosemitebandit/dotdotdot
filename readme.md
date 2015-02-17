@@ -63,7 +63,6 @@ export BITS="64"
 Still busted on mac:
 `gitk`,
 that nice `copy` alias,
-`ycm` (don't think this will work).
 
 Otherwise:
 
@@ -91,4 +90,3 @@ npm install -g npm@latest
 ### things to fix
 
 * [better js hints](http://stackoverflow.com/questions/28518042)
-* completion on mac - jedi is not what you want.
