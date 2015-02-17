@@ -25,6 +25,8 @@ if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
   endif
+else
+  Plugin 'Shougo/neocomplcache.vim'
 endif
 " langs
 Plugin 'tclem/vim-arduino'
@@ -214,6 +216,26 @@ nnoremap <leader>c :pc<CR> :ccl<CR>
 " or just close scratch on move
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Neocomplcache.vim
+if machine == 'mac'
+  let g:acp_enableAtStartup = 0
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_min_syntax_length = 2
+  inoremap <expr><C-g> neocomplcache#undo_completion()
+  " tab completion
+  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  " enable omni completions
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  " change popup menu color
+  highlight Pmenu ctermbg=8 guibg=#606060
+  highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+  highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+endif
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
