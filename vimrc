@@ -27,6 +27,7 @@ if machine != 'mac'
   endif
 else
   Plugin 'Shougo/neocomplcache.vim'
+  Plugin 'vim-scripts/OnSyntaxChange'
 endif
 " langs
 Plugin 'tclem/vim-arduino'
@@ -221,7 +222,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 if machine == 'mac'
   let g:acp_enableAtStartup = 0
   let g:neocomplcache_enable_at_startup = 1
-  let g:neocomplcache_min_syntax_length = 2
+  let g:neocomplcache_min_syntax_length = 4
   inoremap <expr><C-g> neocomplcache#undo_completion()
   " tab completion
   inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -236,6 +237,11 @@ if machine == 'mac'
   highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
   highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 endif
+
+" OnSyntaxChange - disabling Neocomplcache in comments
+call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
+autocmd User SyntaxCommentEnterI silent! NeoComplCacheLock
+autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
