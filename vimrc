@@ -57,6 +57,10 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" change size of vertical splits
+nnoremap H :5winc <<CR>
+nnoremap L :5winc ><CR>
+
 " syntax
 syntax enable
 syntax on                     " syntax highlighing
