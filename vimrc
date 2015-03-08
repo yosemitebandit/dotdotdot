@@ -40,6 +40,7 @@ Plugin 'fatih/vim-nginx'
 Plugin 'cespare/vim-toml'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'JulesWang/css.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -251,6 +252,7 @@ autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
 set laststatus=2
 set t_Co=256
 let g:airline_theme='luna'
+let g:airline#extensions#branch#displayed_head_limit = 10
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
