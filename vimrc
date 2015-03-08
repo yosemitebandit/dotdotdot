@@ -242,10 +242,12 @@ if machine == 'mac'
   highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 endif
 
-" OnSyntaxChange - disabling Neocomplcache in comments
-call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
-autocmd User SyntaxCommentEnterI silent! NeoComplCacheLock
-autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
+if machine == 'mac'
+  " OnSyntaxChange - disabling Neocomplcache in comments
+  call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
+  autocmd User SyntaxCommentEnterI silent! NeoComplCacheLock
+  autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
+endif
 
 " Airline
 " Show the bar even when only one file is open and force 256 colors.
