@@ -21,6 +21,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
