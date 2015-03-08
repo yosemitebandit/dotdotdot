@@ -134,8 +134,8 @@ set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
 " display
+colorscheme delek
 if has("gui_running")
-    colorscheme delek
     " remove menu bar, toolbar and sidebars
     set guioptions-=m
     set guioptions-=T
@@ -146,8 +146,6 @@ if has("gui_running")
     set guioptions-=b
     " use adobe's font
     set guifont=Source\ Code\ Pro\ 14
-else
-    colorscheme delek
 endif
 
 " leader tricks
@@ -247,6 +245,12 @@ endif
 call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
 autocmd User SyntaxCommentEnterI silent! NeoComplCacheLock
 autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
+
+" Airline
+" Show the bar even when only one file is open and force 256 colors.
+set laststatus=2
+set t_Co=256
+let g:airline_theme='luna'
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
