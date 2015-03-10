@@ -250,11 +250,16 @@ if machine == 'mac'
 endif
 
 " Airline
-" Show the bar even when only one file is open and force 256 colors.
+" Show the bar even when only one file is open and force 256 color-mode.
 set laststatus=2
 set t_Co=256
 let g:airline_theme='luna'
 let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#syntastic#enabled = 0
+" Disable the mode, filetype and encoding sections.
+let g:airline_section_a = 0
+let g:airline_section_x = 0
+let g:airline_section_y = 0
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
