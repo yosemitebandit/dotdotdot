@@ -132,7 +132,7 @@ fi
        alias vu='vagrant up'
        alias vh='vagrant halt'
        alias vs='vagrant ssh'
-       alias vt='vagrant status'
+       alias vt='vagrant global-status'
     #}
 
 #}
