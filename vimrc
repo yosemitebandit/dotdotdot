@@ -41,6 +41,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'JulesWang/css.vim'
+Plugin 'tpope/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
