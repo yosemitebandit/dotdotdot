@@ -68,6 +68,7 @@ fi
     alias e='exit'
     alias ex='exit'
     alias sai='sudo apt-get install'
+    alias o='open'
 
     # remove sans confirmation
     unalias mv
@@ -92,6 +93,7 @@ fi
 
     #{ git
         alias gs='git status --ignore-submodules=dirty'
+        alias gsd='gs'
         alias gh='git history'
         alias ga='git add'
         alias gb='git branch'
