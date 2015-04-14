@@ -64,6 +64,10 @@ endif
 nnoremap H :5winc <<CR>
 nnoremap L :5winc ><CR>
 
+" new splits open on the right and on the bottom
+set splitbelow
+set splitright
+
 " syntax
 syntax enable
 syntax on                     " syntax highlighing
