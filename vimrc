@@ -201,9 +201,9 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" Syntastic - turn on by default and run a check when the file is opened
-let g:syntastic_check_on_open=1
-let g:syntastic_mode_map = { 'mode': 'active',
+" Syntastic - turn off by default.
+let g:syntastic_mode_map = {
+  \ 'mode': 'passive',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
 let g:syntastic_python_checkers = ['pylint']
@@ -211,6 +211,9 @@ let g:syntastic_python_pylint_checker_args = '--load-plugins pylint_django'
 let g:syntastic_javascript_checkers = ['jshint']
 " Let's just not use signs (those little left-sidebar symbols).
 let g:syntastic_enable_signs=0
+" toggle a active / passive mode on <leader>z
+" (and then you can actually trigger a syntax check by saving)
+nnoremap <leader>z :SyntasticToggleMode<CR>
 " toggle :Errors pane with <leader>er
 function! ToggleErrors()
   let old_last_winnr = winnr('$')
