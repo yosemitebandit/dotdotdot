@@ -22,6 +22,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+Plugin 'terryma/vim-smooth-scroll'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
@@ -34,7 +35,6 @@ endif
 Plugin 'tclem/vim-arduino'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'lepture/vim-jinja'
-Plugin 'terryma/vim-smooth-scroll'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/vim-nginx'
 Plugin 'cespare/vim-toml'
@@ -109,7 +109,6 @@ set softtabstop=2           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
-set foldmethod=marker       " allow us to fold on marks
 set foldlevel=99            " don't fold by default
 
 " reading and writing
