@@ -110,6 +110,8 @@ fi
         alias gpo='git push origin'
         alias gmm='git merge master'
         alias gld='git log --full-diff -p .'
+        alias gss='git stash save'
+        alias gsp='git stash pop'
     #}
     
     #{ ino
