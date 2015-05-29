@@ -69,6 +69,7 @@ fi
     alias ex='exit'
     alias sai='sudo apt-get install'
     alias o='open'
+    alias ssn='echo "sudo shutdown now -P\n"; sudo shutdown now -P'
 
     # remove sans confirmation
     unalias mv
