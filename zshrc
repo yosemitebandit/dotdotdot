@@ -140,6 +140,7 @@ fi
        alias vs='vagrant ssh'
        alias vt='vagrant global-status'
        alias vsm='cd ~ && vagrant ssh mercury'
+       alias vum='cd ~ && vagrant up mercury'
     #}
 
 #}
