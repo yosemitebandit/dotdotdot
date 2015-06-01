@@ -81,6 +81,7 @@ fi
 
         if [[ "$MACHINE" == "work_laptop" ]]; then
             ssh-add ~/.ssh/endagaweb.pem
+            ssh-add ~/.ssh/endaga-test.pem
             ssh-agent
             alias va='source ~/.virtualenvs/endaga-server/bin/activate'
             alias mr='echo "python manage.py runserver 0.0.0.0:8000\n"; python manage.py runserver 0.0.0.0:8000'
