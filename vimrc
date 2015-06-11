@@ -176,6 +176,9 @@ endif
 " disable Q and the dreaded Ex mode
 nnoremap Q <nop>
 
+" setting paste mode
+map <leader>a :set paste!<CR>
+
 " tagbar
 nmap <leader>ta :TagbarToggle<CR>
 
