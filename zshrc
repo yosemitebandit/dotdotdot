@@ -58,6 +58,9 @@ if [[ ! "$MACHINE" == "mac" ]]; then
   alias copy='xclip -i -selection c'
 fi
 
+# Stop creating .pyc files.
+export PYTHONDONTWRITEBYTECODE=1
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
