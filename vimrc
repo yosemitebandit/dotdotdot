@@ -24,6 +24,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-sleuth'
+Plugin 'wincent/terminus'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
