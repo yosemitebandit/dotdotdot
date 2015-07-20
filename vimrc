@@ -338,3 +338,6 @@ au FileType svg setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " jsx from react
 let g:jsx_ext_required = 0
+
+" find/replace in a visually selected block
+vmap <leader>r :s/\%V
