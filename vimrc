@@ -45,6 +45,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'JulesWang/css.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'guns/vim-clojure-static'
 
 call vundle#end()
 filetype plugin indent on
