@@ -90,3 +90,8 @@ npm install -g npm@latest
 ### things to fix
 
 * [better js hints](http://stackoverflow.com/questions/28518042)
+
+
+### tips
+
+* when viewing syslog files in vi use `:setf messages` to get some syntax highlighting
