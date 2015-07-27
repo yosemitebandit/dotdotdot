@@ -113,6 +113,7 @@ export PYTHONDONTWRITEBYTECODE=1
         alias gcma='git commit -am'
         alias gbg='git branch | grep'
         alias gpo='git push origin'
+        alias glo='git pull origin'
         alias gmm='git merge master'
         alias gld='git log --full-diff -p .'
         alias gss='git stash save'
