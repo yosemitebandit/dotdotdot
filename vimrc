@@ -25,6 +25,7 @@ Plugin 'bling/vim-airline'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-sleuth'
 Plugin 'wincent/terminus'
+Plugin 'luochen1990/rainbow'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
@@ -181,6 +182,9 @@ nnoremap Q <nop>
 " setting paste mode
 map <leader>a :set paste!<CR>
 
+" find/replace in a visually selected block
+vmap <leader>r :s/\%V
+
 " tagbar
 nmap <leader>ta :TagbarToggle<CR>
 
@@ -279,6 +283,9 @@ let g:airline_section_y = 0
 " Don't change the cursor when in insert mode.
 let g:TerminusCursorShape = 0
 
+" rainbow parens
+let g:rainbow_active = 1
+
 
 " jinja/html
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
@@ -340,5 +347,5 @@ au FileType svg setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " jsx from react
 let g:jsx_ext_required = 0
 
-" find/replace in a visually selected block
-vmap <leader>r :s/\%V
+" clojure
+"au BufRead,BufNewFile *.clj set filetype=clojure
