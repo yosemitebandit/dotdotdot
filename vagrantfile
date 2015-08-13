@@ -20,5 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "trusty64" do |trusty64|
     trusty64.vm.box = "ubuntu/trusty64"
+    trusty64.vm.network "forwarded_port", guest: 9000, host: 9000
+    trusty64.vm.synced_folder "trusty64-share", "/share"
   end
 end
