@@ -291,7 +291,8 @@ let g:html_indent_style1 = "inc"
 au BufRead *.js set makeprg=jshint\ %
 
 " python
-au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+" Note that vim-sleuth should be setting shiftwidth heuristically.
+au FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " chars should go up to but not past the bar
 " pep8 is 79 max, GSG is 80, github works best with 79..
