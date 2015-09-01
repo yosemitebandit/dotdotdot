@@ -73,6 +73,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias sai='sudo apt-get install'
     alias o='open'
     alias ssn='echo "sudo shutdown now -P\n"; sudo shutdown now -P'
+    alias pag='ps aux | grep'
 
     # remove sans confirmation
     unalias mv
