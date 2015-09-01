@@ -40,6 +40,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 
+# heroku support
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
 bindkey '^[OA' history-beginning-search-backward
