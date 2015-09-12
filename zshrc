@@ -31,6 +31,7 @@ plugins=(
     vagrant
     fabric
     django
+    lein
 )
 
 DISABLE_AUTO_UPDATE="true"
