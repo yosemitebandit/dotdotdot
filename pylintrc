@@ -1,8 +1,8 @@
 [FORMAT]
 # the string used as indentation unit
-indent-string='    '
+indent-string='  '
 # spaces of indent required inside a hanging or continued line
-indent-after-paren=4
+indent-after-paren=2
 
 [MESSAGES CONTROL]
 # http://pylint-messages.wikidot.com/all-messages
