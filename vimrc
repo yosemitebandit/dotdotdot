@@ -116,6 +116,7 @@ set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldlevel=99            " don't fold by default
+set nostartofline           " don't go to the start of a line for certain commands (ctrl-d, buffer switches, etc)
 
 " reading and writing
 set noautowrite             " Never write a file unless I request it.
