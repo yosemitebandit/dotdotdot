@@ -151,6 +151,8 @@ export PYTHONDONTWRITEBYTECODE=1
 
     #{ clojure
        alias lr='lein run'
+       alias lt='lein test'
+       alias lrl='lein repl'
     #}
 
     #{ vagrant
