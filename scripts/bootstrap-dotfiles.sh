@@ -46,7 +46,7 @@ fi
 # ---
 # dotfiles
 # ---
-if [ ! -d ~/conf ]; then
+if [ ! -d ~/conf/dotdotdot ]; then
   echo "dotfiles!"
   mkdir -p ~/conf
   cd ~/conf
