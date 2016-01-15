@@ -34,6 +34,7 @@ if [ ! -d ~/conf/venvs/sci ]; then
   pip install pandas
   pip install scipy
   pip install sklearn
+  pip install jupyter
   deactivate
   ln -s ~/conf/dotdotdot/pypirc ~/.pypirc
 fi
