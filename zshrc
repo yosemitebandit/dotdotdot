@@ -65,7 +65,7 @@ TRAPALRM() {
 }
 
 # Copy a file's contents to the clipboard.
-# Can't get something equivalent working for mac :/
+# For mac: cat hallo.txt | pbcopy
 if [[ ! "$MACHINE" == "mac" ]]; then
   alias copy='xclip -i -selection c'
 fi
