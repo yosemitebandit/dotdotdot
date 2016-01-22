@@ -31,6 +31,10 @@ if [ ! -d ~/conf/venvs/sci ]; then
   pip install numpy
   pip install distribute --upgrade
   pip install matplotlib
+  pip install pandas
+  pip install scipy
+  pip install sklearn
+  pip install jupyter
   deactivate
   ln -s ~/conf/dotdotdot/pypirc ~/.pypirc
 fi
