@@ -90,6 +90,7 @@ npm install -g npm@latest
 ### things to fix
 
 * [better js hints](http://stackoverflow.com/questions/28518042)
+* get `ServerAliveInterval 60` in the ssh config
 
 
 ### tips
