@@ -91,6 +91,11 @@ export PYTHONDONTWRITEBYTECODE=1
     unalias mv
     unalias rm
 
+    # use macvim on mac
+    if [[ "$MACHINE" == "mac" ]]; then
+        alias vi='mvim -v'
+    fi
+
     # machine-dependent aliases
     if [[ ! "$MACHINE" == "mac" ]]; then
         alias open='xdg-open'

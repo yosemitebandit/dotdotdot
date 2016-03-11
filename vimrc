@@ -22,6 +22,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-sleuth'
 Plugin 'wincent/terminus'
@@ -298,6 +299,7 @@ let g:html_indent_style1 = "inc"
 
 " js
 au BufRead *.js set makeprg=jshint\ %
+au BufRead *.js set formatoptions=tnq
 
 " python
 " Note that vim-sleuth should be setting shiftwidth heuristically.
