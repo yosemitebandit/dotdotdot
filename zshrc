@@ -86,6 +86,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias o='open'
     alias ssn='echo "sudo shutdown now -P\n"; sudo shutdown now -P'
     alias pag='ps aux | grep'
+    alias count-files='find . -type f | wc -l'
 
     # remove sans confirmation
     unalias mv
