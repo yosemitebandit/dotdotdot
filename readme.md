@@ -91,6 +91,7 @@ npm install -g npm@latest
 
 * [better js hints](http://stackoverflow.com/questions/28518042)
 * get `ServerAliveInterval 60` in the ssh config
+* auto link your jupyter conf to `~/.jupyter/custom/custom.js`
 
 
 ### tips
