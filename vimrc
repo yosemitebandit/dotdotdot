@@ -27,6 +27,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-sleuth'
 Plugin 'wincent/terminus'
 Plugin 'luochen1990/rainbow'
+Plugin 'scrooloose/nerdcommenter'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
