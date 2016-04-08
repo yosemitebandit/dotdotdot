@@ -278,7 +278,8 @@ let g:airline_theme='luna'
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#syntastic#enabled = 0
 " Disable the mode, filetype and encoding sections.
-let g:airline_section_a = 0
+let hostname=system('hostname -s| tr -d "\n"')
+let g:airline_section_a = '%{hostname}'
 let g:airline_section_x = 0
 let g:airline_section_y = 0
 
