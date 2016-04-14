@@ -88,8 +88,9 @@ export PYTHONDONTWRITEBYTECODE=1
     alias pag='ps aux | grep'
     alias count-files='find . -type f | wc -l'
     alias cp='rsync -azh'
+    alias ss='sudo $(fc -ln -1)'
 
-    # remove sans confirmation
+    # remove things sans confirmation
     unalias mv
     unalias rm
 
