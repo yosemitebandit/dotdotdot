@@ -88,6 +88,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias pag='ps aux | grep'
     alias count-files='find . -type f | wc -l'
     alias cp='rsync -azh'
+    alias tma='tmux attach-session'
 
     # remove sans confirmation
     unalias mv
