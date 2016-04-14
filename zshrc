@@ -89,6 +89,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias count-files='find . -type f | wc -l'
     alias cp='rsync -azh'
     alias ss='sudo $(fc -ln -1)'
+    alias tma='tmux attach-session'
 
     # remove things sans confirmation
     unalias mv
