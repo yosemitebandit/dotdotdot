@@ -50,6 +50,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
