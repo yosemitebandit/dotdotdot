@@ -28,6 +28,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'wincent/terminus'
 Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Chiel92/vim-autoformat'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
@@ -357,3 +358,7 @@ let g:jsx_ext_required = 0
 
 " clojure
 "au BufRead,BufNewFile *.clj set filetype=clojure
+
+" rust
+au BufRead,BufNewFile *.rs set filetype=rust
+au FileType rust nmap <leader>f :Autoformat<CR>
