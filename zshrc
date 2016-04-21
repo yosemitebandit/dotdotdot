@@ -173,4 +173,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias vum='cd ~ && vagrant up mercury'
     #}
 
+    #{ rust
+       alias cb='cargo build'
+    #}
 #}
