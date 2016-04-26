@@ -175,5 +175,6 @@ export PYTHONDONTWRITEBYTECODE=1
 
     #{ rust
        alias cb='cargo build'
+       alias ct='cargo test'
     #}
 #}
