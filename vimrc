@@ -52,6 +52,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 call vundle#end()
 filetype plugin indent on
