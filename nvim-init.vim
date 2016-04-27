@@ -32,6 +32,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'benekastah/neomake'
+"Plug 'paretje/neomake', { 'branch': 'highlight' }
 
 " langs
 Plug 'tclem/vim-arduino'
@@ -71,7 +72,7 @@ set nowrap
 " remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+        \| exe "normal g'\"" | endif
 endif
 
 " change size of vertical splits
@@ -124,10 +125,10 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " ctrlp
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s
-    \ --nocolor --nogroup --depth 5
-    \ --hidden --follow --smart-case
-    \ --ignore .git
-    \ -g ""'
+        \ --nocolor --nogroup --depth 5
+        \ --hidden --follow --smart-case
+        \ --ignore .git
+        \ -g ""'
   let g:ctrlp_use_caching = 0
 endif
 
@@ -163,9 +164,24 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual
 inoremap <Leader><Tab> <Space><Space>
 
 
-" rust and racer
+" neomake
+let g:neomake_open_list = 2
+let g:neomake_warning_sign = {
+      \ 'text': 'W',
+      \ 'texthl': 'WarningMsg',
+      \ }
+let g:neomake_error_sign = {
+      \ 'text': 'E',
+      \ 'texthl': 'ErrorMsg',
+      \ }
+" close quickfix and scratch windows
+nnoremap <leader>c :pc<CR> :ccl<CR>
+
+
+" rust
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust nmap <leader>f :Autoformat<CR>
 set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
 let $RUST_SRC_PATH="/usr/local/rust/src"
+autocmd BufEnter,BufWritePost *.rs Neomake! cargo
