@@ -67,6 +67,8 @@ syntax enable
 colorscheme OceanicNext
 set background=dark
 set nowrap
+set ignorecase
+set smartcase
 
 " remember last location in file
 if has("autocmd")
