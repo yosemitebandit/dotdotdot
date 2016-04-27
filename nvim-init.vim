@@ -31,14 +31,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-if machine != 'mac'
-  if bits == 64
-    "Plug 'Valloric/YouCompleteMe'
-  endif
-else
-  "Plug 'Shougo/neocomplcache.vim'
-  "Plug 'vim-scripts/OnSyntaxChange'
-endif
+Plug 'benekastah/neomake'
 
 " langs
 Plug 'tclem/vim-arduino'
