@@ -97,3 +97,8 @@ npm install -g npm@latest
 ### tips
 
 * when viewing syslog files in vi use `:setf messages` to get some syntax highlighting
+
+
+### also
+
+* might need `pylama` for neomake to work: `pip install --user pylama`
