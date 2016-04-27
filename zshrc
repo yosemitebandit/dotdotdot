@@ -11,7 +11,7 @@ elif [[ "$MACHINE" == "home" ]]; then
 elif [[ "$MACHINE" == "mac" ]]; then
   ZSH=/Users/matt/conf/oh-my-zsh
   export EMAIL=matt.ball.2@gmail.com
-  export TERM=xterm
+  export TERM=xterm-256color
 
 else
   echo "remember to set MACHINE in .zshenv; it's currently: " $MACHINE
@@ -51,6 +51,7 @@ export GOPATH=$HOME/gocode
 
 # rust
 export PATH=$PATH:~/.cargo/bin
+export RUST_SRC_PATH=/usr/local/rust/src
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
@@ -95,9 +96,10 @@ export PYTHONDONTWRITEBYTECODE=1
     unalias mv
     unalias rm
 
-    # use macvim on mac
+    # use macvim and neovim on mac
     if [[ "$MACHINE" == "mac" ]]; then
         alias vi='mvim -v'
+        alias nv='nvim'
     fi
 
     # machine-dependent aliases
