@@ -62,7 +62,6 @@ call plug#end()
 :imap jk <Esc>
 :imap jj <Esc>
 let mapleader=","
-set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 syntax enable
 colorscheme OceanicNext
