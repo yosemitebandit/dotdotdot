@@ -29,6 +29,7 @@ Plugin 'wincent/terminus'
 Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'jiangmiao/auto-pairs'
 if machine != 'mac'
   if bits == 64
     Plugin 'Valloric/YouCompleteMe'
@@ -261,6 +262,7 @@ if machine == 'mac'
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType rust setlocal omnifunc=syntaxcomplete#Complete
   " change popup menu color
   highlight Pmenu ctermbg=8 guibg=#606060
   highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
@@ -363,3 +365,6 @@ let g:jsx_ext_required = 0
 " rust
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust nmap <leader>f :Autoformat<CR>
+set hidden
+let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
+let $RUST_SRC_PATH="/Users/matt/rust-src/"
