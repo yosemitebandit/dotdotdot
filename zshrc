@@ -95,10 +95,9 @@ export PYTHONDONTWRITEBYTECODE=1
     unalias mv
     unalias rm
 
-    # use macvim and neovim on mac
+    # use macvim on mac
     if [[ "$MACHINE" == "mac" ]]; then
         alias vi='mvim -v'
-        alias nv='nvim'
     fi
 
     # machine-dependent aliases
@@ -177,5 +176,15 @@ export PYTHONDONTWRITEBYTECODE=1
     #{ rust
        alias cb='cargo build'
        alias ct='cargo test'
+    #}
+
+    #{ neovim
+       alias nv='neovim'
+    #}
+
+    #{ my blog
+       function hnt() {
+         hugo new --theme=pasture notes/"$@";
+       }
     #}
 #}
