@@ -73,6 +73,7 @@ set directory=~/.vim/backup
 syntax enable
 colorscheme OceanicNext
 set background=dark
+set nowrap
 
 " remember last location in file
 if has("autocmd")
@@ -170,3 +171,4 @@ au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust nmap <leader>f :Autoformat<CR>
 set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
+let $RUST_SRC_PATH="/usr/local/rust/src"
