@@ -185,3 +185,7 @@ set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
 let $RUST_SRC_PATH="/usr/local/rust/src"
 autocmd BufEnter,BufWritePost *.rs Neomake! cargo
+
+
+" python
+"autocmd BufEnter,BufWritePost *.py Neomake! pylama
