@@ -179,7 +179,7 @@ export PYTHONDONTWRITEBYTECODE=1
     #}
 
     #{ neovim
-       alias nv='neovim'
+       alias nv='nvim'
     #}
 
     #{ my blog
