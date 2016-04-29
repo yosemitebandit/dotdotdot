@@ -179,6 +179,7 @@ export PYTHONDONTWRITEBYTECODE=1
     #{ rust
        alias cb='cargo build'
        alias ct='cargo test'
+       alias cr='cargo run'
     #}
 
     #{ neovim
