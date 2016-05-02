@@ -50,9 +50,8 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 
 # rust
+# Use the "append-to-path" function below to work with the various multirust toolchains.
 export PATH=$PATH:~/.cargo/bin
-export PATH=$PATH:~/.multirust/toolchains/nightly/cargo/bin
-export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
@@ -191,6 +190,12 @@ export PYTHONDONTWRITEBYTECODE=1
     #{ my blog
        function hnt() {
          hugo new --theme=pasture notes/"$@";
+       }
+    #}
+
+    #{ adding paths
+       function append-to-path() {
+         export PATH=$PATH:"$@";
        }
     #}
 #}
