@@ -51,6 +51,8 @@ export GOPATH=$HOME/gocode
 
 # rust
 export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.multirust/toolchains/nightly/cargo/bin
+export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
 
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
