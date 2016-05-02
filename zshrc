@@ -181,6 +181,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias cb='cargo build'
        alias ct='cargo test'
        alias cr='cargo run'
+       alias ccc='cargo clean'
     #}
 
     #{ neovim
