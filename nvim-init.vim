@@ -49,6 +49,7 @@ Plug 'guns/vim-clojure-static'
 Plug 'tpope/vim-fireplace'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'mustache/vim-mustache-handlebars'
 
 " colors
 Plug 'mhartington/oceanic-next'
@@ -190,3 +191,7 @@ autocmd BufWritePost *.rs :Autoformat<CR>
 
 " python
 "autocmd BufEnter,BufWritePost *.py Neomake! pylama
+
+
+" mustache
+au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache

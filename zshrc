@@ -94,6 +94,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias cp='rsync -azh'
     alias ss='sudo $(fc -ln -1)'
     alias tma='tmux attach-session'
+    alias ht='htop'
 
     # remove things sans confirmation
     unalias mv
