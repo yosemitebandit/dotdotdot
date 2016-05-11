@@ -185,12 +185,14 @@ au FileType rust nmap <leader>f :Autoformat<CR>
 set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
 let $RUST_SRC_PATH="/usr/local/rust/src"
-autocmd BufEnter,BufWritePost *.rs Neomake! cargo
-autocmd BufWritePost *.rs :Autoformat<CR>
+"autocmd BufEnter,BufWritePost *.rs Neomake! cargo
+"autocmd BufWritePost *.rs :Autoformat<CR>
 
 
 " python
 "autocmd BufEnter,BufWritePost *.py Neomake! pylama
+au FileType python set colorcolumn=79
+highlight ColorColumn ctermbg=8
 
 
 " mustache
