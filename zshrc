@@ -183,6 +183,8 @@ export PYTHONDONTWRITEBYTECODE=1
        alias ct='cargo test'
        alias cr='cargo run'
        alias ccc='cargo clean'
+       alias re='rustc --explain'
+       alias rce='rustc --explain'
     #}
 
     #{ neovim
