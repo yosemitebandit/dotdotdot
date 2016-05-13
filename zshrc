@@ -161,6 +161,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias py='python'
        alias nd='nosetests -d'
        alias pyl='pylint --report=n'
+       alias pt='py.test'
     #}
 
     #{ clojure
@@ -201,5 +202,9 @@ export PYTHONDONTWRITEBYTECODE=1
        function append-to-path() {
          export PATH=$PATH:"$@";
        }
+    #}
+
+    #{ gae
+       alias da='dev_appserver.py ./'
     #}
 #}
