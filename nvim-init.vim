@@ -175,6 +175,8 @@ let g:neomake_error_sign = {
       \ 'text': 'E',
       \ 'texthl': 'ErrorMsg',
       \ }
+" Neomake on <leader>z
+nnoremap <leader>z :Neomake<CR>
 " close quickfix and scratch windows
 nnoremap <leader>c :pc<CR> :ccl<CR>
 
