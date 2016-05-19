@@ -106,6 +106,8 @@ vmap <leader>r :s/\%V
 " disable Q and the dreaded Ex mode
 nnoremap Q <nop>
 
+" toggling paste mode
+map <leader>a :set paste!<CR>
 
 " nerdtree
 map <leader>n :NERDTreeToggle<CR>
