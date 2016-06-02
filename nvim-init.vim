@@ -179,8 +179,8 @@ let g:neomake_error_sign = {
       \ }
 " Neomake on <leader>z
 nnoremap <leader>z :Neomake<CR>
-" close quickfix and scratch windows
-nnoremap <leader>c :pc<CR> :ccl<CR>
+" close the error window on the bottom
+nnoremap <leader>c :lclose<CR>
 
 
 " rust
