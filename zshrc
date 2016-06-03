@@ -162,6 +162,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias nd='nosetests -d'
        alias pyl='pylint --report=n'
        alias pt='py.test'
+       alias pla='pylama'
     #}
 
     #{ clojure
