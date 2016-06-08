@@ -28,7 +28,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
-Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'benekastah/neomake'
 "Plug 'paretje/neomake', { 'branch': 'highlight' }
