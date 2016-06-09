@@ -195,7 +195,7 @@ export PYTHONDONTWRITEBYTECODE=1
 
     #{ my blog
        function hnt() {
-         hugo new --theme=pasture notes/"$@";
+         hugo new notes/"$@";
        }
     #}
 
