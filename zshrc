@@ -197,7 +197,7 @@ export PYTHONDONTWRITEBYTECODE=1
        # Write a new post.
        function hnt() {
          source ~/conf/virtualenvs/vebsite/bin/activate
-         hugo new notes/"$@";
+         hugo new notes/"$@".md;
        }
        # Start the local server. 
        function hs() {
