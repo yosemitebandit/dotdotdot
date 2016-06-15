@@ -726,10 +726,15 @@
 		<key>TB Size Mode</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>929 88 445 270 0 0 1440 878 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>146 248 606 456 0 0 1440 877 </string>
+	<string>146 277 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_FE1070D2-958A-4459-87CC-2CFD9C1A3586</key>
@@ -2275,6 +2280,8 @@
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
+	<false/>
+	<key>ShowNewOutputIndicator</key>
 	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
