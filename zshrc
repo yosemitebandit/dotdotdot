@@ -194,8 +194,14 @@ export PYTHONDONTWRITEBYTECODE=1
     #}
 
     #{ my blog
+       # Write a new post.
        function hnt() {
          hugo new notes/"$@";
+       }
+       # Start the local server. 
+       function hs() {
+         source ~/conf/virtualenvs/vebsite/bin/activate
+         hugo server --port=8000 --watch --disableLiveReload --preserveTaxonomyNames
        }
     #}
 
