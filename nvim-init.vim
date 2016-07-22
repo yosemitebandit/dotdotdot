@@ -185,7 +185,7 @@ nnoremap <leader>c :lclose<CR>
 " rust
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust nmap <leader>f :Autoformat<CR>
-set hidden
+au FileType rust set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
 let $RUST_SRC_PATH="/usr/local/rust/src"
 "autocmd BufEnter,BufWritePost *.rs Neomake! cargo
