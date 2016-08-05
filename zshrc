@@ -214,5 +214,6 @@ export PYTHONDONTWRITEBYTECODE=1
 
     #{ gae
        alias da='dev_appserver.py ./'
+       alias au='appcfg.py update ./'
     #}
 #}
