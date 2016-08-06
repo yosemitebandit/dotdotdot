@@ -29,6 +29,8 @@ Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'davidhalter/jedi'
+Plug 'zchee/deoplete-jedi'
 Plug 'benekastah/neomake'
 "Plug 'paretje/neomake', { 'branch': 'highlight' }
 
