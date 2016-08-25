@@ -95,6 +95,7 @@ export PYTHONDONTWRITEBYTECODE=1
     alias ss='sudo $(fc -ln -1)'
     alias tma='tmux attach-session'
     alias ht='htop'
+    alias rmr='rm -r'
 
     # remove things sans confirmation
     unalias mv
@@ -163,6 +164,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias pyl='pylint --report=n'
        alias pt='py.test'
        alias pla='pylama'
+       alias pyshs='python -m SimpleHTTPServer'
     #}
 
     #{ clojure
@@ -199,7 +201,7 @@ export PYTHONDONTWRITEBYTECODE=1
          source ~/conf/virtualenvs/vebsite/bin/activate
          hugo new notes/"$@".md;
        }
-       # Start the local server. 
+       # Start the local server.
        function hs() {
          source ~/conf/virtualenvs/vebsite/bin/activate
          hugo server --port=8000 --watch --disableLiveReload --preserveTaxonomyNames
