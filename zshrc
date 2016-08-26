@@ -165,6 +165,7 @@ export PYTHONDONTWRITEBYTECODE=1
        alias pt='py.test'
        alias pla='pylama'
        alias pyshs='python -m SimpleHTTPServer'
+       alias pshs='python -m SimpleHTTPServer'
     #}
 
     #{ clojure
@@ -217,5 +218,6 @@ export PYTHONDONTWRITEBYTECODE=1
     #{ gae
        alias da='dev_appserver.py ./'
        alias au='appcfg.py update ./'
+       alias aut='appcfg.py update tour.yaml'
     #}
 #}
