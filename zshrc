@@ -74,6 +74,11 @@ fi
 # Stop creating .pyc files.
 export PYTHONDONTWRITEBYTECODE=1
 
+if [[ "$MACHINE" == "mac" ]]; then
+  source '/Users/matt/archive/google-cloud-sdk/path.zsh.inc'
+  source '/Users/matt/archive/google-cloud-sdk/completion.zsh.inc'
+fi
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
