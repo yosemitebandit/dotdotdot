@@ -117,6 +117,8 @@ nnoremap <Leader>w <C-w>w
 " hide certain files in nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeDirArrows=0
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 " smooth-scroll
