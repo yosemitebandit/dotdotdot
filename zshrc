@@ -168,6 +168,7 @@ fi
        alias nd='nosetests -d'
        alias pyl='pylint --report=n'
        alias pt='py.test'
+       alias ptq='py.test -q'
        alias pla='pylama'
        alias pyshs='python -m SimpleHTTPServer'
        alias pshs='python -m SimpleHTTPServer'
