@@ -172,6 +172,7 @@ fi
        alias pla='pylama'
        alias pyshs='python -m SimpleHTTPServer'
        alias pshs='python -m SimpleHTTPServer'
+       alias jk='py.test -q && pylama'
     #}
 
     #{ clojure
@@ -221,9 +222,11 @@ fi
        }
     #}
 
-    #{ gae
-       alias da='dev_appserver.py ./'
-       alias au='appcfg.py update ./'
+    #{ appengine
+       alias da='dev_appserver.py api.yaml www.yaml tour.yaml'
+       alias au='appcfg.py update api.yaml www.yaml tour.yaml'
+       alias aua='appcfg.py update api.yaml'
+       alias auw='appcfg.py update www.yaml'
        alias aut='appcfg.py update tour.yaml'
     #}
 #}
