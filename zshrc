@@ -220,4 +220,8 @@ fi
        alias auw='appcfg.py update www.yaml'
        alias aut='appcfg.py update tour.yaml'
     #}
+    
+    #{ sshing to a raspberry pi
+       alias sp='ssh pi@192.168.2.2'
+    #}
 #}
