@@ -24,22 +24,13 @@ ZSH_THEME="yosemitebandit"
 
 plugins=(
     common-aliases
-    django
     fabric
     git
     gitextras
     gitfast
     history
     history-substring-search
-    lein
-    npm
-    pip
-    pylint
-    python
     ssh-agent
-    sudo
-    supervisor
-    vagrant
 )
 
 DISABLE_AUTO_UPDATE="true"
