@@ -70,6 +70,9 @@ if [[ "$MACHINE" == "mac" ]]; then
   source '/Users/matt/archive/google-cloud-sdk/completion.zsh.inc'
 fi
 
+# Setup autojump.
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 #{ ALIASES
     alias ll='ls -la'
     alias la='ls -la'
