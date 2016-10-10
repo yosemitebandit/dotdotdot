@@ -227,4 +227,8 @@ fi
     #{ sshing to a raspberry pi
        alias sp='ssh pi@192.168.2.2'
     #}
+
+    #{ the silver searcher
+       alias ag='ag --path-to-agignore=~/.agignore'
+    #}
 #}
