@@ -182,8 +182,8 @@ let g:neomake_error_sign = {
       \ }
 " Neomake on <leader>z
 nnoremap <leader>z :Neomake<CR>
-" close the error window on the bottom
-nnoremap <leader>c :lclose<CR>
+" close the error and scrach windows on the bottom
+nnoremap <leader>c :lclose<CR> :pclose<CR>
 
 
 " rust
