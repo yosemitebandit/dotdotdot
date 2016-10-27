@@ -41,7 +41,8 @@ Plug 'lepture/vim-jinja'
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-nginx'
 Plug 'cespare/vim-toml'
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'tpope/vim-markdown'
@@ -53,7 +54,7 @@ Plug 'racer-rust/vim-racer'
 Plug 'mustache/vim-mustache-handlebars'
 
 " colors
-Plug 'mhartington/oceanic-next'
+Plug 'mhartington/oceanic-next', { 'commit': 'b938fbcfdf6d66ffc9b9eb945de8b3629c634f65' }
 
 call plug#end()
 
