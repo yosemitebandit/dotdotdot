@@ -200,6 +200,7 @@ let $RUST_SRC_PATH="/usr/local/rust/src"
 " python
 "autocmd BufEnter,BufWritePost *.py Neomake! pylama
 au FileType python set colorcolumn=79
+au FileType python set textwidth=79
 highlight ColorColumn ctermbg=8
 let g:neomake_python_enabled_makers = ['pylama']
 
