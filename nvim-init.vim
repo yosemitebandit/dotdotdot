@@ -17,7 +17,7 @@ call plug#begin()
 
 " utils
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -36,9 +36,9 @@ Plug 'benekastah/neomake'
 
 " langs
 Plug 'tclem/vim-arduino'
-Plug 'vim-scripts/openscad.vim'
+"Plug 'vim-scripts/openscad.vim'
 Plug 'lepture/vim-jinja'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'fatih/vim-nginx'
 Plug 'cespare/vim-toml'
 "Plug 'pangloss/vim-javascript'
@@ -47,11 +47,11 @@ Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'tpope/vim-markdown'
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'mustache/vim-mustache-handlebars'
+"Plug 'guns/vim-clojure-static'
+"Plug 'tpope/vim-fireplace'
+"Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
+"Plug 'mustache/vim-mustache-handlebars'
 
 " colors
 Plug 'mhartington/oceanic-next', { 'commit': 'b938fbcfdf6d66ffc9b9eb945de8b3629c634f65' }
@@ -110,6 +110,9 @@ nnoremap Q <nop>
 
 " toggling paste mode
 map <leader>a :set paste!<CR>
+
+" try to speed things up
+set lazyredraw
 
 " nerdtree
 map <leader>n :NERDTreeToggle<CR>
@@ -207,3 +210,8 @@ let g:neomake_python_enabled_makers = ['pylama']
 
 " mustache
 au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache
+
+
+" jinja
+au FileType jinja.html set textwidth&
+au FileType jinja.html set colorcolumn&
