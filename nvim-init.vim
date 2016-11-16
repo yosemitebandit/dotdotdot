@@ -213,5 +213,6 @@ au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache
 
 
 " jinja
+" Unset the textwidth and colorcolumn..
 au FileType jinja.html set textwidth&
 au FileType jinja.html set colorcolumn&
