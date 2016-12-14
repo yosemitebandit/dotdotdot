@@ -37,8 +37,7 @@ DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # go support
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME/go-workspace
 
 # rust
 # Use the "append-to-path" function below to work with the various multirust toolchains.
@@ -223,6 +222,8 @@ fi
        alias aua='appcfg.py update api.yaml'
        alias auw='appcfg.py update www.yaml'
        alias aut='appcfg.py update tour.yaml'
+       # go appengine
+       export PATH=$PATH:/usr/local/go_appengine/
     #}
 
     #{ sshing to a raspberry pi

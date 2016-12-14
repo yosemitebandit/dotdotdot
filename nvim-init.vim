@@ -38,7 +38,8 @@ Plug 'benekastah/neomake'
 Plug 'tclem/vim-arduino'
 "Plug 'vim-scripts/openscad.vim'
 Plug 'lepture/vim-jinja'
-"Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
 Plug 'fatih/vim-nginx'
 Plug 'cespare/vim-toml'
 "Plug 'pangloss/vim-javascript'
@@ -216,3 +217,11 @@ au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache
 " Unset the textwidth and colorcolumn..
 au FileType jinja.html set textwidth&
 au FileType jinja.html set colorcolumn&
+
+
+" golang
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:go_fmt_command = "goimports"
+au FileType go nmap <leader>r :GoRun<CR>
+au FileType go setlocal tabstop=4
