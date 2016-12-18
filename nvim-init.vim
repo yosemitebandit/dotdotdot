@@ -187,8 +187,8 @@ let g:neomake_error_sign = {
       \ }
 " Neomake on <leader>z
 nnoremap <leader>z :Neomake<CR>
-" close the error and scrach windows on the bottom
-nnoremap <leader>c :lclose<CR> :pclose<CR>
+" close the error and scrach and quickfix windows on the bottom
+nnoremap <leader>c :lclose<CR> :pclose<CR> :cclose<CR>
 
 
 " rust
@@ -224,4 +224,5 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r :GoRun<CR>
+au FileType go nmap <leader>t :GoTest<CR>
 au FileType go setlocal tabstop=4
