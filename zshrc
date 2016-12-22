@@ -193,6 +193,10 @@ fi
        alias rce='rustc --explain'
     #}
 
+    #{ golang
+      alias gt='go test'
+    #}
+
     #{ neovim
        alias nv='nvim'
     #}
