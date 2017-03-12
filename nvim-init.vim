@@ -48,6 +48,7 @@ Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'tpope/vim-markdown'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'ekalinin/Dockerfile.vim'
 "Plug 'guns/vim-clojure-static'
 "Plug 'tpope/vim-fireplace'
 "Plug 'rust-lang/rust.vim'
@@ -226,3 +227,6 @@ let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r :GoRun<CR>
 au FileType go nmap <leader>t :GoTest<CR>
 au FileType go setlocal tabstop=4
+
+" docker
+au BufNewFile,BufRead *dockerfile* set filetype=Dockerfile
