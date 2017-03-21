@@ -160,7 +160,6 @@ fi
     #{ python
        alias py='python'
        alias nd='nosetests -d'
-       alias pyl='pylint --report=n'
        alias pt='py.test'
        alias ptq='py.test -q'
        alias pla='pylama'
@@ -236,5 +235,9 @@ fi
 
     #{ the silver searcher
        alias ag='ag --path-to-agignore=~/.agignore'
+    #}
+
+    #{ docker
+       alias ds='docker stop -t 1'
     #}
 #}
