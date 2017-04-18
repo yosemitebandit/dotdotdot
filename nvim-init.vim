@@ -24,7 +24,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth', { 'commit': '62c4f261874dd44e6cdc6788b4a6bc59f9dfe746' }
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
