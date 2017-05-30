@@ -240,4 +240,10 @@ fi
     #{ docker
        alias ds='docker stop -t 1'
     #}
+
+    #{ sshing into ec2
+      function ec2ssh() {
+        ssh -i ~/.ssh/matt.pem ubuntu@"$@"
+      }
+    #}
 #}
