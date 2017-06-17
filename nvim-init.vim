@@ -203,21 +203,23 @@ let $RUST_SRC_PATH="/usr/local/rust/src"
 
 
 " python
-"autocmd BufEnter,BufWritePost *.py Neomake! pylama
-au FileType python set colorcolumn=79
-au FileType python set textwidth=79
-highlight ColorColumn ctermbg=8
 let g:neomake_python_enabled_makers = ['pylama']
+" Set or unset the color column depending on filetype.
+fun! SetColorCol()
+  if &ft =~ 'python'
+    set colorcolumn=79
+    set textwidth=79
+    highlight ColorColumn ctermbg=8
+  else
+    set textwidth&
+    set colorcolumn&
+  endif
+endfun
+autocmd BufNewFile,BufEnter,BufRead * call SetColorCol()
 
 
 " mustache
 au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache
-
-
-" jinja
-" Unset the textwidth and colorcolumn..
-au FileType jinja.html set textwidth&
-au FileType jinja.html set colorcolumn&
 
 
 " golang
@@ -230,3 +232,6 @@ au FileType go setlocal tabstop=4
 
 " docker
 au BufNewFile,BufRead *dockerfile* set filetype=Dockerfile
+
+" supervisord files
+au BufRead,BufNewFile *.conf set filetype=dosini

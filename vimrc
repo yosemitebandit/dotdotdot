@@ -368,3 +368,6 @@ au FileType rust nmap <leader>f :Autoformat<CR>
 set hidden
 let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
 let $RUST_SRC_PATH="/Users/matt/rust-src/"
+
+" supervisord files
+au BufRead,BufNewFile *.conf set filetype=dosini
