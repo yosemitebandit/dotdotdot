@@ -42,8 +42,8 @@ Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go'
 Plug 'fatih/vim-nginx'
 Plug 'cespare/vim-toml'
-"Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+"Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'tpope/vim-markdown'
@@ -235,3 +235,6 @@ au BufNewFile,BufRead *dockerfile* set filetype=Dockerfile
 
 " supervisord files
 au BufRead,BufNewFile *.conf set filetype=dosini
+
+" jsx
+let g:jsx_ext_required = 0

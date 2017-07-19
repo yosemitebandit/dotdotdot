@@ -43,6 +43,9 @@ export GOPATH=$HOME/go-workspace
 # Use the "append-to-path" function below to work with the various multirust toolchains.
 export PATH=$PATH:~/.cargo/bin
 
+# yarn
+export PATH="$(yarn global bin):$PATH"
+
 # history search matching entire line
 # http://superuser.com/questions/417627/oh-my-zsh-history-completion
 bindkey '^[OA' history-beginning-search-backward
@@ -95,6 +98,7 @@ fi
     alias tma='tmux attach-session'
     alias ht='htop'
     alias rmr='rm -r'
+    alias rmrf='rm -rf'
 
     # remove things sans confirmation
     unalias mv
