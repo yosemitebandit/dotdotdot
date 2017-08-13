@@ -1,10 +1,6 @@
 """ https://github.com/yosemitebandit/dotdotdot
 """
 
-" pull in the machine env var
-let machine=$MACHINE
-let bits=$BITS
-
 " setup vundle as per the docs
 set nocompatible
 filetype off
@@ -30,14 +26,8 @@ Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jiangmiao/auto-pairs'
-if machine != 'mac'
-  if bits == 64
-    Plugin 'Valloric/YouCompleteMe'
-  endif
-else
-  Plugin 'Shougo/neocomplcache.vim'
-  Plugin 'vim-scripts/OnSyntaxChange'
-endif
+"Plugin 'Shougo/neocomplcache.vim'
+"Plugin 'vim-scripts/OnSyntaxChange'
 " langs
 Plugin 'tclem/vim-arduino'
 Plugin 'vim-scripts/openscad.vim'
@@ -247,34 +237,6 @@ nnoremap <leader>c :pc<CR> :ccl<CR>
 " or just close scratch on move
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Neocomplcache.vim
-if machine == 'mac'
-  let g:acp_enableAtStartup = 0
-  let g:neocomplcache_enable_at_startup = 1
-  let g:neocomplcache_min_syntax_length = 4
-  inoremap <expr><C-g> neocomplcache#undo_completion()
-  " tab completion
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-  " enable omni completions
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType rust setlocal omnifunc=syntaxcomplete#Complete
-  " change popup menu color
-  highlight Pmenu ctermbg=8 guibg=#606060
-  highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-  highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
-endif
-
-if machine == 'mac'
-  " OnSyntaxChange - disabling Neocomplcache in comments
-  call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
-  autocmd User SyntaxCommentEnterI silent! NeoComplCacheLock
-  autocmd User SyntaxCommentLeaveI silent! NeoComplCacheUnlock
-endif
 
 " Airline
 " Show the bar even when only one file is open and force 256 color-mode.
