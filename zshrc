@@ -50,7 +50,8 @@ alias sau='echo "sudo apt update\n" sudo apt update'
 alias sagu='echo "sudo apt update\n" sudo apt update'
 alias sai='sudo apt install'
 alias sagi='sudo apt install'
-alias o='open'
+alias open='xdg-open'
+alias o='xdg-open'
 alias ssn='echo "sudo shutdown now -P\n"; sudo shutdown now -P'
 alias pag='ps aux | grep'
 alias count-files='find . -type f | wc -l'
@@ -126,7 +127,7 @@ function append-to-path() {
 
 
 # the silver searcher
-alias ag='ag --path-to-agignore=~/.agignore'
+alias ag='ag --path-to-ignore=~/.agignore'
 
 
 # docker
