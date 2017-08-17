@@ -1,17 +1,6 @@
 """ https://github.com/yosemitebandit/dotdotdot
 """
 
-" pull in the machine env vars
-let machine=$MACHINE
-let bits=$BITS
-
-
-" a function deoplete recommends
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-
-
 " using vim-plug (needs to be downloaded in autoload)
 call plug#begin()
 
@@ -22,24 +11,24 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'tpope/vim-sleuth', { 'commit': '62c4f261874dd44e6cdc6788b4a6bc59f9dfe746' }
-Plug 'luochen1990/rainbow'
+Plug 'tpope/vim-sleuth'
+"Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Chiel92/vim-autoformat'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'davidhalter/jedi'
+"Plug 'Chiel92/vim-autoformat'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
-Plug 'benekastah/neomake'
+"Plug 'benekastah/neomake'
 "Plug 'paretje/neomake', { 'branch': 'highlight' }
 
 " langs
 Plug 'tclem/vim-arduino'
 "Plug 'vim-scripts/openscad.vim'
 Plug 'lepture/vim-jinja'
-Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
+"Plug 'fatih/vim-go'
+"Plug 'zchee/deoplete-go'
 Plug 'fatih/vim-nginx'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
@@ -56,7 +45,7 @@ Plug 'ekalinin/Dockerfile.vim'
 "Plug 'mustache/vim-mustache-handlebars'
 
 " colors
-Plug 'mhartington/oceanic-next', { 'commit': 'b938fbcfdf6d66ffc9b9eb945de8b3629c634f65' }
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -151,15 +140,15 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " airline
 " Show the bar even when only one file is open and force 256 color-mode.
-let g:airline_theme='oceanicnext'
-set laststatus=2
-let g:airline#extensions#branch#displayed_head_limit = 10
-let g:airline#extensions#syntastic#enabled = 0
+"let g:airline_theme='oceanicnext'
+"set laststatus=2
+"let g:airline#extensions#branch#displayed_head_limit = 10
+"let g:airline#extensions#syntastic#enabled = 0
 " Disable the mode, filetype and encoding sections.
-let hostname=system('hostname -s| tr -d "\n"')
-let g:airline_section_a = '%{hostname}'
-let g:airline_section_x = 0
-let g:airline_section_y = 0
+"let hostname=system('hostname -s| tr -d "\n"')
+"let g:airline_section_a = '%{hostname}'
+"let g:airline_section_x = 0
+"let g:airline_section_y = 0
 
 
 " tagbar
@@ -167,74 +156,50 @@ nmap <leader>ta :TagbarToggle<CR>
 
 
 " rainbow parens
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-inoremap <Leader><Tab> <Space><Space>
+"inoremap <Leader><Tab> <Space><Space>
+autocmd CompleteDone * pclose
 
 
 " neomake
-let g:neomake_open_list = 2
-let g:neomake_warning_sign = {
-      \ 'text': 'W',
-      \ 'texthl': 'WarningMsg',
-      \ }
-let g:neomake_error_sign = {
-      \ 'text': 'E',
-      \ 'texthl': 'ErrorMsg',
-      \ }
+"let g:neomake_open_list = 2
+"let g:neomake_warning_sign = {
+"      \ 'text': 'W',
+"      \ 'texthl': 'WarningMsg',
+"      \ }
+"let g:neomake_error_sign = {
+"      \ 'text': 'E',
+"      \ 'texthl': 'ErrorMsg',
+"      \ }
 " Neomake on <leader>z
-nnoremap <leader>z :Neomake<CR>
+"nnoremap <leader>z :Neomake<CR>
 " close the error and scrach and quickfix windows on the bottom
-nnoremap <leader>c :lclose<CR> :pclose<CR> :cclose<CR>
-
-
-" rust
-au BufRead,BufNewFile *.rs set filetype=rust
-au FileType rust nmap <leader>f :Autoformat<CR>
-au FileType rust set hidden
-let g:racer_cmd = "/Users/matt/.cargo/bin/racer"
-let $RUST_SRC_PATH="/usr/local/rust/src"
-"autocmd BufEnter,BufWritePost *.rs Neomake! cargo
-"autocmd BufWritePost *.rs :Autoformat<CR>
+"nnoremap <leader>c :lclose<CR> :pclose<CR> :cclose<CR>
 
 
 " python
-let g:neomake_python_enabled_makers = ['pylama']
+"let g:neomake_python_enabled_makers = ['pylama']
 " Set or unset the color column depending on filetype.
-fun! SetColorCol()
-  if &ft =~ 'python'
-    set colorcolumn=79
-    set textwidth=79
-    highlight ColorColumn ctermbg=8
-  else
-    set textwidth&
-    set colorcolumn&
-  endif
-endfun
-autocmd BufNewFile,BufEnter,BufRead * call SetColorCol()
+"fun! SetColorCol()
+"  if &ft =~ 'python'
+"    set colorcolumn=79
+"    set textwidth=79
+"    highlight ColorColumn ctermbg=8
+"  else
+"    set textwidth&
+"    set colorcolumn&
+"  endif
+"endfun
+"autocmd BufNewFile,BufEnter,BufRead * call SetColorCol()
 
-
-" mustache
-au BufNewFile,BufRead *.tpl set filetype=html.mustache syntax=mustache
-
-
-" golang
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:go_fmt_command = "goimports"
-au FileType go nmap <leader>r :GoRun<CR>
-au FileType go nmap <leader>t :GoTest<CR>
-au FileType go setlocal tabstop=4
 
 " docker
 au BufNewFile,BufRead *dockerfile* set filetype=Dockerfile
-
-" supervisord files
-au BufRead,BufNewFile *.conf set filetype=dosini
 
 " jsx
 let g:jsx_ext_required = 0
