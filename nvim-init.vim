@@ -11,7 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
-"Plug 'bling/vim-airline'
+Plug 'bling/vim-airline'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'tpope/vim-sleuth'
 "Plug 'luochen1990/rainbow'
@@ -139,16 +139,15 @@ map <Leader> <Plug>(easymotion-prefix)
 
 
 " airline
-" Show the bar even when only one file is open and force 256 color-mode.
-"let g:airline_theme='oceanicnext'
-"set laststatus=2
+let g:airline_theme='oceanicnext'
+set laststatus=2
 "let g:airline#extensions#branch#displayed_head_limit = 10
 "let g:airline#extensions#syntastic#enabled = 0
 " Disable the mode, filetype and encoding sections.
-"let hostname=system('hostname -s| tr -d "\n"')
-"let g:airline_section_a = '%{hostname}'
-"let g:airline_section_x = 0
-"let g:airline_section_y = 0
+let hostname=system('hostname -s| tr -d "\n"')
+let g:airline_section_a = '%{hostname}'
+let g:airline_section_x = 0
+let g:airline_section_y = 0
 
 
 " tagbar
@@ -185,17 +184,17 @@ autocmd CompleteDone * pclose
 " python
 "let g:neomake_python_enabled_makers = ['pylama']
 " Set or unset the color column depending on filetype.
-"fun! SetColorCol()
-"  if &ft =~ 'python'
-"    set colorcolumn=79
-"    set textwidth=79
-"    highlight ColorColumn ctermbg=8
-"  else
-"    set textwidth&
-"    set colorcolumn&
-"  endif
-"endfun
-"autocmd BufNewFile,BufEnter,BufRead * call SetColorCol()
+fun! SetColorCol()
+  if &ft =~ 'python'
+    set colorcolumn=79
+    set textwidth=79
+    highlight ColorColumn ctermbg=8
+  else
+    set textwidth&
+    set colorcolumn&
+  endif
+endfun
+autocmd BufNewFile,BufEnter,BufRead * call SetColorCol()
 
 
 " docker
