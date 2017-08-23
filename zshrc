@@ -146,12 +146,21 @@ source /usr/share/autojump/autojump.sh
 
 # Setup spaceship theme.
 source "/home/matt/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+SPACESHIP_PROMPT_ORDER=(
+  dir
+  venv
+  git
+  line_sep
+  exit_code
+  char
+)
+SPACESHIP_USER_SHOW=false
 SPACESHIP_DIR_COLOR="green"
-SPACESHIP_TIME_SHOW="false"
+SPACESHIP_TIME_SHOW=false
 SPACESHIP_GIT_BRANCH_COLOR="blue"
 SPACESHIP_GIT_BRANCH_PREFIX=""
 SPACESHIP_GIT_STATUS_COLOR="red"
-SPACESHIP_DOCKER_SHOW="false"
-SPACESHIP_VENV_PREFIX="("
-SPACESHIP_VENV_SUFFIX=")"
+SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_VENV_PREFIX="with ("
+SPACESHIP_VENV_SUFFIX=") "
 SPACESHIP_VENV_COLOR="white"
