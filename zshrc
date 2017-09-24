@@ -132,6 +132,8 @@ alias ag='ag --path-to-ignore=~/.agignore'
 
 # docker
 alias ds='docker stop -t 1'
+alias dl='docker logs'
+alias dps='docker ps'
 
 
 # sshing into ec2
@@ -155,7 +157,7 @@ SPACESHIP_PROMPT_ORDER=(
   char
 )
 SPACESHIP_USER_SHOW=false
-SPACESHIP_DIR_COLOR="green"
+SPACESHIP_DIR_COLOR=222  # a yellow of sorts
 SPACESHIP_TIME_SHOW=false
 SPACESHIP_GIT_BRANCH_COLOR="blue"
 SPACESHIP_GIT_BRANCH_PREFIX=""
