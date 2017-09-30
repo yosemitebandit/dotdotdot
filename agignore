@@ -1,5 +1,4 @@
 *.min.*
 *.pioenvs
 *node_modules*
-*build*
 *.ipynb
