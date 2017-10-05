@@ -132,13 +132,40 @@ alias ag='ag --path-to-ignore=~/.agignore'
 
 # docker
 alias ds='docker stop -t 1'
+alias dss='docker stop $(docker ps -aq)'
 alias dl='docker logs'
 alias dps='docker ps'
 
 
+# universe-specific
+function restart-univ-containers() {
+  if [[ $(docker ps -aq) ]]; then
+    docker stop $(docker ps -aq)
+  fi
+  docker system prune --force
+  cd /home/matt/universe/orchestration
+  export ARCH=x86
+  make build
+  ./sim-and-backend.sh
+  cd /home/matt/universe
+  source /home/matt/.venvs/linters/bin/activate
+}
+alias re=restart-univ-containers
+
+function restart-backend-containers() {
+  cd /home/matt/universe/orchestration
+  export ARCH=x86
+  make backend
+  ./backend.sh
+  cd /home/matt/universe
+  source /home/matt/.venvs/linters/bin/activate
+}
+alias we=restart-backend-containers
+
+
 # sshing into ec2
 function ec2ssh() {
- ssh -i ~/.ssh/matt.pem ubuntu@"$@"
+ ssh -i ~/.ssh/matt-on-spectre.pem ubuntu@"$@"
 }
 
 
