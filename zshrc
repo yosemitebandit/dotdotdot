@@ -99,7 +99,7 @@ alias gsp='git stash pop'
 alias py='python'
 alias pt='py.test'
 alias ptq='py.test -q'
-alias pla='pylama'
+#alias pla='pylama'
 alias pyshs='python -m SimpleHTTPServer'
 alias pshs='python -m SimpleHTTPServer'
 alias jk='py.test -q && pylama'
@@ -147,20 +147,42 @@ function restart-univ-containers() {
   export ARCH=x86
   make build
   ./sim-and-backend.sh
-  cd /home/matt/universe
+  cd - >> /dev/null
   source /home/matt/.venvs/linters/bin/activate
 }
 alias re=restart-univ-containers
 
 function restart-backend-containers() {
+  #if [[ $(docker ps -aq) ]]; then
+    #docker stop $(docker ps -aq)
+  #fi
+  docker system prune --force
   cd /home/matt/universe/orchestration
   export ARCH=x86
   make backend
+  make analysis
   ./backend.sh
-  cd /home/matt/universe
+  cd - >> /dev/null
   source /home/matt/.venvs/linters/bin/activate
 }
 alias we=restart-backend-containers
+
+function format-python-from-anywhere() {
+  cd /home/matt/universe
+  source /home/matt/.venvs/linters/bin/activate
+  ./format-python.sh
+  cd - >> /dev/null
+}
+alias fp=format-python-from-anywhere
+alias pf=format-python-from-anywhere
+
+function pylama-from-anywhere() {
+  cd /home/matt/universe
+  source /home/matt/.venvs/linters/bin/activate
+  pylama
+  cd - >> /dev/null
+}
+alias pla=pylama-from-anywhere
 
 
 # sshing into ec2
@@ -193,3 +215,9 @@ SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_VENV_PREFIX="with ("
 SPACESHIP_VENV_SUFFIX=") "
 SPACESHIP_VENV_COLOR="white"
+
+
+# golang setup
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
