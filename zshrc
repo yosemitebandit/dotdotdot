@@ -143,6 +143,7 @@ function restart-univ-containers() {
     docker stop $(docker ps -aq)
   fi
   docker system prune --force
+  #docker volume prune --force
   cd /home/matt/universe/orchestration
   export ARCH=x86
   make build
@@ -153,14 +154,16 @@ function restart-univ-containers() {
 alias re=restart-univ-containers
 
 function restart-backend-containers() {
-  #if [[ $(docker ps -aq) ]]; then
-    #docker stop $(docker ps -aq)
-  #fi
+  if [[ $(docker ps -aq) ]]; then
+    docker stop $(docker ps -aq)
+  fi
   docker system prune --force
+  #docker volume prune --force
   cd /home/matt/universe/orchestration
   export ARCH=x86
   make backend
   make analysis
+  make airflow
   ./backend.sh
   cd - >> /dev/null
   source /home/matt/.venvs/linters/bin/activate
@@ -221,3 +224,7 @@ SPACESHIP_VENV_COLOR="white"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+
+# AWS EB setup.
+export PATH=$PATH:~/.local/bin
