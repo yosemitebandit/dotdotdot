@@ -162,8 +162,7 @@ function restart-backend-containers() {
   cd /home/matt/universe/orchestration
   export ARCH=x86
   make backend
-  make analysis
-  make airflow
+  make jobs
   ./backend.sh
   cd - >> /dev/null
   source /home/matt/.venvs/linters/bin/activate
