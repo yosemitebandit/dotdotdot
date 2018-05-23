@@ -133,7 +133,7 @@ alias ag='ag --path-to-ignore=~/.agignore'
 # docker
 alias ds='docker stop -t 1'
 alias dss='docker stop $(docker ps -aq)'
-alias dl='docker logs'
+alias dl='docker logs 2>&1'
 alias dps='docker ps'
 
 
@@ -169,6 +169,34 @@ function restart-backend-containers() {
 }
 alias we=restart-backend-containers
 
+function restart-canto-containers() {
+  if [[ $(docker ps -aq) ]]; then
+    docker stop $(docker ps -aq)
+  fi
+  docker system prune --force
+  #docker volume prune --force
+  cd /home/matt/universe/orchestration
+  make canto
+  ./canto-sim.sh
+  cd - >> /dev/null
+  source /home/matt/.venvs/linters/bin/activate
+}
+alias ce=restart-canto-containers
+
+function restart-canto-test-db() {
+  if [[ ! "$(docker ps -a | grep canto-unittesting-mysql)" ]]; then
+    docker system prune --force
+    #docker volume prune --force
+    cd /home/matt/universe/orchestration
+    ./canto-start-unittesting-db.sh
+  else
+    echo "Canto unit testing db is running."
+  fi
+  cd /home/matt/universe/canto/web >> /dev/null
+  source /home/matt/.venvs/linters/bin/activate
+}
+alias ct=restart-canto-test-db
+
 function format-python-from-anywhere() {
   cd /home/matt/universe
   source /home/matt/.venvs/linters/bin/activate
@@ -185,6 +213,14 @@ function pylama-from-anywhere() {
   cd - >> /dev/null
 }
 alias pla=pylama-from-anywhere
+
+alias mj='cd /home/matt/universe/orchestration && make jobs && cd -'
+
+
+# platformio aliases
+alias pb="pio run --project-dir embedded/vessel-teensy"
+alias pu="pio run --project-dir embedded/vessel-teensy --target upload"
+alias pm="pio device monitor --echo"
 
 
 # sshing into ec2
@@ -227,3 +263,13 @@ export PATH=$PATH:$GOPATH/bin
 
 # AWS EB setup.
 export PATH=$PATH:~/.local/bin
+
+
+# Setup pyenv.
+export PATH="/home/matt/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# Setup yarn bin.
+export PATH=$PATH:/home/matt/.yarn/bin
