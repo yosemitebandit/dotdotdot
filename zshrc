@@ -185,6 +185,9 @@ alias ce=restart-canto-containers
 
 function restart-canto-test-db() {
   if [[ ! "$(docker ps -a | grep canto-unittesting-mysql)" ]]; then
+    if [[ $(docker ps -aq) ]]; then
+      docker stop $(docker ps -aq)
+    fi
     docker system prune --force
     #docker volume prune --force
     cd /home/matt/universe/orchestration
@@ -197,22 +200,20 @@ function restart-canto-test-db() {
 }
 alias ct=restart-canto-test-db
 
-function format-python-from-anywhere() {
+function format-from-anywhere() {
   cd /home/matt/universe
-  source /home/matt/.venvs/linters/bin/activate
-  ./format-python.sh
+  ./format.sh
   cd - >> /dev/null
 }
-alias fp=format-python-from-anywhere
-alias pf=format-python-from-anywhere
+alias fp=format-from-anywhere
+alias pf=format-from-anywhere
 
-function pylama-from-anywhere() {
+function lint-from-anywhere() {
   cd /home/matt/universe
-  source /home/matt/.venvs/linters/bin/activate
-  pylama
+  ./lint.sh
   cd - >> /dev/null
 }
-alias pla=pylama-from-anywhere
+alias pla=lint-from-anywhere
 
 alias mj='cd /home/matt/universe/orchestration && make jobs && cd -'
 
@@ -266,10 +267,13 @@ export PATH=$PATH:~/.local/bin
 
 
 # Setup pyenv.
-export PATH="/home/matt/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 
-# Setup yarn bin.
+# Setup yarn bin and node bin (default for npm -g).
 export PATH=$PATH:/home/matt/.yarn/bin
+export PATH=$PATH:/opt/node-v8.9.4-linux-x64/bin
