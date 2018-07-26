@@ -149,7 +149,6 @@ function restart-univ-containers() {
   make build
   ./sim-and-backend.sh
   cd - >> /dev/null
-  source /home/matt/.venvs/linters/bin/activate
 }
 alias re=restart-univ-containers
 
@@ -201,6 +200,7 @@ function restart-canto-test-db() {
 alias ct=restart-canto-test-db
 
 function format-from-anywhere() {
+  deactivate
   cd /home/matt/universe
   ./format.sh
   cd - >> /dev/null
@@ -209,6 +209,7 @@ alias fp=format-from-anywhere
 alias pf=format-from-anywhere
 
 function lint-from-anywhere() {
+  deactivate
   cd /home/matt/universe
   ./lint.sh
   cd - >> /dev/null
