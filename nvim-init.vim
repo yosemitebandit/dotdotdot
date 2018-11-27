@@ -17,9 +17,25 @@ Plug 'tpope/vim-sleuth'
 "Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'Chiel92/vim-autoformat'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
+Plug 'vim-scripts/restore_view.vim'
+
+" completion
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-path'
+
+if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+endif
+"let g:deoplete#enable_at_startup = 1
+
+Plug 'davidhalter/jedi'
+"Plug 'zchee/deoplete-jedi'
 "Plug 'benekastah/neomake'
 "Plug 'paretje/neomake', { 'branch': 'highlight' }
 
@@ -159,10 +175,28 @@ nmap <leader>ta :TagbarToggle<CR>
 
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+"let g:deoplete#enable_at_startup = 1
+"inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
 "inoremap <Leader><Tab> <Space><Space>
-autocmd CompleteDone * pclose
+"autocmd CompleteDone * pclose
+
+
+" ncm2 completion
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+" tab to select from the autocomplete menu
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" jedi
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
 
 
 " neomake
@@ -202,3 +236,7 @@ au BufNewFile,BufRead *dockerfile* set filetype=Dockerfile
 
 " jsx
 let g:jsx_ext_required = 0
+
+" nvim
+let g:python_host_prog = '/home/matt/.pyenv/versions/2.7.15/bin/python'
+let g:python3_host_prog = '/home/matt/.pyenv/versions/3.6.6/bin/python'
