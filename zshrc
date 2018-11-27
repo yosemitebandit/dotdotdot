@@ -1,4 +1,8 @@
-# Path to your oh-my-zsh configuration.
+
+
+# Ignore case in autocompletes -- hack to make kubectl autocomplete better.
+#CASE_SENSITIVE="true"
+
 
 ZSH=/home/matt/.oh-my-zsh
 #ZSH_THEME="intheloop"
@@ -12,6 +16,7 @@ plugins=(
   history
   history-substring-search
   ssh-agent
+  kubectl
 )
 
 
@@ -96,7 +101,7 @@ alias gsp='git stash pop'
 
 
 # python-related aliases
-alias py='python'
+alias py='PYENV_VERSION=2.7.15 python'
 alias pt='py.test'
 alias ptq='py.test -q'
 #alias pla='pylama'
@@ -106,7 +111,7 @@ alias jk='py.test -q && pylama'
 
 
 # neovim-related aliases
-alias nv='nvim'
+alias nv='PYENV_VERSION=3.6.6 nvim'
 
 
 # aliases for my blog -- write a new post and start a local server
@@ -132,7 +137,7 @@ alias ag='ag --path-to-ignore=~/.agignore'
 
 # docker
 alias ds='docker stop -t 1'
-alias dss='docker stop $(docker ps -aq)'
+alias dss='docker stop -t 1 $(docker ps -aq)'
 alias dl='docker logs 2>&1'
 alias dps='docker ps'
 
@@ -140,13 +145,13 @@ alias dps='docker ps'
 # universe-specific
 function restart-univ-containers() {
   if [[ $(docker ps -aq) ]]; then
-    docker stop $(docker ps -aq)
+    docker stop -t 1 $(docker ps -aq)
   fi
   docker system prune --force
-  #docker volume prune --force
+  docker volume prune --force
   cd /home/matt/universe/orchestration
   export ARCH=x86
-  make build
+  make vessel backend socat_host jobs
   ./sim-and-backend.sh
   cd - >> /dev/null
 }
@@ -154,7 +159,7 @@ alias re=restart-univ-containers
 
 function restart-backend-containers() {
   if [[ $(docker ps -aq) ]]; then
-    docker stop $(docker ps -aq)
+    docker stop -t 1 $(docker ps -aq)
   fi
   docker system prune --force
   #docker volume prune --force
@@ -164,13 +169,13 @@ function restart-backend-containers() {
   make jobs
   ./backend.sh
   cd - >> /dev/null
-  source /home/matt/.venvs/linters/bin/activate
+  #source /home/matt/.venvs/linters/bin/activate
 }
 alias we=restart-backend-containers
 
 function restart-canto-containers() {
   if [[ $(docker ps -aq) ]]; then
-    docker stop $(docker ps -aq)
+    docker stop -t 1 $(docker ps -aq)
   fi
   docker system prune --force
   #docker volume prune --force
@@ -178,14 +183,14 @@ function restart-canto-containers() {
   make canto
   ./canto-sim.sh
   cd - >> /dev/null
-  source /home/matt/.venvs/linters/bin/activate
+  #source /home/matt/.venvs/linters/bin/activate
 }
 alias ce=restart-canto-containers
 
 function restart-canto-test-db() {
   if [[ ! "$(docker ps -a | grep canto-unittesting-mysql)" ]]; then
     if [[ $(docker ps -aq) ]]; then
-      docker stop $(docker ps -aq)
+      docker stop -t 1 $(docker ps -aq)
     fi
     docker system prune --force
     #docker volume prune --force
@@ -195,7 +200,7 @@ function restart-canto-test-db() {
     echo "Canto unit testing db is running."
   fi
   cd /home/matt/universe/canto/web >> /dev/null
-  source /home/matt/.venvs/linters/bin/activate
+  #source /home/matt/.venvs/linters/bin/activate
 }
 alias ct=restart-canto-test-db
 
@@ -278,3 +283,19 @@ fi
 # Setup yarn bin and node bin (default for npm -g).
 export PATH=$PATH:/home/matt/.yarn/bin
 export PATH=$PATH:/opt/node-v8.9.4-linux-x64/bin
+
+
+# bat
+alias cat=bat
+
+
+# fd
+unalias fd
+
+
+# k8s
+export KUBECONFIG=/home/matt/misc/kubeconfig
+
+
+# rust
+export PATH=$PATH:/home/matt/.cargo/bin
