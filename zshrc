@@ -173,37 +173,6 @@ function restart-backend-containers() {
 }
 alias we=restart-backend-containers
 
-function restart-canto-containers() {
-  if [[ $(docker ps -aq) ]]; then
-    docker stop -t 1 $(docker ps -aq)
-  fi
-  docker system prune --force
-  #docker volume prune --force
-  cd /home/matt/universe/orchestration
-  make canto
-  ./canto-sim.sh
-  cd - >> /dev/null
-  #source /home/matt/.venvs/linters/bin/activate
-}
-alias ce=restart-canto-containers
-
-function restart-canto-test-db() {
-  if [[ ! "$(docker ps -a | grep canto-unittesting-mysql)" ]]; then
-    if [[ $(docker ps -aq) ]]; then
-      docker stop -t 1 $(docker ps -aq)
-    fi
-    docker system prune --force
-    #docker volume prune --force
-    cd /home/matt/universe/orchestration
-    ./canto-start-unittesting-db.sh
-  else
-    echo "Canto unit testing db is running."
-  fi
-  cd /home/matt/universe/canto/web >> /dev/null
-  #source /home/matt/.venvs/linters/bin/activate
-}
-alias ct=restart-canto-test-db
-
 function format-from-anywhere() {
   deactivate 2>/dev/null  # swallow any command-not-found errors
   cd /home/matt/universe
@@ -228,6 +197,11 @@ alias mj='cd /home/matt/universe/orchestration && make jobs && cd -'
 alias pb="pio run --project-dir embedded/vessel-teensy"
 alias pu="pio run --project-dir embedded/vessel-teensy --target upload"
 alias pm="pio device monitor --echo"
+
+
+# accessing pis on the culture network
+source /home/matt/.custom.sh
+alias s="ssh-to-pi"
 
 
 # sshing into ec2
