@@ -6,7 +6,7 @@ call plug#begin()
 
 " utils
 Plug 'tpope/vim-sensible'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -23,6 +23,7 @@ Plug 'vim-scripts/restore_view.vim'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
+set updatetime=300
 "Plug 'ncm2/ncm2-path'
 
 if has('nvim')
@@ -59,6 +60,16 @@ Plug 'ekalinin/Dockerfile.vim'
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
 "Plug 'mustache/vim-mustache-handlebars'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'typescript',
+    \ 'graphql' ] }
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+
 
 " colors
 Plug 'mhartington/oceanic-next'
@@ -142,7 +153,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " ctrlp
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s
-        \ --nocolor --nogroup --depth 5
+        \ --nocolor --nogroup --depth 40
         \ --hidden --follow --smart-case
         \ --ignore .git
         \ -g ""'
@@ -220,8 +231,8 @@ let g:jedi#show_call_signatures = "1"
 " Set or unset the color column depending on filetype.
 fun! SetColorCol()
   if &ft =~ 'python'
-    set colorcolumn=79
-    set textwidth=79
+    set colorcolumn=88
+    set textwidth=88
     highlight ColorColumn ctermbg=8
   else
     set textwidth&
@@ -240,3 +251,6 @@ let g:jsx_ext_required = 0
 " nvim
 let g:python_host_prog = '/home/matt/.pyenv/versions/2.7.15/bin/python'
 let g:python3_host_prog = '/home/matt/.pyenv/versions/3.6.6/bin/python'
+
+" .culture -> toml
+au BufRead,BufNewFile *.culture set filetype=toml

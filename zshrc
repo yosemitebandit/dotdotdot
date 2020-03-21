@@ -11,7 +11,6 @@ ZSH=/home/matt/.oh-my-zsh
 plugins=(
   common-aliases
   git
-  gitextras
   gitfast
   history
   history-substring-search
@@ -92,6 +91,7 @@ alias gacm='git commit -am'
 alias gcma='git commit -am'
 alias gbg='git branch | grep'
 alias gpo='git push origin'
+alias gop=gpo
 alias glo='git pull origin'
 alias gmm='git merge master'
 alias gld='git log --full-diff -p .'
@@ -102,12 +102,10 @@ alias gsp='git stash pop'
 
 # python-related aliases
 alias py='PYENV_VERSION=2.7.15 python'
-alias pt='py.test'
-alias ptq='py.test -q'
-#alias pla='pylama'
+alias pt='pipenv run python -m pytest'
 alias pyshs='python -m SimpleHTTPServer'
 alias pshs='python -m SimpleHTTPServer'
-alias jk='py.test -q && pylama'
+alias jk='pt && pla'
 
 
 # neovim-related aliases
@@ -144,6 +142,10 @@ alias dps='docker ps'
 
 # universe-specific
 function restart-univ-containers() {
+  if [ "$1" != "" ]
+    then
+    export STARTUP_RECIPE=$1
+  fi
   if [[ $(docker ps -aq) ]]; then
     docker stop -t 1 $(docker ps -aq)
   fi
@@ -151,10 +153,15 @@ function restart-univ-containers() {
   docker volume prune --force
   cd /home/matt/universe/orchestration
   export ARCH=x86
-  make vessel backend socat_host jobs
+  make vessel
+  make backend
+  make socat_host
+  make jobs
+  make muninn
   ./sim-and-backend.sh
   cd - >> /dev/null
 }
+# example: re linear_pumping.py
 alias re=restart-univ-containers
 
 function restart-backend-containers() {
@@ -167,6 +174,7 @@ function restart-backend-containers() {
   export ARCH=x86
   make backend
   make jobs
+  make muninn
   ./backend.sh
   cd - >> /dev/null
   #source /home/matt/.venvs/linters/bin/activate
@@ -190,7 +198,16 @@ function lint-from-anywhere() {
 }
 alias pla=lint-from-anywhere
 
+function test-ps-with-redis-from-anywhere() {
+  cd /home/matt/universe/orchestration
+  ARCH=x86 make vessel
+  docker-compose -f test-ps-with-redis.yaml up
+}
+alias tps=test-ps-with-redis-from-anywhere
+
 alias mj='cd /home/matt/universe/orchestration && make jobs && cd -'
+
+alias ns='npm start'
 
 
 # platformio aliases
@@ -206,7 +223,7 @@ alias s="ssh-to-pi"
 
 # sshing into ec2
 function ec2ssh() {
- ssh -i ~/.ssh/matt-on-spectre.pem ubuntu@"$@"
+ ssh -i ~/.ssh/software-team.pem ubuntu@"$@"
 }
 
 
@@ -259,10 +276,6 @@ export PATH=$PATH:/home/matt/.yarn/bin
 export PATH=$PATH:/opt/node-v8.9.4-linux-x64/bin
 
 
-# bat
-alias cat=bat
-
-
 # fd
 unalias fd
 
@@ -273,3 +286,7 @@ export KUBECONFIG=/home/matt/misc/kubeconfig
 
 # rust
 export PATH=$PATH:/home/matt/.cargo/bin
+
+
+# Setup snap.
+export PATH=$PATH:/snap/bin

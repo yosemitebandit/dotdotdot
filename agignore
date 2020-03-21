@@ -2,3 +2,4 @@
 *.pioenvs
 *node_modules*
 *.ipynb
+*.chunk.*
