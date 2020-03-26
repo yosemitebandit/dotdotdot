@@ -153,7 +153,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " ctrlp
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s
-        \ --nocolor --nogroup --depth 40
+        \ --nocolor --nogroup --depth 10
         \ --hidden --follow --smart-case
         \ --ignore .git
         \ -g ""'

@@ -157,7 +157,6 @@ function restart-univ-containers() {
   make backend
   make socat_host
   make jobs
-  make muninn
   ./sim-and-backend.sh
   cd - >> /dev/null
 }
@@ -174,7 +173,6 @@ function restart-backend-containers() {
   export ARCH=x86
   make backend
   make jobs
-  make muninn
   ./backend.sh
   cd - >> /dev/null
   #source /home/matt/.venvs/linters/bin/activate
@@ -191,12 +189,12 @@ alias fp=format-from-anywhere
 alias pf=format-from-anywhere
 
 function lint-from-anywhere() {
-  deactivate 2>/dev/null  # swallow any command-not-found errors
   cd /home/matt/universe
   ./lint.sh
   cd - >> /dev/null
 }
 alias pla=lint-from-anywhere
+alias pal=lint-from-anywhere
 
 function test-ps-with-redis-from-anywhere() {
   cd /home/matt/universe/orchestration
