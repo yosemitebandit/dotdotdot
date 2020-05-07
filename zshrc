@@ -138,6 +138,7 @@ alias ds='docker stop -t 1'
 alias dss='docker stop -t 1 $(docker ps -aq)'
 alias dl='docker logs 2>&1'
 alias dps='docker ps'
+alias dk='docker system prune --force && docker volume prune --force'
 
 
 # universe-specific
@@ -146,18 +147,9 @@ function restart-univ-containers() {
     then
     export STARTUP_RECIPE=$1
   fi
-  if [[ $(docker ps -aq) ]]; then
-    docker stop -t 1 $(docker ps -aq)
-  fi
-  docker system prune --force
-  docker volume prune --force
+
   cd /home/matt/universe/orchestration
-  export ARCH=x86
-  make vessel
-  make backend
-  make socat_host
-  make jobs
-  ./sim-and-backend.sh
+  ./rebuild-and-restart.sh
   cd - >> /dev/null
 }
 # example: re linear_pumping.py
@@ -175,12 +167,10 @@ function restart-backend-containers() {
   make jobs
   ./backend.sh
   cd - >> /dev/null
-  #source /home/matt/.venvs/linters/bin/activate
 }
 alias we=restart-backend-containers
 
 function format-from-anywhere() {
-  deactivate 2>/dev/null  # swallow any command-not-found errors
   cd /home/matt/universe
   ./format.sh
   cd - >> /dev/null
@@ -209,7 +199,7 @@ alias ns='npm start'
 
 
 # platformio aliases
-alias pb="pio run --project-dir embedded/vessel-teensy"
+alias pb="pipenv run pio run --project-dir embedded/fsm-pcbv2-teensy"
 alias pu="pio run --project-dir embedded/vessel-teensy --target upload"
 alias pm="pio device monitor --echo"
 
@@ -288,3 +278,7 @@ export PATH=$PATH:/home/matt/.cargo/bin
 
 # Setup snap.
 export PATH=$PATH:/snap/bin
+
+
+# poetry.
+export PATH=$PATH:/home/matt/.poetry/bin
