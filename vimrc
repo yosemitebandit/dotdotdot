@@ -79,7 +79,7 @@ set shortmess+=a
 set ruler
 set laststatus=2
 set laststatus=1
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
 
 " searching, patterns
 set ignorecase
@@ -105,30 +105,25 @@ else
   set grepprg=ack
 endif
 
-
 map <leader>a :set paste!<CR>
 vmap <leader>r :s/\%V
-nmap <leader>ta :TagbarToggle<CR>
+nnoremap <Leader>w <C-w>w
 
-" ctrlp
-"if executable('ag')
-"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"  let g:ctrlp_use_caching = 0
-"endif
+call plug#begin()
+  Plug 'preservim/nerdtree'
+  Plug 'psliwka/vim-smoothie'
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+call plug#end()
+
+" Fzf
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " NerdTree
-"map <leader>n :NERDTreeToggle<CR>
-" switching around windows - nerdtree and splits
-"nnoremap <Leader>w <C-w>w
-" hide certain files in nerdtree
-"let NERDTreeIgnore = ['\.pyc$']
-"let g:NERDTreeDirArrows=0
-
-" smooth-scroll
-"noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-"noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
-"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
+let g:NERDTreeDirArrows=0
 
 " easymotion
 "map <Leader> <Plug>(easymotion-prefix)
