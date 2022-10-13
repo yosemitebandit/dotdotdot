@@ -52,9 +52,9 @@ set showmatch
 set nowrap
 set linebreak
 set autoindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set shiftround
 set matchpairs+=<:>
@@ -114,6 +114,7 @@ call plug#begin()
   Plug 'psliwka/vim-smoothie'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 " Fzf
@@ -124,6 +125,12 @@ nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeDirArrows=0
+
+" Python-black
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
 
 " easymotion
 "map <Leader> <Plug>(easymotion-prefix)
