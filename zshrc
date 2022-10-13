@@ -40,6 +40,7 @@ alias py='python'
 alias ag='ag --path-to-ignore=~/.agignore'
 alias dss='docker stop -t 1'
 alias gs='git status'
+alias gcm='git commit -m'
 alias gh='git history'
 alias gd='git-icdiff'
 alias gpo='git push origin'
@@ -60,3 +61,11 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# poetry
+export PATH="$HOME/.local/bin/:$PATH"
