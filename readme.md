@@ -2,6 +2,8 @@ my dots: rhea
 
 ### packages
 
+* brew
+* oh-my-zsh
 * iterm2
 * vim-plug
 
@@ -13,6 +15,7 @@ $ brew install \
   poetry \
   pyenv \
   ripgrep \
+  tmux \
   tree \
   vim
 ```
