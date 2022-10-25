@@ -89,7 +89,7 @@ set hlsearch
 set incsearch
 
 " display
-colorscheme delek
+"colorscheme delek
 
 " leader
 nnoremap <leader>q :q<CR>
