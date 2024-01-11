@@ -115,6 +115,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'psf/black', { 'branch': 'stable' }
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Fzf
@@ -134,3 +135,7 @@ augroup end
 
 " easymotion
 "map <Leader> <Plug>(easymotion-prefix)
+
+autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal expandtab
