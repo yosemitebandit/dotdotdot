@@ -1,9 +1,8 @@
 lvim.leader = ","
 
--- lvim.builtin.which_key.mappings["/"] = {}
--- lvim.builtin.which_key.mappings["c"] = {
---   "<Plug>(comment_toggle_linewise_current)"
--- }
+lvim.keys.insert_mode["jk"] = "<Esc>"
+lvim.keys.insert_mode["kj"] = "<Esc>"
+lvim.keys.normal_mode["<space>"] = "zz"
 
 lvim.plugins = {
   {
