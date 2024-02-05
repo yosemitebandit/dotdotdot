@@ -47,6 +47,7 @@ alias gmm='git merge master'
 alias gss='git stash save'
 alias gsp='git stash pop'
 alias ns='npm start'
+alias gcma='git commit -am'
 
 # remove things sans confirmation
 unalias mv
