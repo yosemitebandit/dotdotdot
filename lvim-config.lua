@@ -3,6 +3,7 @@ lvim.leader = ","
 lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
 lvim.keys.normal_mode["<space>"] = "zz"
+lvim.keys.normal_mode["<Leader>n"] = ":NvimTreeToggle<CR>"
 
 lvim.plugins = {
   {
