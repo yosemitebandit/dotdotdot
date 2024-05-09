@@ -4,6 +4,10 @@ lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
 lvim.keys.normal_mode["<space>"] = "zz"
 lvim.keys.normal_mode["<Leader>n"] = ":NvimTreeToggle<CR>"
+vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { desc = "Open diagnostics" })
+-- lvim.keys.normal_mode["<Leader>e"] = function()
+  -- vim.diagnostic.open_float(nil, { focusable = true })
+-- end
 
 lvim.plugins = {
   {
