@@ -4,10 +4,7 @@ lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
 lvim.keys.normal_mode["<space>"] = "zz"
 lvim.keys.normal_mode["<Leader>n"] = ":NvimTreeToggle<CR>"
-vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { desc = "Open diagnostics" })
--- lvim.keys.normal_mode["<Leader>e"] = function()
-  -- vim.diagnostic.open_float(nil, { focusable = true })
--- end
+lvim.builtin.which_key.mappings["e"] = {}  -- <Leader>e; unset the default tree toggle
 
 lvim.plugins = {
   {
@@ -41,3 +38,11 @@ lvim.format_on_save.pattern = { "*.py" }
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "flake8", filetypes = { "python" } } }
+
+-- Configure diagnostics window within autocommand that triggers on BufEnter, to make sure LSP is ready.
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, { desc = "Open diagnostics" })
+  end
+})
