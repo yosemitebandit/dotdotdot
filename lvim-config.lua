@@ -5,6 +5,7 @@ lvim.keys.insert_mode["kj"] = "<Esc>"
 lvim.keys.normal_mode["<space>"] = "zz"
 lvim.keys.normal_mode["<Leader>n"] = ":NvimTreeToggle<CR>"
 lvim.builtin.which_key.mappings["e"] = {}  -- <Leader>e; unset the default tree toggle
+lvim.keys.normal_mode["<Leader><space>"] = ":nohlsearch<CR>"
 
 lvim.plugins = {
   {
