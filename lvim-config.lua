@@ -33,9 +33,15 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup { { name = "black" }, }
+formatters.setup {
+  { name = "black" },
+  {
+    name = "prettier",
+    filetypes = { "typescript" },
+  },
+}
 lvim.format_on_save.enabled = true
-lvim.format_on_save.pattern = { "*.py" }
+lvim.format_on_save.pattern = { "*.py", "*.ts" }
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "flake8", filetypes = { "python" } } }
