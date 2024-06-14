@@ -12,6 +12,7 @@ plugins=(
     gitfast
     history
     ssh-agent
+    tmux
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -32,6 +33,7 @@ alias e='exit'
 alias o='open'
 alias ss='sudo $(fc -ln -1)'
 alias tma='tmux attach-session -t'
+alias tmls='tmux ls'
 alias ht='htop'
 alias rmr='rm -r'
 alias rmrf='rm -rf'
