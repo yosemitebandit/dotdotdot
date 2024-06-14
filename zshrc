@@ -31,7 +31,7 @@ alias t='tree -C'
 alias e='exit'
 alias o='open'
 alias ss='sudo $(fc -ln -1)'
-alias tma='tmux attach-session'
+alias tma='tmux attach-session -t'
 alias ht='htop'
 alias rmr='rm -r'
 alias rmrf='rm -rf'
@@ -80,3 +80,13 @@ eval "$(mcfly init zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#
+# gcloud
+#
+# update PATH for the Google Cloud SDK.
+if [ -f '/Users/matt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/path.zsh.inc'; fi
+# enable shell command completion for gcloud.
+if [ -f '/Users/matt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.zsh.inc'; fi
+# allow gcloud sdk to find grpcio in local site packages
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
