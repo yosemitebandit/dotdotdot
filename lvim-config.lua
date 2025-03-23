@@ -30,6 +30,7 @@ lvim.plugins = {
 
 lvim.builtin.treesitter.ensure_installed = {
   "python",
+  "css",
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -37,7 +38,7 @@ formatters.setup {
   { name = "black" },
   {
     name = "prettier",
-    filetypes = { "typescript" },
+    filetypes = { "typescript", "css", "html", "js" },
   },
 }
 lvim.format_on_save.enabled = true
