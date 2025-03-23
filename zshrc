@@ -43,7 +43,7 @@ alias dss='docker stop -t 1'
 alias gs='git status'
 alias gcm='git commit -m'
 alias gh='git history'
-alias gd='git-icdiff'
+#alias gd='git-icdiff'
 alias gpo='git push origin'
 alias gmm='git merge master'
 alias gss='git stash save'
@@ -92,3 +92,11 @@ if [ -f '/Users/matt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/googl
 if [ -f '/Users/matt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.zsh.inc'; fi
 # allow gcloud sdk to find grpcio in local site packages
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+# Android SDK
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+export EDITOR='/usr/bin/vim -c "set wrap" -c "set textwidth=0"'
