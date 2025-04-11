@@ -45,10 +45,12 @@ alias gcm='git commit -m'
 alias gh='git history'
 #alias gd='git-icdiff'
 alias gpo='git push origin'
+alias gop='git push origin'
 alias gmm='git merge master'
 alias gss='git stash save'
 alias gsp='git stash pop'
 alias ns='npm start'
+alias nr='npm run'
 alias gcma='git commit -am'
 
 # remove things sans confirmation
@@ -100,3 +102,6 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 
 export EDITOR='/usr/bin/vim -c "set wrap" -c "set textwidth=0"'
+
+# thunderbug
+alias nrtl='nr thunderbug list -- --folder inbox --track-replies'
