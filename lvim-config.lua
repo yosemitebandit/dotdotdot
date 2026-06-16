@@ -33,19 +33,22 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
 }
 
+lvim.format_on_save.enabled = true
+lvim.format_on_save.pattern = { "*.py", "*.ts", "*.js", "*.json", "*.jsonc", "*.md" }
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { name = "black" },
+  { name = "ruff_format" },
   {
     name = "prettier",
-    filetypes = { "typescript", "css", "html", "js" },
+    filetypes = { "typescript", "css", "html", "js", "json", "jsonc", "markdown" },
   },
 }
-lvim.format_on_save.enabled = true
-lvim.format_on_save.pattern = { "*.py", "*.ts" }
 
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { command = "flake8", filetypes = { "python" } } }
+linters.setup {
+  { name = "ruff" },
+}
 
 -- Configure diagnostics window within autocommand that triggers on BufEnter, to make sure LSP is ready.
 vim.api.nvim_create_autocmd("BufEnter", {
